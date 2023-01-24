@@ -10,34 +10,17 @@
 \begin{document}
 
 \title{Comparing Emperical Methods\\
-{\small ECE1785: Assignment 1 - Comparison of Methods}}
+{\normalsize ECE1785: Assignment 1 - Comparison of Methods}}
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-    \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-        \textit{name of organization (of Aff.)}\\
-        City, Country \\
-        email address or ORCID}
-    \and
-    \IEEEauthorblockN{2\textsuperscript{nd} Wang Yilong}
-    \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-        \textit{name of organization (of Aff.)}\\
-        City, Country \\
-        email address or ORCID}
-    \and
-    \IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-    \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-        \textit{name of organization (of Aff.)}\\
-        City, Country \\
-        email address or ORCID}
-}
+\author{Amos Hebb, Wang Yilong, Yu Zhenyue\\ \small University of Toronto}
 
 \maketitle
 
-\begin{abstract}
-
-\end{abstract}
-
 \section{Introduction}
+
+Two papers, one a multiple case study, one a computational analysis followed by a preliminary analysis of a dataset, both study open source developers.
+These papers are used as examples of both quantitative and qualitative research.
+We then compare and contrast these approaches.
 
 \section{How to Break an API}
 
@@ -66,7 +49,7 @@ Patterns in coded interviews, combined with policies, public discussions, meetin
 This revealed that while communities have similar reasons for breaking changes, and that developers are aware of the costs changes cause to users, community values influence how costs are shifted which explains differences observed among the ecosystems.
 
 \section{Need for tweet}
-
+%%TODO: replace " and " with `` and ''
 The second paper we studied is "Need for tweet: How open source developers talk about their github work on twitter"~\cite{fang2020need} .
 
 \subsection{Method}
@@ -83,15 +66,29 @@ The second paper we studied is "Need for tweet: How open source developers talk 
 
 \subsection{Qualitative}
 
+Qualitative research is best for trying to understand broader concepts or behaviour.
+`Break an API', in the words of the participants, \textit{ ``brings a structure and coherence to issues that I was loosely aware of, but that are too rarely the centre of focus''.}
 \subsection{Quantitative}
+
+Quantitative research is best for trying to answer a specific question, especially if the property being studied is easily measured. In the case of `Need for Tweet', public contributions to open source projects and public Twitter profiles can be counted, allowing for community-level analysis.
+
+Another benefit of quantitative research is that artifacts are produced that are not only useful for reproducibility but other perhaps unrelated research. In these examples, while `Break an API' does have an appendix with questions that could be used to perform a similar study, `Need for Tweet' produced a large public dataset which could be used for future research.
 
 \section{Weaknesses of each method}
 
 \subsection{Qualitative}
 
+High-touch studies limit the sample sizes, and those who are open to being interviewed may have other selection biases. There may also be social desirability biases, in `Break an API' all respondents indicated that they care deeply about downstream users.
+
 \subsection{Quantitative}
 
+Measuring social phenomena that are inherently subjective is challenging. In `Need for Tweet', tweets were binned by theme, and users were binned by role. Reality is far more nuanced, the line between `info share' and `ad' is elusive at best, and developers may serve multiple or change roles on projects. This can result in a narrow focus on phenomena, and subjects, that are easily measured.
+
+Combined with modern data mining techniques, even a well-designed sampling method may introduce subtle systematic errors. Large sample sizes also cause statistically significant results to emerge where patterns may not exist. Even in the statistically simple ``Need for Tweet'', sample sizes over 100 thousand were paired with old rules of thumb. A 95\% confidence interval is used to select sample sizes without accounting for a loss of sensitivity due to only 40 of 50 randomly sampled links being correct. %%I want to point out that 40/50 is reported as 85% in this paper, but I feel like I'm already being too mean. 
+
 \section{Conclusion}
+
+Both qualitative and quantitative studies are important parts of the empirical method. `Break an API' exhibits the rich understanding that comes from interviewing individuals with similar roles in different communities. It may be difficult to replicate due to the nuanced answers and small sample sizes. `Need for Tweet' is easily reproduced as these data were made public. It provides insights into population-level statistics that could not be analyzed without computationally combining these previously unlinked data. It focuses narrowly and bins tweets and developers into artificially discrete buckets necessary for statistical analysis. With a better understanding of both approaches, we are now prepared to appropriately apply the correct study methodology to our questions and analyze and structure the results appropriately.
 
 \bibliographystyle{IEEEtran}
 \bibliography{assignment1}
