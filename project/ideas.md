@@ -42,25 +42,25 @@ git for reinforcement learning agents
 - 
 
 ### some general research questions
-What are the most effective techniques for identifying and fixing bugs in large-scale software systems?
+- What are the most effective techniques for identifying and fixing bugs in large-scale software systems?
 
-How do different software development methodologies (e.g. Agile, Waterfall) impact the productivity and quality of software development teams?
+- How do different software development methodologies (e.g. Agile, Waterfall) impact the productivity and quality of software development teams?
 
-What are the most effective strategies for managing and mitigating technical debt in software systems?
+- What are the most effective strategies for managing and mitigating technical debt in software systems?
 
-How does the use of automated testing tools and techniques impact the quality and maintainability of software systems?
+- How does the use of automated testing tools and techniques impact the quality and maintainability of software systems?
 
-What are the most effective strategies for managing and motivating distributed software development teams?
+- What are the most effective strategies for managing and motivating distributed software development teams?
 
-How do developers’ cognitive and social factors, such as cognitive load, personality, and teamwork, influence their productivity and performance?
+- How do developers’ cognitive and social factors, such as cognitive load, personality, and teamwork, influence their productivity and performance?
 
-How to measure the maintainability of the software system?
+- How to measure the maintainability of the software system?
 
-What are the effects of code review on software quality, productivity, and developer satisfaction?
+- What are the effects of code review on software quality, productivity, and developer satisfaction?
 
-How do different strategies for managing requirements impact the quality and maintainability of software systems?
+- How do different strategies for managing requirements impact the quality and maintainability of software systems?
 
-How do different approaches to software architecture impact the scalability, performance, and maintainability of software systems?
+- How do different approaches to software architecture impact the scalability, performance, and maintainability of software systems?
 
 
 
