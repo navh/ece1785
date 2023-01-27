@@ -62,6 +62,18 @@ git for reinforcement learning agents
 
 - How do different approaches to software architecture impact the scalability, performance, and maintainability of software systems?
 
+### Video Thing
 
+- Basic idea is create git for video.
+- Anybody can upload a video 
+- once a video is uploaded, anybody can split it arbitrarily
+- anybody can create a branch and 'insert' or 'delete' chunks of video.
+- when watching a 'branch' of a video, video is assembled on the fly.
 
+Who will use this?
+- Video editors?
+- Vidtubers?
+- If we want to do this we need to find some open source/light editing tools we can use/edit. 
+
+What is our research question?
 
