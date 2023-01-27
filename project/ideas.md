@@ -32,3 +32,12 @@ There is an openscad vscode extension https://github.com/Antyos/vscode-openscad
 git for a non-linear audio editor
 
 git for reinforcement learning agents
+
+## 2023-01-27
+
+### CAD 
+
+- Chris was not able to find anything existing for CAD version control, maybe one paper.
+- Amos brought up interviewing FSAE or Solar car.
+- 
+
