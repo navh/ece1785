@@ -75,5 +75,27 @@ Who will use this?
 - Vidtubers?
 - If we want to do this we need to find some open source/light editing tools we can use/edit. 
 
-What is our research question?
+- Author needs to be able to edit their own video
+- For a v1, rather than wikidpedia anarchy, author could accept pull requests. 
 
+Do a 'picture in picture' to indicate that somebody has made a suggestion, play in parallel.
+
+
+What is our research question?
+- How does video's version control system compare to other collaborative editing platforms?
+- To what extent do video editors need version control?
+- 
+
+### Idea for experiment
+- Build the 'split','insert', 'delete' editor.
+- Give them a tutorial with an obvious mistake.
+- Get them to correct the clip.
+- Time them. 
+- Compare ours to theirs.
+
+
+### Suspicious of the whole idea,
+- online editing tool that has version control, and insert new clips, incredibly complicated.
+
+### defining the problem space first
+- just do a survey. "Do video editors 'need' some sort of git-style version control", or "are they satisfied with their current tools"
