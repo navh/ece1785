@@ -21,120 +21,119 @@
 
 \maketitle
 
-%Did the theory play a major role in framing the research questions?
-
-%Was the methodology influenced by the theory?
-
-%How did the theory impact the data that was collected and the way it was analyzed?
-
-%How important was the theory to this research? Does it help explain the results? Does it help generate new questions?
-
 \section{Introduction}
+
+We plan to interview a bunch of interviews on undergrads. Beginners in CAD.
+Challenges of version control for graphical artifacts.
+
+The goal is to provide recommendations to engineers who are trying to build a visual diff tool for CAD.
+
+RQ: Is this tool needed?
+RQ: What kinds of features should a diff tool have?
+- Red/Greed additions/deletions?
+- Wireframes?
+- Time in change.
+- Swipe based diff tool.
+
 
 % In the Age of Collaboration, the Computer-Aided Design Ecosystem is Behind: An Interview Study of Distributed CAD Practice 
 % Kathy CHENG et al.
 
-% TODO: REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
-\section{TODO: REMOVE Summary of Cheng et al.}
+% % TODO: REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
+% \section{TODO: REMOVE Summary of Cheng et al.}
 
-Collaboration in CAD is known to be broken.
-Aim to close academic-practitioner knowledge gap.
-14 challenges identified.
-INTRO
-Focus on Mechanical CAD.
-3 generations: [standalone, distributed, collaborative]
-- standalone: single user, single machine
-- distributed cad: standalone combined with data managemeent system, shared files.
-- synchronous multi-user cad (MUCAD) (different-place, same time)
-in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
-in 2021: 20\% of pros, $>$50\% hobbyists
-interview 20 pros.
-RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
-RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
-BACKGROUND
-Distributed vs Collaborative, Distributed needs data management tool
-data management tools can be [manual, partilaly-automated, fully-automated]
-existing probs in literature
-- inconsistency in design practices between designers
-- `some best practices, standardize cite[53,68]'
-- non-interoperability, 
-- \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
-- distributed teams suck more
-- cross-discipline teams suck more
-- IP issues
-- each discipline's respective standards, best practices, jargon, and schemata
-- git also sucks, here are some attempts [27,34,45,88,89,100,110]
-- merge conflicts in git are handled smoothly? (I guess compared to CAD?)
-METHODS
-semi-structured interviews
-20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
-5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
-CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
-Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
-See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
-Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
-DATA ANALYSIS
-NVivo, open coding.
-RESULTS
-4 categories, 14 challenges, sorted by pervasive
-Cat 4.1) Collaborative Design Challenges and Strategies
-C-1) Absent or varied modelling conventions across collaborators
- - manually changing coordinate systems
- - design tolerancing standards different in different teams
- - mechanical/electrical engineering follow different conventions
- - designers fail to follow standards
-S-1) Imposing standards and best practices for modelling
-Author notes nobody other than ID10 has ever seen this work. 
-(ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
-(amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
-C-2) Infrequent Model Uploads
-Checks out, doesn't upload, particularly difficult with big assemblies
-No strategy.
-(amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
-C-3) Lack of designer awareness of model dependencies
-Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta. 
-No strategy.
-C-4) Lack of awareness of collaborators' model changes
-Bad pull discipline. Merge conflicts.
-C-5) No Synchronous editing 
-0/20 use `3rd gen' cad tools with this ability.
-S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
-(amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
-Cat 4.2) Synchronous communication challenges
-C-6) Cumbersome presentation of CAD models in synchronous work settings
-Design review meetings are awful. Clients make them worse.
-C-7) no back-of-the-envelope CAD
-Cat 4.3) Data Management Challenges and Strategies
-C-8) Lack of interoperability
-Different software, even different versions, incompatible. Mech/EE problems x10.
-S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
-(amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
-S-4) Simplify CAD models. EE people toss rectangles into mech builds.
-(amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
-C-9) Lack of change summarization support between file versions
-Excel spradsheets, tedious. 
-C-10) Lack of version control for non-PLM users
-check-in/check-out function more like locks on files(!?)
-S-5) Just use PLM.
-C-11) Poor CAD file organization
-S-6) Use standard part libraries
-(amos-thinks: This whole para sounds like dependency management strikes again.)
-C-12) Poor traceability of scatteed file management 
-\textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
-S-7) Using integrated digital markup tools 
-(amos-thinks: Yes, this feels solved, just tools suck.)
-Cat 4.4) Permissioning Challenges 
-C-13) Cumbersome stakeholder access to CAD files. 
-External collaborators locked out, fragmentation. 
-(amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
-C-14) Lack of stakeholder access to CAD software.
-Basically the same thing, but with added SolidWorks vs NXCAD spice. 
-
-
-
-
-
-
+% Collaboration in CAD is known to be broken.
+% Aim to close academic-practitioner knowledge gap.
+% 14 challenges identified.
+% INTRO
+% Focus on Mechanical CAD.
+% 3 generations: [standalone, distributed, collaborative]
+% - standalone: single user, single machine
+% - distributed cad: standalone combined with data managemeent system, shared files.
+% - synchronous multi-user cad (MUCAD) (different-place, same time)
+% in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
+% in 2021: 20\% of pros, $>$50\% hobbyists
+% interview 20 pros.
+% RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
+% RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
+% BACKGROUND
+% Distributed vs Collaborative, Distributed needs data management tool
+% data management tools can be [manual, partilaly-automated, fully-automated]
+% existing probs in literature
+% - inconsistency in design practices between designers
+% - `some best practices, standardize cite[53,68]'
+% - non-interoperability,
+% - \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
+% - distributed teams suck more
+% - cross-discipline teams suck more
+% - IP issues
+% - each discipline's respective standards, best practices, jargon, and schemata
+% - git also sucks, here are some attempts [27,34,45,88,89,100,110]
+% - merge conflicts in git are handled smoothly? (I guess compared to CAD?)
+% METHODS
+% semi-structured interviews
+% 20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
+% 5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
+% CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
+% Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
+% See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
+% Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
+% DATA ANALYSIS
+% NVivo, open coding.
+% RESULTS
+% 4 categories, 14 challenges, sorted by pervasive
+% Cat 4.1) Collaborative Design Challenges and Strategies
+% C-1) Absent or varied modelling conventions across collaborators
+% - manually changing coordinate systems
+% - design tolerancing standards different in different teams
+% - mechanical/electrical engineering follow different conventions
+% - designers fail to follow standards
+% S-1) Imposing standards and best practices for modelling
+% Author notes nobody other than ID10 has ever seen this work.
+% (ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
+% (amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
+% C-2) Infrequent Model Uploads
+% Checks out, doesn't upload, particularly difficult with big assemblies
+% No strategy.
+% (amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
+% C-3) Lack of designer awareness of model dependencies
+% Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta.
+% No strategy.
+% C-4) Lack of awareness of collaborators' model changes
+% Bad pull discipline. Merge conflicts.
+% C-5) No Synchronous editing
+% 0/20 use `3rd gen' cad tools with this ability.
+% S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
+% (amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
+% Cat 4.2) Synchronous communication challenges
+% C-6) Cumbersome presentation of CAD models in synchronous work settings
+% Design review meetings are awful. Clients make them worse.
+% C-7) no back-of-the-envelope CAD
+% Cat 4.3) Data Management Challenges and Strategies
+% C-8) Lack of interoperability
+% Different software, even different versions, incompatible. Mech/EE problems x10.
+% S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
+% (amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
+% S-4) Simplify CAD models. EE people toss rectangles into mech builds.
+% (amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
+% C-9) Lack of change summarization support between file versions
+% Excel spradsheets, tedious.
+% C-10) Lack of version control for non-PLM users
+% check-in/check-out function more like locks on files(!?)
+% S-5) Just use PLM.
+% C-11) Poor CAD file organization
+% S-6) Use standard part libraries
+% (amos-thinks: This whole para sounds like dependency management strikes again.)
+% C-12) Poor traceability of scattered file management
+% \textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
+% S-7) Using integrated digital markup tools
+% (amos-thinks: Yes, this feels solved, just tools suck.)
+% Cat 4.4) Permissioning Challenges
+% C-13) Cumbersome stakeholder access to CAD files.
+% External collaborators locked out, fragmentation.
+% (amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
+% C-14) Lack of stakeholder access to CAD software.
+% Basically the same thing, but with added SolidWorks vs NXCAD spice.
 
 
 
