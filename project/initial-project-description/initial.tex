@@ -1,4 +1,4 @@
-\documentclass[journal,12pt,onecolumn,]{IEEEtran}
+\documentclass[sigconf]{acmart}
 \usepackage{hyperref}
 
 %%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\title{Distributed CAD\\
+\title{Boolean Differences to Visualize CAD Model Changes\\
 {\normalsize ECE1785: Initial Project Description}}
 
 \author{Amos Hebb, Yilong Wang, Zhenyue Yu\\ \small University of Toronto}
@@ -33,6 +33,42 @@
 
 \section{Introduction}
 
+OpenSCAD is a script-only computer aided design (CAD) application for creating solid 3D objects.
+
+\section{Background}
+
+\subsection{OpenSCAD}
+OpenSCAD Mangles JSON git history.
+% https://github.com/openscad/openscad/issues/4447
+78 open issues mentioning GIT right now.
+Order matters.
+OpenSCAD is not representitive of crazier assemblies.
+Eventual goal is CAD for something non-scripting.
+
+\subsection{\texttt{GIT}}
+% #Interesting: https://www.bitkeeper.org/why.html "BitKeeper’s Binary Asset Manager (BAM)...  great for... CAD files"
+
+%#TODO:citethis https://www.linuxjournal.com/content/git-origin-story
+\texttt{GIT} is a distributed version-control system designed specifically for the Linux kernel.
+In Torvalds's own words ``Git was basically designed and written for my requirements, and it shows.''~\cite{https://www.linuxfoundation.org/blog/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds}
+Many other open source projects had similar issues to Linux Kernel development.
+\texttt{GIT} quickly became a defacto standard in open source development.
+
+
+GIT LFS Large File Store can be used for big bins. Propritory big files from CAD tools.
+
+\subsection{Boolean Differences}
+
+CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
+Parametric models made up of vectors and curves are assembled with constraints and measurements.
+When describing a 3D solid, the engineer thinks in geometry, assemblies, and tolerances.
+The 3D artist, game modeller, or graphic designer communicates in polygons, positions, volumes, and cameras.
+
+Blender has over 3 million
+
+Using Boolean Differences to Visually Represent CAD Models changes.
+
+
 Challenges of version control for graphical artifacts.
 % Lose any mention of interviewing undergrads in the proposal but bring it up with Prof in person.
 
@@ -46,6 +82,12 @@ RQ: What kinds of features should a diff tool have?
 - Wireframes?
 - Time in change.
 - Swipe based diff tool.
+
+
+\section{}
+
+
+
 
 
 % In the Age of Collaboration, the Computer-Aided Design Ecosystem is Behind: An Interview Study of Distributed CAD Practice 
