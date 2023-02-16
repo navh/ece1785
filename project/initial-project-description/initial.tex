@@ -28,19 +28,19 @@
 \author{Zhenyue Yu}
 \affiliation{\institution{University of Toronto}}
 \email{zhenyue.yu@mail.utoronto.ca}
-%zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
-% \makeatletter
-% \def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
-% 	\if@ACM@instpresent\else
-% 		\ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
-% 	\fi
-% 	\if@ACM@citypresent\else
-% 		\ClassWarningNoLine{\@classname}{No city present for an affiliation}%
-% 	\fi
-% 	\if@ACM@countrypresent\else
-% 		\ClassWarningNoLine{\@classname}{No country present for an affiliation}%
-% 	\fi
-% }
+% zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
+\makeatletter
+\def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
+	\if@ACM@instpresent\else
+		\ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
+	\fi
+	\if@ACM@citypresent\else
+		\ClassWarningNoLine{\@classname}{No city present for an affiliation}%
+	\fi
+	\if@ACM@countrypresent\else
+		\ClassWarningNoLine{\@classname}{No country present for an affiliation}%
+	\fi
+}
 \makeatother
 \maketitle
 
@@ -72,7 +72,7 @@ The major methods we would like to apply in this study are non-participant obser
 	\item The participants will be divided into two groups: the experimental group and the control group. Each group will be provided with two sets of OpenSCAD-built 3D artifacts that have some differences. We will ask the participants to summarize the differences between the two artifacts. The experimental group will be provided with the boolean differences between the different versions, while the control group will not. We will then perform a qualitative analysis on the recorded descriptions to see if there are any differences in the choice of words.
 \end{enumerate}
 
-The observation will provide us information on whether the boolean differences could help designers to understand the differences between versions.
+The proposed method involves conducting an experiment using an interview method to compare the performance and descriptive capabilities of two groups of participants, one with access to Boolean differences between CAD file versions, and one without. A qualitative analysis of the recorded descriptions will be performed to assess any differences in the choice of words. These methods are appropriate because they allow for the collection of quantitative and qualitative data that can be used to assess the effectiveness of visualizations of Boolean differences in summarizing changes between CAD file versions. The observation will provide us information on whether the boolean differences could help designers to understand the differences between versions.
 
 %And the interviews will 
 
@@ -80,7 +80,9 @@ The observation will provide us information on whether the boolean differences c
 
 \textbf{The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.}
 
-We predict that for simple changes, like adding new parts to an assembly, this will be helpful.
+We have some prediction as the possible outcome of the experiments. We predict that for simple changes, like adding new parts to an assembly, this will be helpful.
+
+We predict that for complicated changes, the boolean differences will faciliate the reversing process by a lot.
 
 We forsee the lack of standardization also found by \citet{cheng2023age} causing the visual equivalent of the type of messy git history.
 It is worth noting that preventing this in git requires use of other tools like formatters.
