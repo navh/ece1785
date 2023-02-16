@@ -1,4 +1,5 @@
 \documentclass[sigconf]{acmart}
+\bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
 
 %%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
@@ -14,10 +15,19 @@
 
 \begin{document}
 
-\title{Boolean Differences to Visualize CAD Model Changes\\
+\title{Dddiff: Visualizing CAD changes with Boolean Differences\\
 {\normalsize ECE1785: Initial Project Description}}
 
-\author{Amos Hebb, Yilong Wang, Zhenyue Yu\\ \small University of Toronto}
+\author{Amos Hebb}
+\affiliation{\institution{University of Toronto}}
+\email{a.hebb@mail.utoronto.ca}
+\author{Yilong Wang}
+\affiliation{\institution{University of Toronto}}
+\email{yilongece.wang@mail.utoronto.ca}
+\author{Zhenyue Yu}
+\affiliation{\institution{University of Toronto}}
+\email{zhenyue.yu@mail.utoronto.ca}
+%zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
 
 \maketitle
 
@@ -33,56 +43,161 @@
 
 \section{Introduction}
 
-OpenSCAD is a script-only computer aided design (CAD) application for creating solid 3D objects.
+\citet{cheng2023age} identify challenges with distributed Computer-Aided Design (CAD) practice.
+One challenge is a lack of change summarization support between file versions.
+Typically no documentation summarizes changes, or a tedious Excel spreadsheet captures what CAD designers recall when they update it.
+Other Challenges like the lack of awareness of collaborators' model changes, may also be improved with better summaries.
+Inspired by both \texttt{GIT}'s \texttt{git diff}, and operations common in 3D art workflows.
+
+\begin{enumerate}
+	\item Curating a collection of CAD files with revisions.
+	\item Exploring boolean modifications on these solids in 3D art software.
+	\item Creating dddiff, a tool which will take 2 versions and summarize changes as 3D additions and deletions.
+	\item Evaluate the utility of these visualizations.
+\end{enumerate}
+
 
 \section{Background}
-
-\subsection{OpenSCAD}
-OpenSCAD Mangles JSON git history.
-% https://github.com/openscad/openscad/issues/4447
-78 open issues mentioning GIT right now.
-Order matters.
-OpenSCAD is not representitive of crazier assemblies.
-Eventual goal is CAD for something non-scripting.
 
 \subsection{\texttt{GIT}}
 % #Interesting: https://www.bitkeeper.org/why.html "BitKeeper’s Binary Asset Manager (BAM)...  great for... CAD files"
 
 %#TODO:citethis https://www.linuxjournal.com/content/git-origin-story
-\texttt{GIT} is a distributed version-control system designed specifically for the Linux kernel.
+\texttt{GIT} is a distributed version-control system designed for Linux kernel development.
 In Torvalds's own words ``Git was basically designed and written for my requirements, and it shows.''~\cite{https://www.linuxfoundation.org/blog/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds}
-Many other open source projects had similar issues to Linux Kernel development.
-\texttt{GIT} quickly became a defacto standard in open source development.
+It allows developers to rapidly copy code, create a branch, and merge two branches back together, usaully merging automatically.
+Text insertions and deletions are the basic units of change.
+
+%The order that changes were applied can be shuffled around after they've already been made.
+%\texttt{GIT} is now ubiquitous in open source development, as these projects have similar requirements.
+
+Because text insertions and deletions are so critical, \texttt{GIT} does not accomodate edits made to non-text documents well.
+Editing binary files and propritory formats used in CAD generally involves deleting and re-creating the entire file with any revision.
+There is nothing resembling support for anything other than text based merges, rebases, and cherrypicking.
+%`Large File Store' has recently been added by \texttt{GIT} to make this easier, replacing large files with text pointers inside \texttt{GIT}.
 
 
-GIT LFS Large File Store can be used for big bins. Propritory big files from CAD tools.
+% \subsection{OpenSCAD}
 
-\subsection{Boolean Differences}
+% OpenSCAD is a script-only computer aided design (CAD) application for creating solid 3D objects.
+% In theory, being script-only means that changes could all be represented by changes to source code.
+% \texttt{GIT} should be able to handle OpenSCAD files with the same grace it does the Linux kernel.
+% As of writing there are 78 open issues mentioning \texttt{GIT} right now.
+
+% OpenSCAD Mangles JSON git history.
+% % https://github.com/openscad/openscad/issues/4447
+% 78 open issues mentioning GIT right now.
+% Order matters.
+% OpenSCAD is not representitive of crazier assemblies.
+% Eventual goal is CAD for something non-scripting.
+% \subsection{Boolean Differences}
+
+% CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
+% Parametric models made up of vectors and curves are assembled with constraints and measurements.
+% When describing a 3D solid, the engineer thinks in geometry, assemblies, and tolerances.
+% The 3D artist, game modeller, or graphic designer communicates in polygons, positions, volumes, and cameras.
+
+% Blender has over 3 million
+
+% Using Boolean Differences to Visually Represent CAD Models changes.
+
+\subsection{3D Computer-Aided Design}
 
 CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
 Parametric models made up of vectors and curves are assembled with constraints and measurements.
-When describing a 3D solid, the engineer thinks in geometry, assemblies, and tolerances.
-The 3D artist, game modeller, or graphic designer communicates in polygons, positions, volumes, and cameras.
 
-Blender has over 3 million
+OpenSCAD is a script-only and open source CAD tool for working with 3D solids.
+While script-only is not common among the most popular tools in industry, it allows us to use \texttt{GIT} for version control.
 
-Using Boolean Differences to Visually Represent CAD Models changes.
+
+\subsection{Polygon Meshes}
+
+In 3D computer graphics, the polygon mesh defines the shape of an object.
+Faces of simple polygons representing the surface of an object are aligned to imply volume.
+A variety of operations can be performed on meshes, but the simplest are boolean logic.
+Unions, intersections, and differences may be used to construct new geometry from two different solids.
 
 \section{Research Question}
 
+RQ1: Do visualizations of boolean differences summarize changes between CAD file versions?
+
+\section{Method}
+
+% Hypothesis: Boolean Diff helps cad designers understand changes made to 3d solids in CAD.
+
+% Null result: Users do not find these visualizations helpful.
+
+% Idea: Diffs summarize changes in versions of the same model.
+\subsection{Curate Changes}
+
+We will first need to find many copies of CAD files with minor revisions between them.
+We may explore open source hardware repositories trying to find these, or may need to generate them ourselves.
+
+\subsection{Explore Boolean Differences}
+
+We will export to \texttt{.stl} format, which can be opened in Blender.
+Once imported into Blender, we will be able to apply various boolean operations.
+We suspect differences may be most useful, but may need to create intermediate files and apply differences against unions for example, to create the `red deletions, green additions' view we desire.
+
+\subsection{Create dddiff}
+
+Once we understand the transformations that need to be done, a function will be scripted.
+It will take as arguments, two \texttt{.stl} files, and display additions and deletions as new manifolds.
+
+\subsection{Evaluate tool}
+
+We will demonstrate the tool to some colligues and record their thoughts on the visualizations.
+
+We can record these interviews and look for themes, this will highlight utility and shortcomings which can be assembled into recommendations for future versions.
+
+While it may not be possible to perform a more involved experiment,
+one experimental setup which could evaluate the utility of this visualization could be:
+
+From a list of revisions, task some undergrads with retrieving the revision before a specific task.
+OpenSCAD files can provide \texttt{GIT} diffs, while another group will use dddiff.
+Record and report the mean time to retrieve a revision from before a specific change.
+If time improves, we suggest that dddiff provides some summarization of changes.
+
+% nosteuhonetuh: Given a series of files with minor revisions and a goal of reverting to a specific revision, users with access to a bool diff will more quickly retrieve the correct version.
+
+% astnhou: Ask them to describe the differences between two version.
+
+% Are changes in 3D CAD files summarized by boolean differences?
+
+% Give them the 3 versions with no description, but access to the code.
+
+% One group is given git versions.
+
+We strongly believe that version control is useful in many facets of life.
+We are often surprised when learning that many fields struggle with the exact same problems \texttt{GIT} solves.
+There are many opportunities to bring version control outside of the strict confines of text editing.
+
+
 %Why it is important and how it fits into your research (assuming it does? We're all MEng?)
 
-\section{Methods}
 
-\subsection{Recruitment}
-\subsection{Participants}
-\subsection{Interview Protocol}
+
+We will
+
+oral interview where we present multiple different types of common changes to participants.
+
+Participants in the treatment group will be
+
 \subsection{Data Analysis}
 
 \section{Results}
 
+The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.
 
-The goal is to provide recommendations to engineers who are trying to build a visual diff tool for CAD.
+We predict that for simple changes, like adding new parts to an assembly, that this will be helpful.
+
+We forsee the lack of standardization also found by \citet{cheng2023age} causing the visual equivalent of the type of messy git history.
+It is worth noting that in code, before tools like clang-format, prettier, black, rustfmt were popular this happened in code too.
+In Go, a single programmatically mandated format is enforced, code will not compile with different spaces.
+Simple changes of axes may create huge visual differences for small changes.
+
+It is also possible that some types of changes, perhaps something like a change of thread pitch on a screw, may result in difficult to interpret visual differences.
+
 
 % RQ: Is this tool needed?
 % RQ: What kinds of features should a diff tool have?
@@ -198,8 +313,6 @@ The goal is to provide recommendations to engineers who are trying to build a vi
 % Basically the same thing, but with added SolidWorks vs NXCAD spice.
 
 
-
-\bibliographystyle{IEEEtran}
 \bibliography{initial}
 
 \end{document}
