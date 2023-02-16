@@ -1,4 +1,4 @@
-\documentclass[sigconf]{acmart}
+\documentclass[sigconf,]{acmart}
 \bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
 
@@ -28,7 +28,19 @@
 \affiliation{\institution{University of Toronto}}
 \email{zhenyue.yu@mail.utoronto.ca}
 %zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
-
+\makeatletter
+\def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
+    \if@ACM@instpresent\else
+    \ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
+    \fi
+    \if@ACM@citypresent\else
+    \ClassWarningNoLine{\@classname}{No city present for an affiliation}%
+    \fi
+    \if@ACM@countrypresent\else
+        \ClassWarningNoLine{\@classname}{No country present for an affiliation}%
+    \fi
+}
+\makeatother
 \maketitle
 
 % - Did the team miss any questions or overlook any ambiguities? 
@@ -40,10 +52,12 @@
 % - Do you have any suggestions?
 
 % - Do you know any resources that might be helpful to the project?
-
+\section{Research Question}
+\section{Research Method}
+\section{Results and Contributions}
 \section{Introduction}
 
-\citet{cheng2023age} identify challenges with distributed Computer-Aided Design (CAD) practice.
+Cheng et al.\cite{cheng2023age} identify challenges with distributed Computer-Aided Design (CAD) practice.
 One challenge is a lack of change summarization support between file versions.
 Typically no documentation summarizes changes, or a tedious Excel spreadsheet captures what CAD designers recall when they update it.
 Other Challenges like the lack of awareness of collaborators' model changes, may also be improved with better summaries.
@@ -60,9 +74,11 @@ Inspired by both \texttt{GIT}'s \texttt{git diff}, and operations common in 3D a
 \section{Background}
 
 \subsection{\texttt{GIT}}
+
 % #Interesting: https://www.bitkeeper.org/why.html "BitKeeper’s Binary Asset Manager (BAM)...  great for... CAD files"
 
 %#TODO:citethis https://www.linuxjournal.com/content/git-origin-story
+
 \texttt{GIT} is a distributed version-control system designed for Linux kernel development.
 In Torvalds's own words ``Git was basically designed and written for my requirements, and it shows.''~\cite{https://www.linuxfoundation.org/blog/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds}
 It allows developers to rapidly copy code, create a branch, and merge two branches back together, usaully merging automatically.
