@@ -15,7 +15,8 @@
 
 \begin{document}
 
-\title{Dddiff: Visualizing CAD changes with Boolean Differences\\
+%\title{Dddiff: Visualizing CAD changes with Boolean Differences\\
+\title{Visualizing CAD changes with Boolean Differences\\
 {\normalsize ECE1785: Initial Project Description}}
 
 \author{Amos Hebb}
@@ -28,18 +29,18 @@
 \affiliation{\institution{University of Toronto}}
 \email{zhenyue.yu@mail.utoronto.ca}
 %zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
-\makeatletter
-\def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
-    \if@ACM@instpresent\else
-    \ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
-    \fi
-    \if@ACM@citypresent\else
-    \ClassWarningNoLine{\@classname}{No city present for an affiliation}%
-    \fi
-    \if@ACM@countrypresent\else
-        \ClassWarningNoLine{\@classname}{No country present for an affiliation}%
-    \fi
-}
+% \makeatletter
+% \def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
+% 	\if@ACM@instpresent\else
+% 		\ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
+% 	\fi
+% 	\if@ACM@citypresent\else
+% 		\ClassWarningNoLine{\@classname}{No city present for an affiliation}%
+% 	\fi
+% 	\if@ACM@countrypresent\else
+% 		\ClassWarningNoLine{\@classname}{No country present for an affiliation}%
+% 	\fi
+% }
 \makeatother
 \maketitle
 
@@ -53,303 +54,311 @@
 
 % - Do you know any resources that might be helpful to the project?
 \section{Background}
-Computer-aided design (CAD) is an essential component of modern engineering and manufacturing, helping to design and develop complex products such as cars and buildings. There is an increasing demand for distributed CAD practice in the world. As CAD tools become widely used, there is an increasing demand for designers located all over the world to collaborate on projects together via CAD tools. Cheng et al. [1] identify challenges with distributed Computer Aided Design (CAD) practice. One of the significant challenges of distributed CAD practice is a lack of change summarization support between file versions. In addition to causing confusion among designers, this problem can also lead to significant time overruns and cost overruns.
+
+Computer-aided design (CAD) is an essential component of modern engineering and manufacturing, helping to design and develop complex products such as cars and buildings. There is an increasing demand for distributed CAD practice. \citet{cheng2023age} identify challenges with distributed Computer Aided Design (CAD) practice. One of the challenges of distributed CAD practice is a lack of change summarization support between file versions. In addition to causing confusion among designers, this problem can also lead to time overruns and cost overruns.
 
 \section{Research Question}
-RQ: Do visualizations of boolean differences summarize changes between CAD file versions?
 
-The purpose of this research is to investigate whether visualizations of Boolean differences can summarize changes between CAD file versions effectively. The research aims to develop and evaluate a visualization technique that can help designers identify and track changes in the design between file versions quickly. The technique is inspired by GIT's git diff, and operations common in 3D art workflows. To capture changes between different versions of CAD files, designers have to rely on their memory or use a tedious Excel spreadsheet to capture changes between versions of the CAD file. This approach is time-consuming and prone to errors. This research is important because it will provide a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files. It fits within the broader field of visualization and computer graphics. It can also have implications for other domains where changes in complex files have to be summarized.
+\textbf{RQ: Do visualizations of boolean differences summarize changes between CAD file versions?}
+
+The purpose of this research is to investigate whether visualizations of Boolean differences can summarize changes between CAD file versions effectively. The research aims to develop and evaluate a visualization technique that can help designers identify and track changes between file versions quickly. The technique is inspired by \texttt{GIT}'s \texttt{git diff}, and operations from 3D art workflows. To capture changes between different versions of CAD files, designers rely on their memory or use a tedious Excel spreadsheet to capture changes. This approach is time-consuming and prone to errors. This research is important because it will provide a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files. It can also have implications for other domains where changes in complex files have to be summarized.
+
 \section{Research Method}
-The major methods we would like to apply in this study is non-participant observation and interviews. In this study we design two experiment:
+
+The major methods we would like to apply in this study are non-participant observation and interviews. In this study we propose two experiments:
+
 \begin{enumerate}
 	\item The participants will be divided into two groups: the experimental group and the control group. Each group will receive a series of OpenSCAD files for the same project, but in different versions. The participants will be tasked with reversing a certain part of the object back to a previous version while keeping the rest of the object the same as the final version. The experimental group will be provided with boolean differences between the different versions, while the control group will only have the code files. We will measure the average time required to complete the task and then compare the results between the two groups.
 	\item The participants will be divided into two groups: the experimental group and the control group. Each group will be provided with two sets of OpenSCAD-built 3D artifacts that have some differences. We will ask the participants to summarize the differences between the two artifacts. The experimental group will be provided with the boolean differences between the different versions, while the control group will not. We will then perform a qualitative analysis on the recorded descriptions to see if there are any differences in the choice of words.
 \end{enumerate}
-The observation will provide us information on whether the boolean differences could help designers to understand the differences between versions so that it could facilitate the process of reversing.
-And the interviews will 
-\section{Results and Contributions}
-The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.
 
-We predict that for simple changes, like adding new parts to an assembly, that this will be helpful.
+The observation will provide us information on whether the boolean differences could help designers to understand the differences between versions.
+
+%And the interviews will 
+
+\section{Results and Contributions}
+
+\textbf{The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.}
+
+We predict that for simple changes, like adding new parts to an assembly, this will be helpful.
 
 We forsee the lack of standardization also found by \citet{cheng2023age} causing the visual equivalent of the type of messy git history.
-It is worth noting that in code, before tools like clang-format, prettier, black, rustfmt were popular this happened in code too.
-In Go, a single programmatically mandated format is enforced, code will not compile with different spaces.
-Simple changes of axes may create huge visual differences for small changes.
+It is worth noting that preventing this in git requires use of other tools like formatters.
+A simple change of axies may create huge visual differences for small changes.
 
 It is also possible that some types of changes, perhaps something like a change of thread pitch on a screw, may result in difficult to interpret visual differences.
-\section{Introduction}
-
-Cheng et al.\cite{cheng2023age} identify challenges with distributed Computer-Aided Design (CAD) practice.
-One challenge is a lack of change summarization support between file versions.
-Typically no documentation summarizes changes, or a tedious Excel spreadsheet captures what CAD designers recall when they update it.
-Other Challenges like the lack of awareness of collaborators' model changes, may also be improved with better summaries.
-Inspired by both \texttt{GIT}'s \texttt{git diff}, and operations common in 3D art workflows.
-
-\begin{enumerate}
-	\item Curating a collection of CAD files with revisions.
-	\item Exploring boolean modifications on these solids in 3D art software.
-	\item Creating dddiff, a tool which will take 2 versions and summarize changes as 3D additions and deletions.
-	\item Evaluate the utility of these visualizations.
-\end{enumerate}
 
 
-\section{Background}
+% Cheng et al.\cite{cheng2023age} identify challenges with distributed Computer-Aided Design (CAD) practice.
+% One challenge is a lack of change summarization support between file versions.
+% Typically no documentation summarizes changes, or a tedious Excel spreadsheet captures what CAD designers recall when they update it.
+% Other Challenges like the lack of awareness of collaborators' model changes, may also be improved with better summaries.
+% Inspired by both \texttt{GIT}'s \texttt{git diff}, and operations common in 3D art workflows.
 
-\subsection{\texttt{GIT}}
-
-% #Interesting: https://www.bitkeeper.org/why.html "BitKeeper’s Binary Asset Manager (BAM)...  great for... CAD files"
-
-%#TODO:citethis https://www.linuxjournal.com/content/git-origin-story
-
-\texttt{GIT} is a distributed version-control system designed for Linux kernel development.
-In Torvalds's own words ``Git was basically designed and written for my requirements, and it shows.''~\cite{https://www.linuxfoundation.org/blog/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds}
-It allows developers to rapidly copy code, create a branch, and merge two branches back together, usaully merging automatically.
-Text insertions and deletions are the basic units of change.
-
-%The order that changes were applied can be shuffled around after they've already been made.
-%\texttt{GIT} is now ubiquitous in open source development, as these projects have similar requirements.
-
-Because text insertions and deletions are so critical, \texttt{GIT} does not accomodate edits made to non-text documents well.
-Editing binary files and propritory formats used in CAD generally involves deleting and re-creating the entire file with any revision.
-There is nothing resembling support for anything other than text based merges, rebases, and cherrypicking.
-%`Large File Store' has recently been added by \texttt{GIT} to make this easier, replacing large files with text pointers inside \texttt{GIT}.
+% \begin{enumerate}
+% 	\item Curating a collection of CAD files with revisions.
+% 	\item Exploring boolean modifications on these solids in 3D art software.
+% 	\item Creating dddiff, a tool which will take 2 versions and summarize changes as 3D additions and deletions.
+% 	\item Evaluate the utility of these visualizations.
+% \end{enumerate}
 
 
-% \subsection{OpenSCAD}
+% \section{Background}
 
-% OpenSCAD is a script-only computer aided design (CAD) application for creating solid 3D objects.
-% In theory, being script-only means that changes could all be represented by changes to source code.
-% \texttt{GIT} should be able to handle OpenSCAD files with the same grace it does the Linux kernel.
-% As of writing there are 78 open issues mentioning \texttt{GIT} right now.
+% \subsection{\texttt{GIT}}
 
-% OpenSCAD Mangles JSON git history.
-% % https://github.com/openscad/openscad/issues/4447
-% 78 open issues mentioning GIT right now.
-% Order matters.
-% OpenSCAD is not representitive of crazier assemblies.
-% Eventual goal is CAD for something non-scripting.
-% \subsection{Boolean Differences}
+% % #Interesting: https://www.bitkeeper.org/why.html "BitKeeper’s Binary Asset Manager (BAM)...  great for... CAD files"
+
+% %#TODO:citethis https://www.linuxjournal.com/content/git-origin-story
+
+% \texttt{GIT} is a distributed version-control system designed for Linux kernel development.
+% In Torvalds's own words ``Git was basically designed and written for my requirements, and it shows.''~\cite{https://www.linuxfoundation.org/blog/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds}
+% It allows developers to rapidly copy code, create a branch, and merge two branches back together, usaully merging automatically.
+% Text insertions and deletions are the basic units of change.
+
+% %The order that changes were applied can be shuffled around after they've already been made.
+% %\texttt{GIT} is now ubiquitous in open source development, as these projects have similar requirements.
+
+% Because text insertions and deletions are so critical, \texttt{GIT} does not accomodate edits made to non-text documents well.
+% Editing binary files and propritory formats used in CAD generally involves deleting and re-creating the entire file with any revision.
+% There is nothing resembling support for anything other than text based merges, rebases, and cherrypicking.
+% %`Large File Store' has recently been added by \texttt{GIT} to make this easier, replacing large files with text pointers inside \texttt{GIT}.
+
+
+% % \subsection{OpenSCAD}
+
+% % OpenSCAD is a script-only computer aided design (CAD) application for creating solid 3D objects.
+% % In theory, being script-only means that changes could all be represented by changes to source code.
+% % \texttt{GIT} should be able to handle OpenSCAD files with the same grace it does the Linux kernel.
+% % As of writing there are 78 open issues mentioning \texttt{GIT} right now.
+
+% % OpenSCAD Mangles JSON git history.
+% % % https://github.com/openscad/openscad/issues/4447
+% % 78 open issues mentioning GIT right now.
+% % Order matters.
+% % OpenSCAD is not representitive of crazier assemblies.
+% % Eventual goal is CAD for something non-scripting.
+% % \subsection{Boolean Differences}
+
+% % CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
+% % Parametric models made up of vectors and curves are assembled with constraints and measurements.
+% % When describing a 3D solid, the engineer thinks in geometry, assemblies, and tolerances.
+% % The 3D artist, game modeller, or graphic designer communicates in polygons, positions, volumes, and cameras.
+
+% % Blender has over 3 million
+
+% % Using Boolean Differences to Visually Represent CAD Models changes.
+
+% \subsection{3D Computer-Aided Design}
 
 % CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
 % Parametric models made up of vectors and curves are assembled with constraints and measurements.
-% When describing a 3D solid, the engineer thinks in geometry, assemblies, and tolerances.
-% The 3D artist, game modeller, or graphic designer communicates in polygons, positions, volumes, and cameras.
 
-% Blender has over 3 million
-
-% Using Boolean Differences to Visually Represent CAD Models changes.
-
-\subsection{3D Computer-Aided Design}
-
-CAD workflows for working with 3D objects are an evolution of traditional engineering drawing paradigms.
-Parametric models made up of vectors and curves are assembled with constraints and measurements.
-
-OpenSCAD is a script-only and open source CAD tool for working with 3D solids.
-While script-only is not common among the most popular tools in industry, it allows us to use \texttt{GIT} for version control.
+% OpenSCAD is a script-only and open source CAD tool for working with 3D solids.
+% While script-only is not common among the most popular tools in industry, it allows us to use \texttt{GIT} for version control.
 
 
-\subsection{Polygon Meshes}
+% \subsection{Polygon Meshes}
 
-In 3D computer graphics, the polygon mesh defines the shape of an object.
-Faces of simple polygons representing the surface of an object are aligned to imply volume.
-A variety of operations can be performed on meshes, but the simplest are boolean logic.
-Unions, intersections, and differences may be used to construct new geometry from two different solids.
+% In 3D computer graphics, the polygon mesh defines the shape of an object.
+% Faces of simple polygons representing the surface of an object are aligned to imply volume.
+% A variety of operations can be performed on meshes, but the simplest are boolean logic.
+% Unions, intersections, and differences may be used to construct new geometry from two different solids.
 
-\section{Research Question}
+% \section{Research Question}
 
-RQ1: Do visualizations of boolean differences summarize changes between CAD file versions?
+% RQ1: Do visualizations of boolean differences summarize changes between CAD file versions?
 
-\section{Method}
+% \section{Method}
 
-% Hypothesis: Boolean Diff helps cad designers understand changes made to 3d solids in CAD.
+% % Hypothesis: Boolean Diff helps cad designers understand changes made to 3d solids in CAD.
 
-% Null result: Users do not find these visualizations helpful.
+% % Null result: Users do not find these visualizations helpful.
 
-% Idea: Diffs summarize changes in versions of the same model.
-\subsection{Curate Changes}
+% % Idea: Diffs summarize changes in versions of the same model.
+% \subsection{Curate Changes}
 
-We will first need to find many copies of CAD files with minor revisions between them.
-We may explore open source hardware repositories trying to find these, or may need to generate them ourselves.
+% We will first need to find many copies of CAD files with minor revisions between them.
+% We may explore open source hardware repositories trying to find these, or may need to generate them ourselves.
 
-\subsection{Explore Boolean Differences}
+% \subsection{Explore Boolean Differences}
 
-We will export to \texttt{.stl} format, which can be opened in Blender.
-Once imported into Blender, we will be able to apply various boolean operations.
-We suspect differences may be most useful, but may need to create intermediate files and apply differences against unions for example, to create the `red deletions, green additions' view we desire.
+% We will export to \texttt{.stl} format, which can be opened in Blender.
+% Once imported into Blender, we will be able to apply various boolean operations.
+% We suspect differences may be most useful, but may need to create intermediate files and apply differences against unions for example, to create the `red deletions, green additions' view we desire.
 
-\subsection{Create dddiff}
+% \subsection{Create dddiff}
 
-Once we understand the transformations that need to be done, a function will be scripted.
-It will take as arguments, two \texttt{.stl} files, and display additions and deletions as new manifolds.
+% Once we understand the transformations that need to be done, a function will be scripted.
+% It will take as arguments, two \texttt{.stl} files, and display additions and deletions as new manifolds.
 
-\subsection{Evaluate tool}
+% \subsection{Evaluate tool}
 
-We will demonstrate the tool to some colligues and record their thoughts on the visualizations.
+% We will demonstrate the tool to some colligues and record their thoughts on the visualizations.
 
-We can record these interviews and look for themes, this will highlight utility and shortcomings which can be assembled into recommendations for future versions.
+% We can record these interviews and look for themes, this will highlight utility and shortcomings which can be assembled into recommendations for future versions.
 
-While it may not be possible to perform a more involved experiment,
-one experimental setup which could evaluate the utility of this visualization could be:
+% While it may not be possible to perform a more involved experiment,
+% one experimental setup which could evaluate the utility of this visualization could be:
 
-From a list of revisions, task some undergrads with retrieving the revision before a specific task.
-OpenSCAD files can provide \texttt{GIT} diffs, while another group will use dddiff.
-Record and report the mean time to retrieve a revision from before a specific change.
-If time improves, we suggest that dddiff provides some summarization of changes.
+% From a list of revisions, task some undergrads with retrieving the revision before a specific task.
+% OpenSCAD files can provide \texttt{GIT} diffs, while another group will use dddiff.
+% Record and report the mean time to retrieve a revision from before a specific change.
+% If time improves, we suggest that dddiff provides some summarization of changes.
 
-% nosteuhonetuh: Given a series of files with minor revisions and a goal of reverting to a specific revision, users with access to a bool diff will more quickly retrieve the correct version.
+% % nosteuhonetuh: Given a series of files with minor revisions and a goal of reverting to a specific revision, users with access to a bool diff will more quickly retrieve the correct version.
 
-% astnhou: Ask them to describe the differences between two version.
+% % astnhou: Ask them to describe the differences between two version.
 
-% Are changes in 3D CAD files summarized by boolean differences?
+% % Are changes in 3D CAD files summarized by boolean differences?
 
-% Give them the 3 versions with no description, but access to the code.
+% % Give them the 3 versions with no description, but access to the code.
 
-% One group is given git versions.
+% % One group is given git versions.
 
-We strongly believe that version control is useful in many facets of life.
-We are often surprised when learning that many fields struggle with the exact same problems \texttt{GIT} solves.
-There are many opportunities to bring version control outside of the strict confines of text editing.
+% We strongly believe that version control is useful in many facets of life.
+% We are often surprised when learning that many fields struggle with the exact same problems \texttt{GIT} solves.
+% There are many opportunities to bring version control outside of the strict confines of text editing.
 
 
-%Why it is important and how it fits into your research (assuming it does? We're all MEng?)
+% %Why it is important and how it fits into your research (assuming it does? We're all MEng?)
 
 
 
-We will
+% We will
 
-oral interview where we present multiple different types of common changes to participants.
+% oral interview where we present multiple different types of common changes to participants.
 
-Participants in the treatment group will be
+% Participants in the treatment group will be
 
-\subsection{Data Analysis}
+% \subsection{Data Analysis}
 
-\section{Results}
+% \section{Results}
 
-The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.
+% The goal is to provide recommendations to engineers trying to build a visual diff tool for 3D CAD.
 
-We predict that for simple changes, like adding new parts to an assembly, that this will be helpful.
+% We predict that for simple changes, like adding new parts to an assembly, that this will be helpful.
 
-We forsee the lack of standardization also found by \citet{cheng2023age} causing the visual equivalent of the type of messy git history.
-It is worth noting that in code, before tools like clang-format, prettier, black, rustfmt were popular this happened in code too.
-In Go, a single programmatically mandated format is enforced, code will not compile with different spaces.
-Simple changes of axes may create huge visual differences for small changes.
+% We forsee the lack of standardization also found by \citet{cheng2023age} causing the visual equivalent of the type of messy git history.
+% It is worth noting that in code, before tools like clang-format, prettier, black, rustfmt were popular this happened in code too.
+% In Go, a single programmatically mandated format is enforced, code will not compile with different spaces.
+% Simple changes of axes may create huge visual differences for small changes.
 
-It is also possible that some types of changes, perhaps something like a change of thread pitch on a screw, may result in difficult to interpret visual differences.
-
-
-% RQ: Is this tool needed?
-% RQ: What kinds of features should a diff tool have?
-% - Red/Greed additions/deletions?
-% - Wireframes?
-% - Time in change.
-% - Swipe based diff tool.
+% It is also possible that some types of changes, perhaps something like a change of thread pitch on a screw, may result in difficult to interpret visual differences.
 
 
-\section{}
+% % RQ: Is this tool needed?
+% % RQ: What kinds of features should a diff tool have?
+% % - Red/Greed additions/deletions?
+% % - Wireframes?
+% % - Time in change.
+% % - Swipe based diff tool.
+
+
+% \section{}
 
 
 
 
 
-% In the Age of Collaboration, the Computer-Aided Design Ecosystem is Behind: An Interview Study of Distributed CAD Practice 
-% Kathy CHENG et al.
+% % In the Age of Collaboration, the Computer-Aided Design Ecosystem is Behind: An Interview Study of Distributed CAD Practice 
+% % Kathy CHENG et al.
 
-% % TODO: REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
-% \section{TODO: REMOVE Summary of Cheng et al.}
+% % % TODO: REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
+% % \section{TODO: REMOVE Summary of Cheng et al.}
 
-% Collaboration in CAD is known to be broken.
-% Aim to close academic-practitioner knowledge gap.
-% 14 challenges identified.
-% INTRO
-% Focus on Mechanical CAD.
-% 3 generations: [standalone, distributed, collaborative]
-% - standalone: single user, single machine
-% - distributed cad: standalone combined with data managemeent system, shared files.
-% - synchronous multi-user cad (MUCAD) (different-place, same time)
-% in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
-% in 2021: 20\% of pros, $>$50\% hobbyists
-% interview 20 pros.
-% RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
-% RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
-% BACKGROUND
-% Distributed vs Collaborative, Distributed needs data management tool
-% data management tools can be [manual, partilaly-automated, fully-automated]
-% existing probs in literature
-% - inconsistency in design practices between designers
-% - `some best practices, standardize cite[53,68]'
-% - non-interoperability,
-% - \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
-% - distributed teams suck more
-% - cross-discipline teams suck more
-% - IP issues
-% - each discipline's respective standards, best practices, jargon, and schemata
-% - git also sucks, here are some attempts [27,34,45,88,89,100,110]
-% - merge conflicts in git are handled smoothly? (I guess compared to CAD?)
-% METHODS
-% semi-structured interviews
-% 20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
-% 5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
-% CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
-% Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
-% See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
-% Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
-% DATA ANALYSIS
-% NVivo, open coding.
-% RESULTS
-% 4 categories, 14 challenges, sorted by pervasive
-% Cat 4.1) Collaborative Design Challenges and Strategies
-% C-1) Absent or varied modelling conventions across collaborators
-% - manually changing coordinate systems
-% - design tolerancing standards different in different teams
-% - mechanical/electrical engineering follow different conventions
-% - designers fail to follow standards
-% S-1) Imposing standards and best practices for modelling
-% Author notes nobody other than ID10 has ever seen this work.
-% (ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
-% (amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
-% C-2) Infrequent Model Uploads
-% Checks out, doesn't upload, particularly difficult with big assemblies
-% No strategy.
-% (amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
-% C-3) Lack of designer awareness of model dependencies
-% Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta.
-% No strategy.
-% C-4) Lack of awareness of collaborators' model changes
-% Bad pull discipline. Merge conflicts.
-% C-5) No Synchronous editing
-% 0/20 use `3rd gen' cad tools with this ability.
-% S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
-% (amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
-% Cat 4.2) Synchronous communication challenges
-% C-6) Cumbersome presentation of CAD models in synchronous work settings
-% Design review meetings are awful. Clients make them worse.
-% C-7) no back-of-the-envelope CAD
-% Cat 4.3) Data Management Challenges and Strategies
-% C-8) Lack of interoperability
-% Different software, even different versions, incompatible. Mech/EE problems x10.
-% S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
-% (amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
-% S-4) Simplify CAD models. EE people toss rectangles into mech builds.
-% (amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
-% C-9) Lack of change summarization support between file versions
-% Excel spradsheets, tedious.
-% C-10) Lack of version control for non-PLM users
-% check-in/check-out function more like locks on files(!?)
-% S-5) Just use PLM.
-% C-11) Poor CAD file organization
-% S-6) Use standard part libraries
-% (amos-thinks: This whole para sounds like dependency management strikes again.)
-% C-12) Poor traceability of scattered file management
-% \textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
-% S-7) Using integrated digital markup tools
-% (amos-thinks: Yes, this feels solved, just tools suck.)
-% Cat 4.4) Permissioning Challenges
-% C-13) Cumbersome stakeholder access to CAD files.
-% External collaborators locked out, fragmentation.
-% (amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
-% C-14) Lack of stakeholder access to CAD software.
-% Basically the same thing, but with added SolidWorks vs NXCAD spice.
+% % Collaboration in CAD is known to be broken.
+% % Aim to close academic-practitioner knowledge gap.
+% % 14 challenges identified.
+% % INTRO
+% % Focus on Mechanical CAD.
+% % 3 generations: [standalone, distributed, collaborative]
+% % - standalone: single user, single machine
+% % - distributed cad: standalone combined with data managemeent system, shared files.
+% % - synchronous multi-user cad (MUCAD) (different-place, same time)
+% % in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
+% % in 2021: 20\% of pros, $>$50\% hobbyists
+% % interview 20 pros.
+% % RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
+% % RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
+% % BACKGROUND
+% % Distributed vs Collaborative, Distributed needs data management tool
+% % data management tools can be [manual, partilaly-automated, fully-automated]
+% % existing probs in literature
+% % - inconsistency in design practices between designers
+% % - `some best practices, standardize cite[53,68]'
+% % - non-interoperability,
+% % - \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
+% % - distributed teams suck more
+% % - cross-discipline teams suck more
+% % - IP issues
+% % - each discipline's respective standards, best practices, jargon, and schemata
+% % - git also sucks, here are some attempts [27,34,45,88,89,100,110]
+% % - merge conflicts in git are handled smoothly? (I guess compared to CAD?)
+% % METHODS
+% % semi-structured interviews
+% % 20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
+% % 5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
+% % CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
+% % Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
+% % See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
+% % Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
+% % DATA ANALYSIS
+% % NVivo, open coding.
+% % RESULTS
+% % 4 categories, 14 challenges, sorted by pervasive
+% % Cat 4.1) Collaborative Design Challenges and Strategies
+% % C-1) Absent or varied modelling conventions across collaborators
+% % - manually changing coordinate systems
+% % - design tolerancing standards different in different teams
+% % - mechanical/electrical engineering follow different conventions
+% % - designers fail to follow standards
+% % S-1) Imposing standards and best practices for modelling
+% % Author notes nobody other than ID10 has ever seen this work.
+% % (ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
+% % (amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
+% % C-2) Infrequent Model Uploads
+% % Checks out, doesn't upload, particularly difficult with big assemblies
+% % No strategy.
+% % (amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
+% % C-3) Lack of designer awareness of model dependencies
+% % Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta.
+% % No strategy.
+% % C-4) Lack of awareness of collaborators' model changes
+% % Bad pull discipline. Merge conflicts.
+% % C-5) No Synchronous editing
+% % 0/20 use `3rd gen' cad tools with this ability.
+% % S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
+% % (amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
+% % Cat 4.2) Synchronous communication challenges
+% % C-6) Cumbersome presentation of CAD models in synchronous work settings
+% % Design review meetings are awful. Clients make them worse.
+% % C-7) no back-of-the-envelope CAD
+% % Cat 4.3) Data Management Challenges and Strategies
+% % C-8) Lack of interoperability
+% % Different software, even different versions, incompatible. Mech/EE problems x10.
+% % S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
+% % (amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
+% % S-4) Simplify CAD models. EE people toss rectangles into mech builds.
+% % (amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
+% % C-9) Lack of change summarization support between file versions
+% % Excel spradsheets, tedious.
+% % C-10) Lack of version control for non-PLM users
+% % check-in/check-out function more like locks on files(!?)
+% % S-5) Just use PLM.
+% % C-11) Poor CAD file organization
+% % S-6) Use standard part libraries
+% % (amos-thinks: This whole para sounds like dependency management strikes again.)
+% % C-12) Poor traceability of scattered file management
+% % \textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
+% % S-7) Using integrated digital markup tools
+% % (amos-thinks: Yes, this feels solved, just tools suck.)
+% % Cat 4.4) Permissioning Challenges
+% % C-13) Cumbersome stakeholder access to CAD files.
+% % External collaborators locked out, fragmentation.
+% % (amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
+% % C-14) Lack of stakeholder access to CAD software.
+% % Basically the same thing, but with added SolidWorks vs NXCAD spice.
 
 
 \bibliography{initial}
