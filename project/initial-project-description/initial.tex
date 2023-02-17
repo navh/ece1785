@@ -2,6 +2,8 @@
 \bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
 
+\widowpenalties 4 0 9000 10000 10000
+
 %%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
 %%%
 %%% Yes - ...of seventy-two''~\cite{42}.
@@ -16,8 +18,7 @@
 \begin{document}
 
 %\title{Dddiff: Visualizing CAD changes with Boolean Differences\\
-\title{Visualizing CAD changes with Boolean Differences\\
-{\normalsize ECE1785: Initial Project Description}}
+\title{Visualizing CAD changes with Boolean Differences}
 
 \author{Amos Hebb}
 \affiliation{\institution{University of Toronto}}
@@ -52,7 +53,7 @@ Computer-aided design (CAD) is an essential component of modern engineering and 
 
 \textbf{RQ: Do visualizations of boolean differences summarize changes between CAD file versions?}
 
-The purpose of this research is to investigate whether visualizations of boolean differences can summarize changes between CAD file versions effectively. The research aims to develop and evaluate a visualization technique that can help designers identify and track changes between file versions quickly. The technique is inspired by \texttt{git diff}, and operations from 3D art workflows. \texttt{GIT} uses insertions and deletions of text strings. In 3D art, boolean operations, like intersections, unions, and differences, can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying boolean operations help designers understand changes between versions of files.
+The purpose of this research is to investigate whether visualizations of boolean differences summarize changes between CAD file versions. We will develop and evaluate a visualization technique that may help CAD users identify and track changes between file versions. Inspired by both \texttt{git diff} and 3D art workflows. \texttt{GIT} uses insertions and deletions of text strings. In 3D art, boolean operations can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying boolean operations help designers understand changes between versions of files.
 
 This research is important because it will provide a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files. It can also have implications for other domains where changes in complex files should be summarized.
 
@@ -61,21 +62,21 @@ This research is important because it will provide a faster and more accurate al
 The major methods we would like to apply in this study are non-participant observation and interviews. In this study we propose two experiments:
 
 \subsection{Timed Cherry-Picking Experiment}
-The participants will be divided into two groups: the experimental group and the control group. Each group will receive a series of OpenSCAD files for the same project but in different versions. The participants will be tasked with reversing a certain part of the object back to a previous version while keeping the rest of the object the same as the final version. The experimental group will be provided with boolean differences between the different versions, while the control group will only have the code files. We will measure the average time required to complete the task and then compare the results between the two groups.
+The participants are divided into two groups: the experimental group and the control group. Each group will receive a series of OpenSCAD files for the same project but in different versions. The participants will be tasked with reversing a certain part of the object back to a previous version while keeping the rest of the object the same as the final version. The experimental group will be provided with boolean differences between the different versions, while the control group will only have the code files. We will measure the average time required to complete the task and then compare the results between the two groups.
 
 \subsection{Summarization Experiment}
-The participants will be divided into two groups: the experimental group and the control group. Each group will be provided with two sets of OpenSCAD-built 3D artifacts that have some differences. We will ask the participants to summarize the differences between the two artifacts. The experimental group will be provided with the boolean differences between the different versions, while the control group will not. We will then perform a qualitative analysis of the recorded descriptions to see if there are any differences in the choice of words.
+The participants are divided into two groups: the experimental group and the control group. Each group will be provided with two 3D artifacts that have differences. We will ask the participants to summarize the differences between the two artifacts. The experimental group will be provided with the boolean differences between the different versions, while the control group will not. We will then perform a qualitative analysis of the recorded descriptions to see if there are any differences in the choice of words.
 
 \subsection{Choice of Method}
-The proposed method involves conducting experiments using observation and interview methods to compare the performance and descriptive capabilities of two groups of participants: one with access to boolean differences between CAD file versions and one without. A qualitative analysis of the recorded descriptions will be performed to assess any differences in the choice of words. The observations will provide us with information on whether boolean differences can help designers understand the differences between versions, while the interviews will help us better understand how boolean differences impact the perception of 3D artifact differences. These methods are appropriate because they allow for the collection of both quantitative and qualitative data, which can be used to assess the effectiveness of visualizations of boolean differences in summarizing changes between CAD file versions.
+The proposed method involves conducting experiments using observation and interview methods to compare the performance and descriptive capabilities of two groups of participants: one with access to boolean differences between CAD file versions and one without. These will identify whether boolean differences help designers understand the differences between versions, while the interviews will help us better understand how boolean differences impact the perception of 3D artifact differences. These methods are appropriate because they allow for the collection of both quantitative and qualitative data, which will reveal the effectiveness of visualizations of boolean differences in summarizing changes between CAD file versions.
+
 \section{Challenges}
 
 The lack of standardization identified by \citet{cheng2023age} may cause large visual differences for small changes.
-For example, if one user simply rotates a part to a new axis to their preference, this will result in a large visual difference.
-This problem exists in \texttt{git diff} where users produce huge numbers of additions and deletions based on preferences like tabs to spaces.
-It is only recently being addressed with the mandatory use of automated formatters like clang-format, gofmt, black, or prettier.
+For example, rotating a part to a new axis by preference will result in a large visual difference.
+Before formatters were developed, this problem in \texttt{git diff} happened when users produce huge additions and deletions for small changes based on preferences like tabs to spaces.
 
-Another challenge we anticipate is that for some types of changes, perhaps a change of thread pitch on a screw, visual differences from boolean differences may be hard to interpret.
+For some types of changes, perhaps a change of thread pitch on a screw, visual differences from boolean differences may be hard to interpret.
 
 \section{Contributions and Results}
 
