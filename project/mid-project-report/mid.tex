@@ -1,0 +1,94 @@
+\documentclass[sigconf,authorversion,nonacm]{acmart}
+\bibliographystyle{ACM-Reference-Format}
+\usepackage{hyperref}
+
+\widowpenalties 4 0 9000 10000 10000
+
+%%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
+%%%
+%%% Yes - ...of seventy-two''~\cite{42}.
+%%% Yes - ...of seventy-two.''\footnote{42}
+%%%
+%%% NO! - ...of seventy-two.''~\cite{42}.
+%%%
+%%% https://advice.writing.utoronto.ca/wp-content/uploads/sites/2/quotations.pdf
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{Group 25 Interim Report\\Visualizing CAD changes with Boolean Differences}
+
+\author{Amos Hebb}
+\affiliation{\institution{University of Toronto}}
+\email{a.hebb@mail.utoronto.ca}
+\author{Yilong Wang}
+\affiliation{\institution{University of Toronto}}
+\email{yilongece.wang@mail.utoronto.ca}
+\author{Zhenyue Yu}
+\affiliation{\institution{University of Toronto}}
+\email{zhenyue.yu@mail.utoronto.ca}
+% zhenyue Yu <zhenyue.yu@mail.utoronto.ca>; Yilong Wang <yilongece.wang@mail.utoronto.ca>
+\makeatletter
+\def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
+	\if@ACM@instpresent\else
+		\ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
+	\fi
+	\if@ACM@citypresent\else
+		\ClassWarningNoLine{\@classname}{No city present for an affiliation}%
+	\fi
+	\if@ACM@countrypresent\else
+		\ClassWarningNoLine{\@classname}{No country present for an affiliation}%
+	\fi
+}
+\makeatother
+
+\maketitle
+
+\section{Research Question}
+
+\textbf{RQ: Do visualizations of boolean differences summarize\\changes between CAD file versions?}
+
+bla bla bla~\cite{cheng2023age}
+
+\bibliography{mid}
+% changes made to project
+\section*{Appendix A: Changes to Project}
+%format, bullet points:
+% critique
+% solution:
+\begin{enumerate}
+	\item
+	      \begin{description}
+		      \item \textbf{critique:} We did not take the initial familiarity of the participants with CAD into consideration.
+		      \item \textbf{solution:} Hana proposed running some pre-tests to get participants familiar with the tools first.
+	      \end{description}
+	\item
+	      \begin{description}
+		      \item \textbf{critique:} description of critique
+		      \item \textbf{solution:} solution text
+	      \end{description}
+	\item
+	      \begin{description}
+		      \item \textbf{critique:} description of critique
+		      \item \textbf{solution:} solution text
+	      \end{description}
+	\item
+	      \begin{description}
+		      \item \textbf{critique:} description of critique
+		      \item \textbf{solution:} solution text
+	      \end{description}
+
+\end{enumerate}
+
+
+
+% TODOs for the next 2 weeks
+\section*{Appendix B: Schedule}
+next two weeks
+% Problem:
+% Midterm results.
+
+
+\end{document}
