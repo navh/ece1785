@@ -46,56 +46,99 @@
 
 \maketitle
 
+\section{Introduction}
+
 \section{Research Question}
 
 \textbf{RQ: Do visualizations of boolean differences summarize\\changes between CAD file versions?}
 
 \section{Literature Review}
 
-\subsection{\texttt{OnShape.com}}
+The motivating paper for this experiment is \citet{cheng2023age}, the authors have been helpful in pointing out existing tools like \texttt{onshape.com} which implement similar interfaces.
 
-% https://github.blog/2013-09-17-3d-file-diffs/
-\subsection{\texttt{github.blog} 3d file diffs}
+Our report will include subsections on each of:
 
-bla bla bla~\cite{cheng2023age}
+\begin{enumerate}
+	\item \citet{cheng2023age}
+	      %\item {\texttt{https://github.blog/2013-09-17-3d-file-diffs/} %TODO: properly cite/hyperref this, url is making LaTeX cry :(
+	\item {\texttt{3drepo.com}}
+\end{enumerate}
+
+\section{Methodology}
+
+Subsections outlining more details of both of our experiments, including refinements made as a result of feedback described in Appendix A.
+
+\section{Preliminary Results}
+
+After building the diff view, we will evaluate ourselves and with close friends on the curated set of \texttt{.stl}.
+
+\section{Discussion}
+
+\section{Future Work}
 
 \bibliography{mid}
 % changes made to project
-\section*{Appendix A: Changes to Project}
+
+\appendix
+\section{Appendix A: Changes to Project}
 %format, bullet points:
 % critique
 % solution:
 \begin{enumerate}
 	\item
 	      \begin{description}
-		      \item \textbf{critique:} We did not take the initial familiarity of the participants with CAD into consideration.
-		      \item \textbf{solution:} Hana proposed running some pre-tests to get participants familiar with the tools first.
+		      \item \textbf{critique - bad measure:} Time alone may not be good measurement for `understanding' in the cherrypicking experiment. %one suggestion: survey. 
+		      \item \textbf{solution:} We will have a reference solution that is considered correct, and count the number of correct implementations.
+		            Combining time to complete with number of correct implementations is a richer datapoint that will be more revealing, eg: just as correct but faster, slower and wrong.
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique:} description of critique
-		      \item \textbf{solution:} solution text
+		      \item \textbf{critique - vague experiment:} Critiques suggested that evaluating the `correctness' of a solution may be challenging. We have not considered previous CAD experience of the participants.
+		      \item \textbf{solution:} We have refined the experiment to minimize the impact that previous experience will impact outcome, and will not make assumptions about familiarity with specific git semantics in final report to make it clear that users only have a finite number of solutions available.
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique:} description of critique
-		      \item \textbf{solution:} solution text
+		      \item \textbf{critique - what objects?:} What 3D Solids? What OpenSCAD files?
+		      \item \textbf{solution:} We will curate a collection of `typical' STLs with revisions from public OpenSCAD repositories. Final report will include more strict descriptions.
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique:} description of critique
-		      \item \textbf{solution:} solution text
+		      \item \textbf{critique - generizability:} The kind of object being reviewed may impact its suitability for this kind of visualizations?
+		      \item \textbf{solution:} We will evaluate a suite of objects from actual public repositories and track results on a per-object level to see if patterns emerge in suitability.
+	      \end{description}
+	\item
+	      \begin{description}
+		      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
+		      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
 	      \end{description}
 
 \end{enumerate}
 
+% Create 5 commits, say "among these commits, only 1 must be omitted for the final solution, some commits work on that object, which commits impact the object in question."
 
+% Design
+% Run smaller interviews to get some preliminary results and then refine the project based on these preliminary results.
+% We will present these preliminary results.
 
 % TODOs for the next 2 weeks
-\section*{Appendix B: Schedule}
-next two weeks
+
+\section{Appendix B: Schedule}
+
+Over the last couple weeks, we have closely reviewed the paper motivating this work, reached out to author, and followed up on tools pointed out. A recurring theme among all tools is \texttt{three.js}, a 3D tool viewer.
+
+
+% Split the problem up into 2 parts, first question, does this even really help. 2nd question, summarize the changes. We broke our research question up into two parts.
+
+\begin{enumerate}
+	\item We have identified some repositories that have a large community actively using OpenSCAD to modify 3D solids. Over the next week we will curate a collection of .stls that are useful.
+	\item
+\end{enumerate}
 % Problem:
 % Midterm results.
+
+% \section*{Appendix C: Egg man}
+
+% \texttt{https://github.com/skalnik}
 
 
 \end{document}
