@@ -47,30 +47,22 @@
 \maketitle
 
 \section{Introduction}
-This section will include the background of our project and the introduction of computer-aided design (CAD), Boolean differences, OpenSCAD and GIT.
+This section will include the background of our project and introduce computer-aided design (CAD), Boolean differences, OpenSCAD and GIT.
 \subsection{CAD}
 Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
 \subsection{Boolean Differences}
 Explanation of boolean differences visualization techniques and how visualizations of boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
 \subsection{OpenSCAD}
-Description of OpenSCAD.
+Description of OpenSCAD and \texttt{.stl} files.
 \subsection{GIT}
-Description of git, git differences, and git cherry-pick.
-% \begin{enumerate}
-% 	\item Define CAD
-% 	\item Describe Distributed CAD according to \citet{cheng2023age}
-% 	\item Define summarization
-% 	\item Describe \texttt{GIT}, \texttt{git diff}, and \texttt{git cherry-pick}
-% 	\item Describe boolean operations on 3D solids.
-% 	\item Describe OpenSCAD
-% \end{enumerate}
+Description of \texttt{git}, \texttt{git diff} tool, and \texttt{git cherry-pick} tool.
 
 \section{Research Question}
 
 In this section, we will outline our research question and discuss the motivation behind its development.
 \section{Literature Review}
 
-The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar interfaces.
+The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar visualizations.
 
 \subsection{Previous Work}
 Summarize the findings from \citet{cheng2023age} related to distributed teams, version control, and summarization.
@@ -100,8 +92,6 @@ We will also include figures that demonstrate a before, after, addition, and sub
 
 \section{Results}
 
-% After creating some boolean difference visualizations. These visualizations are the result of taking a \emph{before} and \emph{after} of a single part and creating new solids using boolean operations.
-% We will provide our observations of the difference visualizations, and compare to \texttt{onshape.com}'s presentation of modifications.
 In this section, we will present and discuss the results we get from each experiment.
 \subsection{Timed Cherry-Picking Experiment}
 We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
@@ -114,27 +104,23 @@ We expect to receive a diverse array of responses from the interviewees. The Boo
 We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our experiment results, and also discuss any intriguing visual artifacts generated while developing difference visualizations for changes to \texttt{.stl} files.
 
 \section{Future Work}
-%Based on preliminary results, either changes to visualizations will be recommended or we will recommend applying for ethics review board approval to evaluate diff tools according to the experiments described.
 We will address potential modifications our project may require based on the preliminary findings. These adjustments might encompass alterations to the presentation of Boolean difference visualizations or enhancements to our experimental approaches.
 
 \bibliography{mid}
 
 \appendix
-\section{Appendix A: Changes to Project}
+\section*{APPENDIX}
+\section{Changes to Project}
 %format, bullet points:
 % critique
 % solution:
 \begin{enumerate}
-	% \item
-	%       \begin{description}
-	% 	      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
-	% 	      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
-	%       \end{description}
 	\item
 	      \begin{description}
 		      \item \textbf{critique - cherry-picking experiment:} Time alone may not accurately reflect the participants' comprehension of the changes made, and the experiment did not take into account the accuracy of the outcomes.
 		      \item \textbf{solution:} We have improved the cherry-pick experiment to measure not only the time taken to complete the task, but also the accuracy of the results. For each OpenSCAD object, we will provide participants with a series of \texttt{.stl} files, including the final version and various past versions with committed changes. Participants will receive a plain-language description of some specific local reversions to be made to the object. They will be asked to perform these reversions by selecting which commits to include or exclude, without making arbitrary changes to the object. We will ensure that only one selection of past commits yields the correct result, allowing us to measure the accuracy of their choices.
 	      \end{description}
+	      \newpage
 	\item
 	      \begin{description}
 		      \item \textbf{critique - participant experience:} The proposal did not take the participants' past experience with CAD into consideration.
@@ -147,12 +133,12 @@ We will address potential modifications our project may require based on the pre
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique - generalizability:} The proposal did not take into account the potential impact of different object types on their suitability for Boolean difference visualizations
+		      \item \textbf{critique - generalizability:} The proposal did not take into account the potential impact of different object types on their suitability for Boolean difference visualizations.
 		      \item \textbf{solution:} We have restructured our experiment to ensure that we evaluate a diverse array of objects sourced from real-world public repositories. Through conducting horizontal comparisons between various objects and monitoring results on an individual object basis, we aim to identify emerging patterns in the impact of object types on suitability.
 	      \end{description}
 \end{enumerate}
 
-\section{Appendix B: Schedule}
+\section{Schedule}
 
 Over the last couple of weeks, we have closely reviewed the paper motivating this work, reached out to the author, and followed up on the tools pointed out. A recurring theme among all tools is \texttt{three.js}, a 3D tool viewer.
 
@@ -173,6 +159,5 @@ We have implemented a simple \texttt{three.js} interface capable of loading basi
 % \section*{Appendix C: Egg man}
 
 % \texttt{https://github.com/skalnik}
-
 
 \end{document}
