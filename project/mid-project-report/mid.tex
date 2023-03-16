@@ -48,36 +48,70 @@
 
 \section{Introduction}
 
+%TODO: Amanda is going to introduce this.
+
+\begin{enumerate}
+	\item Define CAD
+	\item Describe Distributed CAD according to \citet{cheng2023age}
+	\item Define summarization
+	\item Describe \texttt{GIT}, \texttt{git diff}, and \texttt{git cherry-pick}
+	\item Describe boolean operations on 3D solids.
+	\item Describe OpenSCAD
+\end{enumerate}
+
 \section{Research Question}
 
-\textbf{RQ: Do visualizations of boolean differences summarize\\changes between CAD file versions?}
+In this section we will present the refined research question and define all terms in it.
 
 \section{Literature Review}
 
-The motivating paper for this experiment is \citet{cheng2023age}, the authors have been helpful in pointing out existing tools like \texttt{onshape.com} which implement similar interfaces.
+The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar interfaces.
 
 Our report will include subsections on each of:
 
 \begin{enumerate}
-	\item \citet{cheng2023age}
-	      %\item {\texttt{https://github.blog/2013-09-17-3d-file-diffs/} %TODO: properly cite/hyperref this, url is making LaTeX cry :(
+	\item \citet{cheng2023age}: Summarize the findings from this paper related to distributed teams, version control, and summarization.
+	      %\item {\texttt{https://github.blog/2013-09-17-3d-file-diffs/}
 	\item {\texttt{3drepo.com}}
 \end{enumerate}
 
 \section{Methodology}
 
-Subsections outlining more details of both of our experiments, including refinements made as a result of feedback described in Appendix A.
+Subsections outlining details of both of our proposed experiments, including refinements made as a result of feedback described in Appendix A.
+
+\subsection{Timed Cherry-Picking Experiment}
+
+We will elaborate on the experiment as presented in the initial proposal, in particular on our revised metric of timing and correctness according to feedback.
+
+\subsection{Summarization Experiment}
+
+We will elaborate on the experiment including specific open-ended questions that will be used during the interviews along with this experiment.
+
+\section{Dataset}
+
+Subsections discussing our curated collection of CAD files that have revisions and their organization, along with pre-compiled `diffs' saved in \texttt{.stl} format for review by future researchers. These will be sourced from a git commit history for an open-sourced OpenSCAD project hosted on \texttt{github.com}, and an open-sourced \texttt{onshape.com} project with complete modification history.
+Figures showing an example of a before, after, addition, and subtraction for a single simple part will be provided.
 
 \section{Preliminary Results}
 
-After building the diff view, we will evaluate ourselves and with close friends on the curated set of \texttt{.stl}.
+After creating some boolean difference visualizations. These visualizations are the result of taking a \emph{before} and \emph{after} of a single part and creating new solids using boolean operations.
+We will provide our observations of the difference visualizations, and compare to \texttt{onshape.com}'s presentation of modifications.
+
+\subsection{Timed Cherry-Picking Experiment}
+In the final report, we will provide a hypothesis for this experiment.
+
+\subsection{Summarization Experiment}
+In the final report, we will provide a hypothesis for this experiment.
 
 \section{Discussion}
 
+Discuss our thoughts on the suitability of boolean differences and any other interesting visual artifacts that we produced while working toward creating difference visualizations for changes to \texttt{.stl} files.
+
 \section{Future Work}
 
+Based on preliminary results, either changes to visualizations will be recommended or we will recommend applying for ethics review board approval to evaluate diff tools according to the experiments described.
+
 \bibliography{mid}
-% changes made to project
 
 \appendix
 \section{Appendix A: Changes to Project}
@@ -87,14 +121,13 @@ After building the diff view, we will evaluate ourselves and with close friends 
 \begin{enumerate}
 	\item
 	      \begin{description}
-		      \item \textbf{critique - bad measure:} Time alone may not be good measurement for `understanding' in the cherrypicking experiment. %one suggestion: survey. 
-		      \item \textbf{solution:} We will have a reference solution that is considered correct, and count the number of correct implementations.
-		            Combining time to complete with number of correct implementations is a richer datapoint that will be more revealing, eg: just as correct but faster, slower and wrong.
+		      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
+		      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique - vague experiment:} Critiques suggested that evaluating the `correctness' of a solution may be challenging. We have not considered previous CAD experience of the participants.
-		      \item \textbf{solution:} We have refined the experiment to minimize the impact that previous experience will impact outcome, and will not make assumptions about familiarity with specific git semantics in final report to make it clear that users only have a finite number of solutions available.
+		      \item \textbf{critique - cherry-picking experiment:} Time alone may not be good measurement for `understanding', and the experiment did not consider the correctness of the results.
+		      \item \textbf{solution:} The cherry-picking experiment will present a fixed number of commits and be given a plain-language description of a change to be made to the CAD file only a finite number of solutions will be possible. Users will not be making arbitrary changes to CAD files, only selecting commits to include or exclude. We will have a reference solution that is considered correct, allowing us to count the number of correct solutions.
 	      \end{description}
 	\item
 	      \begin{description}
@@ -106,35 +139,25 @@ After building the diff view, we will evaluate ourselves and with close friends 
 		      \item \textbf{critique - generalizability:} The proposal did not take into account the potential impact of different object types on their suitability for Boolean difference visualizations
 		      \item \textbf{solution:} We have restructured our experiment to ensure that we evaluate a diverse array of objects sourced from real-world public repositories. Through conducting horizontal comparisons between various objects and monitoring results on an individual object basis, we aim to identify emerging patterns in the impact of object types on suitability.
 	      \end{description}
-	\item
-	      \begin{description}
-		      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
-		      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
-	      \end{description}
-
 \end{enumerate}
-
-% Create 5 commits, say "among these commits, only 1 must be omitted for the final solution, some commits work on that object, which commits impact the object in question."
-
-% Design
-% Run smaller interviews to get some preliminary results and then refine the project based on these preliminary results.
-% We will present these preliminary results.
-
-% TODOs for the next 2 weeks
 
 \section{Appendix B: Schedule}
 
-Over the last couple weeks, we have closely reviewed the paper motivating this work, reached out to author, and followed up on tools pointed out. A recurring theme among all tools is \texttt{three.js}, a 3D tool viewer.
-
+Over the last couple of weeks, we have closely reviewed the paper motivating this work, reached out to the author, and followed up on the tools pointed out. A recurring theme among all tools is \texttt{three.js}, a 3D tool viewer.
 
 % Split the problem up into 2 parts, first question, does this even really help. 2nd question, summarize the changes. We broke our research question up into two parts.
 
-\begin{enumerate}
-	\item We have identified some repositories that have a large community actively using OpenSCAD to modify 3D solids. Over the next week we will curate a collection of .stls that are useful.
-	\item
-\end{enumerate}
-% Problem:
-% Midterm results.
+\subsection{Curation of Files}
+
+We have identified some repositories that have a large community actively using OpenSCAD to modify 3D solids. We have identified an example of an open-sourced \texttt{onshape.com} project with full modification history.
+
+\textbf{Over the next two weeks} we will curate these into a collection of folders with \emph{before} and \emph{after} files.
+
+\subsection{Creation of Difference Visualizations}
+
+We have implemented a simple \texttt{three.js} interface capable of loading basic \texttt{.stl} files.
+
+\textbf{Over the next two weeks} we will explore the many plugins for \texttt{three.js} and implement the most appropriate. If \texttt{three.js} is inappropriate for this task, we will create them in another \texttt{.stl} modifying software like Blender or \texttt{onshape.com}.
 
 % \section*{Appendix C: Egg man}
 
