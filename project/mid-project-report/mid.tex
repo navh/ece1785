@@ -47,7 +47,7 @@
 \maketitle
 
 \section{Introduction}
-This section will include the background of our project and the introduction of computer-aided design (CAD), Boolean differences, OpenSCAD and GIT. 
+This section will include the background of our project and the introduction of computer-aided design (CAD), Boolean differences, OpenSCAD and GIT.
 \subsection{CAD}
 Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
 \subsection{Boolean Differences}
@@ -55,7 +55,7 @@ Explanation of boolean differences visualization techniques and how visualizatio
 \subsection{OpenSCAD}
 Description of OpenSCAD.
 \subsection{GIT}
-Description of git and git differences.
+Description of git, git differences, and git cherry-pick.
 % \begin{enumerate}
 % 	\item Define CAD
 % 	\item Describe Distributed CAD according to \citet{cheng2023age}
@@ -72,13 +72,14 @@ In this section, we will outline our research question and discuss the motivatio
 
 The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar interfaces.
 
-Our report will include subsections on each of:
+\subsection{Previous Work}
+Summarize the findings from \citet{cheng2023age} related to distributed teams, version control, and summarization.
+We will summarize a chapter from \citet{Frazelle_2021} on version control to justify \texttt{GIT} like semantics.
 
-\begin{enumerate}
-	\item \citet{cheng2023age}: Summarize the findings from this paper related to distributed teams, version control, and summarization.
-	      %\item {\texttt{https://github.blog/2013-09-17-3d-file-diffs/}
-	\item {\texttt{3drepo.com}}
-\end{enumerate}
+\subsection{Existing CAD Version Control}
+Summarize what we will be borrowing from Github's \citet{github_blog_2013}, and the implementation in the change detection solution used by \citet{3drepo_blog}.
+We will outline GrabCad's cosmo quiz\cite{revisions_2014}, an attempt to codify current best practices when working with CAD.
+We will summarize both Change Management and version control mechanisms in \citet{Bricogne_Rivest_Troussier_Eynard_2012}, and summarize opportunities for improvements identified.
 
 \section{Methodology}
 
