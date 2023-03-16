@@ -47,22 +47,27 @@
 \maketitle
 
 \section{Introduction}
-
-%TODO: Amanda is going to introduce this.
-
-\begin{enumerate}
-	\item Define CAD
-	\item Describe Distributed CAD according to \citet{cheng2023age}
-	\item Define summarization
-	\item Describe \texttt{GIT}, \texttt{git diff}, and \texttt{git cherry-pick}
-	\item Describe boolean operations on 3D solids.
-	\item Describe OpenSCAD
-\end{enumerate}
+This section will include the background of our project and the introduction of computer-aided design (CAD), Boolean differences, OpenSCAD and GIT. 
+\subsection{CAD}
+Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
+\subsection{Boolean Differences}
+Explanation of boolean differences visualization techniques and how visualizations of boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
+\subsection{OpenSCAD}
+Description of OpenSCAD.
+\subsection{GIT}
+Description of git and git differences.
+% \begin{enumerate}
+% 	\item Define CAD
+% 	\item Describe Distributed CAD according to \citet{cheng2023age}
+% 	\item Define summarization
+% 	\item Describe \texttt{GIT}, \texttt{git diff}, and \texttt{git cherry-pick}
+% 	\item Describe boolean operations on 3D solids.
+% 	\item Describe OpenSCAD
+% \end{enumerate}
 
 \section{Research Question}
 
-In this section we will present the refined research question and define all terms in it.
-
+In this section, we will outline our research question and discuss the motivation behind its development.
 \section{Literature Review}
 
 The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar interfaces.
@@ -81,35 +86,35 @@ Subsections outlining details of both of our proposed experiments, including ref
 
 \subsection{Timed Cherry-Picking Experiment}
 
-We will elaborate on the experiment as presented in the initial proposal, in particular on our revised metric of timing and correctness according to feedback.
+We will elaborate on the experiment detailed in the initial proposal, placing emphasis on the evaluation of metrics. In addition to time, we will also incorporate accuracy as a response to the feedback received.
 
 \subsection{Summarization Experiment}
 
-We will elaborate on the experiment including specific open-ended questions that will be used during the interviews along with this experiment.
+We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
 
 \section{Dataset}
 
-Subsections discussing our curated collection of CAD files that have revisions and their organization, along with pre-compiled `diffs' saved in \texttt{.stl} format for review by future researchers. These will be sourced from a git commit history for an open-sourced OpenSCAD project hosted on \texttt{github.com}, and an open-sourced \texttt{onshape.com} project with complete modification history.
-Figures showing an example of a before, after, addition, and subtraction for a single simple part will be provided.
+The subsections will cover our carefully curated collection of OpenSCAD files with revisions, as well as their organization. Additionally, we will provide pre-compiled differences visualizations saved in \texttt{.stl} format for review by future researchers. These files will be sourced from the Git commit history of an open-source OpenSCAD project hosted on \texttt{github.com}, and from an open-source project on \texttt{onshape.com}with a complete modification history.
+We will also include figures that demonstrate a before, after, addition, and subtraction example for a single, straightforward object.
 
-\section{Preliminary Results}
+\section{Results}
 
-After creating some boolean difference visualizations. These visualizations are the result of taking a \emph{before} and \emph{after} of a single part and creating new solids using boolean operations.
-We will provide our observations of the difference visualizations, and compare to \texttt{onshape.com}'s presentation of modifications.
-
+% After creating some boolean difference visualizations. These visualizations are the result of taking a \emph{before} and \emph{after} of a single part and creating new solids using boolean operations.
+% We will provide our observations of the difference visualizations, and compare to \texttt{onshape.com}'s presentation of modifications.
+In this section, we will present and discuss the results we get from each experiment.
 \subsection{Timed Cherry-Picking Experiment}
-In the final report, we will provide a hypothesis for this experiment.
+We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
 
 \subsection{Summarization Experiment}
-In the final report, we will provide a hypothesis for this experiment.
+We expect to receive a diverse array of responses from the interviewees. The Boolean difference visualizations may influence the choice of words for both the experimental and control groups, even when presented with the same object and asked identical questions. A qualitative analysis of the answers will be conducted to identify any differences.
 
 \section{Discussion}
 
-Discuss our thoughts on the suitability of boolean differences and any other interesting visual artifacts that we produced while working toward creating difference visualizations for changes to \texttt{.stl} files.
+We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our experiment results, and also discuss any intriguing visual artifacts generated while developing difference visualizations for changes to \texttt{.stl} files.
 
 \section{Future Work}
-
-Based on preliminary results, either changes to visualizations will be recommended or we will recommend applying for ethics review board approval to evaluate diff tools according to the experiments described.
+%Based on preliminary results, either changes to visualizations will be recommended or we will recommend applying for ethics review board approval to evaluate diff tools according to the experiments described.
+We will address potential modifications our project may require based on the preliminary findings. These adjustments might encompass alterations to the presentation of Boolean difference visualizations or enhancements to our experimental approaches.
 
 \bibliography{mid}
 
@@ -119,20 +124,25 @@ Based on preliminary results, either changes to visualizations will be recommend
 % critique
 % solution:
 \begin{enumerate}
+	% \item
+	%       \begin{description}
+	% 	      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
+	% 	      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
+	%       \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique - definitions:} Refine the research questions, definition of `summarize' and `understanding' is vague.
-		      \item \textbf{solution:} In final report strictly define `summarize' and `understanding' in the context of our research. %#TODO: change research question to something very specific.
+		      \item \textbf{critique - cherry-picking experiment:} Time alone may not accurately reflect the participants' comprehension of the changes made, and the experiment did not take into account the accuracy of the outcomes.
+		      \item \textbf{solution:} We have improved the cherry-pick experiment to measure not only the time taken to complete the task, but also the accuracy of the results. For each OpenSCAD object, we will provide participants with a series of \texttt{.stl} files, including the final version and various past versions with committed changes. Participants will receive a plain-language description of some specific local reversions to be made to the object. They will be asked to perform these reversions by selecting which commits to include or exclude, without making arbitrary changes to the object. We will ensure that only one selection of past commits yields the correct result, allowing us to measure the accuracy of their choices.
 	      \end{description}
 	\item
 	      \begin{description}
-		      \item \textbf{critique - cherry-picking experiment:} Time alone may not be good measurement for `understanding', and the experiment did not consider the correctness of the results.
-		      \item \textbf{solution:} The cherry-picking experiment will present a fixed number of commits and be given a plain-language description of a change to be made to the CAD file only a finite number of solutions will be possible. Users will not be making arbitrary changes to CAD files, only selecting commits to include or exclude. We will have a reference solution that is considered correct, allowing us to count the number of correct solutions.
+		      \item \textbf{critique - participant experience:} The proposal did not take the participants' past experience with CAD into consideration.
+		      \item \textbf{solution:} We have enhanced our experiments by incorporating a survey prior to the interviews or tasks. Participants will be requested to self-assess their OpenSCAD experience and general CAD skills. Based on their responses, we will categorize the participants accordingly.
 	      \end{description}
 	\item
 	      \begin{description}
 		      \item \textbf{critique - object selection:} The proposal did not clarify what type of CAD files the team planned to choose.
-		      \item \textbf{solution:} We have refined our CAD file selection to focus on OpenSCAD projects saved in the STL format. We have discovered a number of public OpenSCAD repositories that house a diverse range of 3D solid objects. Our plan is to curate a carefully chosen collection of STL files, each with multiple revisions, sourced from these repositories.
+		      \item \textbf{solution:} We have refined our CAD file selection to focus on OpenSCAD projects saved in the \texttt{.stl} format. We have discovered a number of public OpenSCAD repositories that house a diverse range of 3D solid objects. Our plan is to curate a carefully chosen collection of \texttt{.stl} files, each with multiple revisions, sourced from these repositories.
 	      \end{description}
 	\item
 	      \begin{description}
