@@ -47,22 +47,20 @@
 \maketitle
 
 \section{Introduction}
-This section will include the background of our project and introduce computer-aided design (CAD), Boolean differences, OpenSCAD and GIT.
+This section will include the background of our project and introduce computer-aided design (CAD), OpenSCAD, GIT and Boolean differences. In this section, we will also outline our research question and discuss the motivation behind its development.
 \subsection{CAD}
 Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
-\subsection{Boolean Differences}
-Explanation of boolean differences visualization techniques and how visualizations of boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
 \subsection{OpenSCAD}
 Description of OpenSCAD and \texttt{.stl} files.
 \subsection{GIT}
 Description of \texttt{git}, \texttt{git diff} tool, and \texttt{git cherry-pick} tool.
+\subsection{Boolean Differences}
+Explanation of Boolean differences visualization techniques and how visualizations of Boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
+% \section{Research Question}
 
-\section{Research Question}
-
-In this section, we will outline our research question and discuss the motivation behind its development.
 \section{Literature Review}
 
-The motivating paper for this experiment is \citet{cheng2023age}, the authors have helped point out existing tools like \texttt{onshape.com} which implement similar visualizations.
+The motivating paper for this project is \citet{cheng2023age}. The author of this paper also guided us to existing tools, such as \texttt{onshape.com}, which implement similar visualizations.
 
 \subsection{Previous Work}
 Summarize the findings from \citet{cheng2023age}  that explores distributed teams, version control, 
@@ -76,7 +74,7 @@ Furthermore, we will condense the information on change management and version c
 
 \section{Methodology}
 
-Subsections outlining details of both of our proposed experiments, including refinements made as a result of feedback described in Appendix A.
+Subsections will outline details of both our proposed experiments, including refinements made as a result of the feedback described in Appendix A.
 
 \subsection{Timed Cherry-Picking Experiment}
 
@@ -88,12 +86,12 @@ We will provide further details on the experiment, highlighting the specific ope
 
 \section{Dataset}
 
-The subsections will cover our carefully curated collection of OpenSCAD files with revisions, as well as their organization. Additionally, we will provide pre-compiled differences visualizations saved in \texttt{.stl} format for review by future researchers. These files will be sourced from the Git commit history of an open-source OpenSCAD project hosted on \texttt{github.com}, and from an open-source project on \texttt{onshape.com}with a complete modification history.
+The subsections will cover our carefully curated collection of OpenSCAD files with revisions, as well as their organization. Additionally, we will provide pre-compiled differences visualizations saved in \texttt{.stl} format for review by future researchers. These files will be sourced from the Git commit history of an open-source OpenSCAD project hosted on \texttt{github.com}, and from an open-source project on \texttt{onshape.com} with a complete modification history.
 We will also include figures that demonstrate a before, after, addition, and subtraction example for a single, straightforward object.
 
 \section{Results}
 
-In this section, we will present and discuss the results we get from each experiment.
+In this section, we will present and discuss the results we expect to get from each experiment.
 \subsection{Timed Cherry-Picking Experiment}
 We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
 
@@ -102,11 +100,11 @@ We expect to receive a diverse array of responses from the interviewees. The Boo
 
 \section{Discussion}
 
-We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our experiment results, and also discuss any intriguing visual artifacts generated while developing difference visualizations for changes to \texttt{.stl} files.
+We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our anticipated experiment results. Additionally, we will discuss any intriguing visual artifacts generated during the development of difference visualizations for changes to \texttt{.stl} files. We will also discuss the limits of our experiments.
 
-\section{Future Work}
-We will address potential modifications our project may require based on the preliminary findings. These adjustments might encompass alterations to the presentation of Boolean difference visualizations or enhancements to our experimental approaches.
-
+\section{Conclusion}
+% We will address potential modifications our project may require based on the preliminary findings. These adjustments might encompass alterations to the presentation of Boolean difference visualizations or enhancements to our experimental approaches.
+We will draw conclusions from the expected results of our research. Our aim is to address the research question of whether Boolean difference visualizations effectively summarize changes between CAD file versions, based on the outcomes.
 \bibliography{mid}
 
 \appendix
@@ -155,7 +153,7 @@ We have identified some repositories that have a large community actively using 
 
 We have implemented a simple \texttt{three.js} interface capable of loading basic \texttt{.stl} files.
 
-\textbf{Over the next two weeks} we will explore the many plugins for \texttt{three.js} and implement the most appropriate. If \texttt{three.js} is inappropriate for this task, we will create them in another \texttt{.stl} modifying software like Blender or \texttt{onshape.com}.
+\textbf{Over the next two weeks} Over the next two weeks we will explore many plugins for \texttt{three.js} and implement the most appropriate to create difference visualizations. If \texttt{three.js} is inappropriate for this task, we will create them in another \texttt{.stl} modifying software like Blender or \texttt{onshape.com}.
 
 % \section*{Appendix C: Egg man}
 
