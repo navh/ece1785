@@ -27,22 +27,22 @@
 
 \section{Introduction}
 
-In this assignment, we analyze the \textt{github.com} 2017 Open Source Survey results, 
-which gathered insights from over 5,500 respondents across 3,800 repositories and 500 non-random participants. 
-The survey provides valuable information on attitudes, experiences, and backgrounds related to using, building, 
-and maintaining open-source software. Based on these results, 
+In this assignment, we analyze the \textt{github.com} 2017 Open Source Survey results,
+which gathered insights from over 5,500 respondents across 3,800 repositories and 500 non-random participants.
+The survey provides valuable information on attitudes, experiences, and backgrounds related to using, building,
+and maintaining open-source software. Based on these results,
 we propose research questions to better understand the motivations, impact, challenges, and future trajectory of the open-source community
 
 \section{Gender and Experiencing Unwelcoming Language}
 
- RQ1: Does gender play a role in the rate of experiencing unwelcoming language?
+RQ1: Does gender play a role in the rate of experiencing unwelcoming language?
 
 \subsection{Motivation}
 
-As part of the survey, respondents were asked if they had encountered unwelcoming language or content while using \textt{GitHub}. 
-Based on this question, we have formulated a research question to investigate the possible association between gender and the frequency of such experiences. 
-Specifically, our research question seeks to understand whether gender has any bearing on the likelihood of encountering unwelcoming language on the platform. 
-By exploring this relationship, our research can provide valuable insights into potential gender-based disparities in the experiences of individuals on GitHub. 
+As part of the survey, respondents were asked if they had encountered unwelcoming language or content while using \textt{GitHub}.
+Based on this question, we have formulated a research question to investigate the possible association between gender and the frequency of such experiences.
+Specifically, our research question seeks to understand whether gender has any bearing on the likelihood of encountering unwelcoming language on the platform.
+By exploring this relationship, our research can provide valuable insights into potential gender-based disparities in the experiences of individuals on GitHub.
 Additionally, this research may help identify areas for improvement in the platform's culture, particularly with respect to fostering a more inclusive and welcoming environment for all users.
 
 \subsection{Hypotheses}
@@ -51,6 +51,16 @@ $H_0$ Gender does not play a role in the rate of experiencing unwelcoming langua
 
 $H_1$ Gender plays a role in the rate of experiencing unwelcoming language.
 \subsection{}
+
+\begin{tabular}{lrrr}
+    \toprule
+    Column & Yes & No   & Total \\
+    \midrule
+    Women  & 27  & 77   & 104   \\
+    Men    & 435 & 2432 & 2867  \\
+    Total  & 462 & 2509 & 2971  \\
+    \bottomrule
+\end{tabular}
 
 26\% of women and 15\% of men reported experiencing unwelcoming language.
 
@@ -69,6 +79,7 @@ Even though we were only able to sample a few women, the incidents of reporting 
 
 
 \subsection{RQ2: TODO}
+
 \begin{table}[]
     \begin{tabular}{|r|r|}
         \hline
@@ -83,8 +94,6 @@ Even though we were only able to sample a few women, the incidents of reporting 
 \subsection{Motivation}
 
 The second research question explores the relationship between using a real name in open-source contributions and the frequency of contributing to software production at work.
-
-\subsection{yaddayadda.}
 
 \section{Data Cleaning}
 
@@ -105,18 +114,6 @@ Dates submitted are not considered.
 We only consider rows where \texttt{*.ANY.RESPONSE} is 0, \texttt{STATUS} is \texttt{Complete}, \texttt{POPULATION} is \texttt{github}.
 We removed 82 \texttt{TRANSLATED} responses.
 
-\subsection{For RQ1}
-
-\begin{tabular}{lrrr}
-    \toprule
-    Column & Yes & No   & Total \\
-    \midrule
-    Women  & 27  & 77   & 104   \\
-    Men    & 435 & 2432 & 2867  \\
-    Total  & 462 & 2509 & 2971  \\
-    \bottomrule
-\end{tabular}
-
 \subsection{Unaddressed Issues}
 
 Some data quality issues could not be addressed due to collection methodology.
@@ -125,8 +122,6 @@ Some data quality issues could not be addressed due to collection methodology.
 The entire section on helping forces mutually exclusive choices and asks for most recent case where help took place instead of typical.
 All questions were optional, so ``prefer not to say'' is presumably encoded by a non-response. Certain questions also have an explicit ``prefer not to say'' response, many of these also have low response rates.
 Ages are bucketed unevenly within and different between the two age related questions.
-
-\section{Statistical Analysis}
 
 \section{Result}
 
