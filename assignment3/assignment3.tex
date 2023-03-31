@@ -1,13 +1,9 @@
-%\documentclass[journal,12pt,onecolumn,]{IEEEtran}
-\documentclass[]{IEEEtran}
-% Chris, you can put this back before we submit.
-% Seems like her students even publish single col.
-% I can't stand it though, so for now, no options.
-% Maybe we should use one of the various ACMs like the project?
-% They all somehow manage to be even uglier than IEEE though. 
-% At least the IEEE titles almost match the text... 
+\documentclass[journal,12pt,onecolumn,]{IEEEtran}
 
 \usepackage{hyperref}
+\usepackage{pgf}
+\usepackage{booktabs}
+
 
 %%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
 %%%
@@ -22,7 +18,7 @@
 
 \begin{document}
 
-\title{Critique on \\
+\title{Evaluation of 2017 Open Source Survey Results \\
 {\normalsize ECE1785: Assignment 3 - Intro Quantitative Analysis}}
 
 \author{Amos Hebb, Yilong Wang, Zhenyue Yu\\ \small University of Toronto}
@@ -31,30 +27,48 @@
 
 \section{Introduction}
 
-In this assignment, we download 2017 Open Source Survey results.
-5,500 respondents from over 3,800 repos, 500 non-random from other platforms.
-Attitudes, experiences, and backgrounds of those who use, build, and maintain open-source software.
+In this assignment, we download the \texttt{github.com} 2017 Open Source Survey results.
+5,500 respondents from over 3,800 repositories, 500 non-random from other platforms.
+Respondents provided insights into their attitudes, experiences, and backgrounds in their roles of using, building, and maintaining open-source software.
 
-\subsection{RQ1: TODO}
+\subsection{RQ1: Women Experience Unwelcoming Language}
 
-Professional-software 'frequently' vs 'rarely/never' could be a proxy for hands on keyboards vs jira jockeys. Why else are they on github if they don't write code?
-Okay got one: TRANSPARENCY-PRIVACY-BELIEFS. Hypothesis: doers are happy with anon, the MBAs want authorship.
+One of the questions asked respondents if they had experienced language or other content that made them feel unwelcome.
 
+\subsection{Motivation}
 
-EXTERNAL-EFFICACY - ``values contributions from people like me'', this feels fun, maybe see if the women hate it? (I'd shoot this down as a revealed preference problem but whatever)
+The first research question aims to shed light on the relationship between gender and the experiences of individuals on GitHub.
+By examining the relationship between gender and the likelihood of observing unwelcoming content on GitHub,
+this research can help identify potential areas for improvement in the platform's culture.
 
+\subsection{Hypotheses}
 
-INFO-AVAILABILITY,TRANSPARENCY-PRIVACY-PRACTICES-GENERAL - this one tickles my brain too. Who wants to be anon? why? I don't think this survey tells us enough to know.
+$H_0$ Gender does not play a role in the rate of experiencing unwelcoming language.
 
+$H_1$ Gender plays a role in the rate of experiencing unwelcoming language.
 
-Help sections? My (sexist?) hunch is that men are more likely to directly contact somebody for help while women may not be as comfortable doing so?
-Too bad we only have like 0.3 female responses so even if we found something it'd not mean anything.
+26\% of women and 15\% of men reported experiencing unwelcoming language.
 
-%TODO: Motivation
+Is this divergence in mean enough to show a relationship between
+
+Due to the vastly different sample sizes, it is unlikely that variance will be identicl.
+We perform Welch's unequal variances t-test.
+
+This is still a t-statistic greater than 2.5, well within the rejection region, with a p-value of 0.015, meaning that we can confidently reject the null hypothesis.
+Even though we were only able to sample a few women, the incidents of reporting unwelcoming language can not be explained by random variation.
+
+\begin{figure}
+    \centering
+    \input{womenmenlanguage.pgf}
+\end{figure}
+
 
 \subsection{RQ2: TODO}
 
 %TODO: Motivation
+\subsection{Motivation}
+
+The second research question explores the relationship between using a real name in open-source contributions and the frequency of contributing to software production at work.
 
 \section{Data Cleaning}
 
@@ -64,8 +78,7 @@ After filtering data according to these documents, we then TODO.
 
 \subsection{\textsc{README}}
 
-The \textsc{README} mostly contains Readme exploins that harassment related questions have been randomized.
-% Okay so lets try to link them up anyway >:) Yeah no way, there's nothing here for us... Honestly, this whole negative section feels like a writeoff.
+The \textsc{README} mostly contains Readme explains that harassment-related questions have been randomized.
 
 \subsection{\texttt{notes.txt}}
 
@@ -73,11 +86,20 @@ A document outlining six data quality issues ironically enumerated 1,2,2,3,4,5.
 Based on the known issues with these data, and the substantial sample remaining, we have applied the following filters guided by the notes document.
 The \texttt{NEGATIVE-WITNESS} family of columns were dropped, as they were not related to our research question.
 Dates submitted are not considered.
-We only consider rows where \texttt{TODO!!!.ANY.RESPONSE} is 0, \texttt{STATUS} is \texttt{Complete}, \texttt{POPULATION} is \texttt{github}.
+We only consider rows where \texttt{*.ANY.RESPONSE} is 0, \texttt{STATUS} is \texttt{Complete}, \texttt{POPULATION} is \texttt{github}.
 We removed 82 \texttt{TRANSLATED} responses.
-% I'm quite curious about these translated ones, but we have 3217 english, and 82 from 'traditional chinese, japanese, spanish, russian'. Curious choices, but almost certainly nothing representative to be extracted here.
 
-\subsection{TODO: At least one nifty filter we applied ourselves}
+\subsection{For RQ1}
+
+\begin{tabular}{lrrr}
+    \toprule
+    Column & Yes & No   & Total \\
+    \midrule
+    Women  & 27  & 77   & 104   \\
+    Men    & 435 & 2432 & 2867  \\
+    Total  & 462 & 2509 & 2971  \\
+    \bottomrule
+\end{tabular}
 
 \subsection{Unaddressed Issues}
 
@@ -92,7 +114,6 @@ Ages are bucketed unevenly within and different between the two age related ques
 
 \section{Result}
 
-We find a highly correlated correlate.
 
 \section{Conclusion}
 
