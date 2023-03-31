@@ -47,40 +47,60 @@ Additionally, this research may help identify areas for improvement in the platf
 
 \subsection{Hypotheses}
 
-$H_0$ Gender does not play a role in the rate of experiencing unwelcoming language.
+$H_0$: Gender does not play a role in the rate of experiencing unwelcoming language.
 
-$H_1$ Gender plays a role in the rate of experiencing unwelcoming language.
+$H_1$: Gender plays a role in the rate of experiencing unwelcoming language.
 \subsection{}
 
 \begin{tabular}{lrrr}
     \toprule
-    Column & Yes & No   & Total \\
+          & Yes & No   & Total \\
     \midrule
-    Women  & 27  & 77   & 104   \\
-    Men    & 435 & 2432 & 2867  \\
-    Total  & 462 & 2509 & 2971  \\
-    \bottomrule
+    Women & 27  & 77   & 104   \\
+    Men   & 435 & 2432 & 2867  \\
+    Total & 462 & 2509 & 2971  \\
+    \bottomrule                \\
 \end{tabular}
 
 26\% of women and 15\% of men reported experiencing unwelcoming language.
 
-Is this divergence in mean enough to show a relationship between
+We will use quantitative methods to distinguish if this divergence in means is associated with gender, or simply the result of the expected variance.
 
-Due to the vastly different sample sizes, it is unlikely that variance will be identicl.
-We perform Welch's unequal variances t-test.
+Due to the different sample sizes, it is unlikely that variance will be identical.
+This is confirmed by measuring the variance, we find women have a variance of 0.19 while men are at a lower 0.12
+This can be seen by the more squad density function in the figure below.
+Knowing that the groups have different sample sizes and different variances, we will use Welch's unequal variances t-test.
+This will allow us to learn if the observed measurement can be explained by normal variations expected in random sampling.
 
 This is still a t-statistic greater than 2.5, well within the rejection region, with a p-value of 0.015, meaning that we can confidently reject the null hypothesis.
 Even though we were only able to sample a few women, the incidents of reporting unwelcoming language can not be explained by random variation.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \input{womenmenlanguage.pgf}
 \end{figure}
 
+This figure shows the difference in means, as well as the probability density functions due to the much lower number of respondents identifying as women.
 
-\subsection{RQ2: TODO}
+\subsection{RQ2: Professionals use Real Names}
 
-\begin{table}[]
+\subsection{Motivation}
+
+The second research question explores the relationship between using a real name in open-source contributions and the frequency of contributing to software production at work.
+
+\subsection{Hypotheses}
+
+$H_0$: Frequency of professionally contributing to open source software has no impact on the use of real name online.
+
+$H_1$: Increased frequency of professionally contributing to open source software is associated with an increased likelihood of using real name online.
+
+\subsection{Data Transformation}
+
+Data are provided in the form of full sentences, but the two variables we are investigating are clearly ordinal rankings.
+By mapping both to numeric values, we will be able to apply a rank correlation method to the observations.
+This will indicate both the direction and the association between writing open-source code professionally and using a real name online.
+
+\begin{table}[h]
     \begin{tabular}{|r|r|}
         \hline
         \multicolumn{1}{|c|}{\textbf{Language}} & \multicolumn{1}{c|}{\textbf{Rank}} \\ \hline
@@ -91,16 +111,37 @@ Even though we were only able to sample a few women, the incidents of reporting 
     \end{tabular}
 \end{table}
 
-\subsection{Motivation}
+\begin{table}[h]
+    \begin{tabular}{|r|r|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Anonymity}}            & \multicolumn{1}{c|}{\textbf{Rank}} \\ \hline
+        Real name                                           & 3                                  \\ \hline
+        Consistent pseudonym easily linked real name online & 2                                  \\ \hline
+        Consistent pseudonym not linked with my real name   & 1                                  \\ \hline
+        Different usernames in different projects           & 0                                  \\ \hline
+    \end{tabular}
+\end{table}
 
-The second research question explores the relationship between using a real name in open-source contributions and the frequency of contributing to software production at work.
+\begin{table}[h]
+    \begin{tabular}{l|llll}
+               & Pro 3 & 2   & 1  & Rookie 0 \\ \hline
+        Real 3 & 888   & 132 & 61 & 35       \\
+        2      & 313   & 68  & 33 & 33       \\
+        1      & 78    & 17  & 11 & 13       \\
+        Anon 0 & 7     & 1   & 4  & 4        \\
+    \end{tabular}
+\end{table}
+
+Printing out counts of respondents between these two rankings reveals the asymmetric responses, with almost all respondents both regularly contributing to open source software professionally and using real names.
+This could explain the small Spearman's Rank correlation coefficient of 0.13, as professional status has very little to do with choice of online name.
+Initially impressed by a p-value <0.00001, when printed out as absolute numbers it is clear that these ranks are not normally distributed rendering p-value meaningless.
+
+We fail to reject the null hypothesis, these data do not support the idea that professionals are more likely to use their real names when contributing to open source.
 
 \section{Data Cleaning}
 
 Data are provided with a \textsc{README} and a \texttt{notes.txt} file.
 \textsc{README} mostly details methodolgy, while \texttt{notes.txt} summarizes known data quality issues.
-After filtering data according to these documents, we then TODO.
-
 \subsection{\textsc{README}}
 
 The \textsc{README} mostly contains Readme explains that harassment-related questions have been randomized.
@@ -116,17 +157,21 @@ We removed 82 \texttt{TRANSLATED} responses.
 
 \subsection{Unaddressed Issues}
 
-Some data quality issues could not be addressed due to collection methodology.
-\texttt{EMPLOYMENT.STATUS} is mutually exclusive, so part-time student and part-time employed is not possible.
+Some data quality issues could not be addressed due to the collection methodology.
+\texttt{EMPLOYMENT.STATUS} is mutually exclusive, so part-time student and part-time employed are not possible.
 \texttt{IMMIGRATION} does not include ``I intend to stay'' options for people living in the country where they were born.
-The entire section on helping forces mutually exclusive choices and asks for most recent case where help took place instead of typical.
+The entire section on helping forces mutually exclusive choices and asks for the most recent case where help took place instead of typical.
 All questions were optional, so ``prefer not to say'' is presumably encoded by a non-response. Certain questions also have an explicit ``prefer not to say'' response, many of these also have low response rates.
-Ages are bucketed unevenly within and different between the two age related questions.
-
-\section{Result}
-
+Ages are bucketed unevenly within and different between the two age-related questions.
 
 \section{Conclusion}
+
+After trying two different statistical techniques to try to prove two hypotheses we thought were quite obvious we only managed to reject one null hypothesis.
+It was tempting to play with numbers further, especially with the strange distributions, and we could arrive at very low p-values for unrelated columns.
+
+The data were interesting with a focus on the experiences of developers but would be even more interesting linked with other datasets.
+It was difficult to try to do much more than summary statistics as there was no way to even link participants across the two datasets.
+The limited sample size on some of the more outstanding demographics made it impossible to conclude anything significant about their behaviour.
 
 \bibliographystyle{IEEEtran}
 \bibliography{assignment3}
