@@ -1,0 +1,89 @@
+\documentclass[journal,12pt,onecolumn,]{IEEEtran}
+
+\usepackage{hyperref}
+\usepackage{pgf}
+\usepackage{booktabs}
+
+
+%%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
+%%%
+%%% Yes - ...of seventy-two''~\cite{42}.
+%%% Yes - ...of seventy-two.''\footnote{42}
+%%%
+%%% NO! - ...of seventy-two.''~\cite{42}.
+%%%
+%%% https://advice.writing.utoronto.ca/wp-content/uploads/sites/2/quotations.pdf
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Evaluation of 2017 Open Source Survey Results \\
+{\normalsize ECE1785: Assignment 4 - Experimental Design}}
+
+\author{Amos Hebb, Yilong Wang, Zhenyue Yu\\ \small University of Toronto}
+
+\maketitle
+
+\section{Introduction}
+
+In this assignment, we analyze the \texttt{github.com} 2017 Open Source Survey~\cite{gitHubOpenSourceSurvey2017},
+
+\section{Hypothesis}
+
+$H_0$: Uniquely feminine names have no impact on the rate of experiencing unwelcoming language.
+
+$H_1$: Github profiles with uniquely feminine names experience unwelcoming language at a greater frequency.
+
+\subsection{Motivation}
+
+zTODO: Based on A3, we noticed blah blah 25\% vs 15\%, also 6000 men vs 200 women, yadda yadda.
+
+
+\section{Participants}
+
+\subsection{Control Group}
+control (gets PR from 'male' dummy). Justify this by saying that 9n\% of people in the ghsurvey~\cite{gitHubOpenSourceSurvey2017} were men and therefore it is okay to treat male coded gh profiles as control.
+
+\subsection{Experimental Group}
+zTODO: Describe experimental (gets PR from 'female' dummy) vs
+
+\subsection{Recruitment}
+
+aTODO: Oh yikes, we can't get prior consent. We randomly sample from response. It's easy to recruit because we are just randomly firing out PRs. This is good because blah blah blah. This is ethical becaule blah blah blah (mention minnesota), We will not record usernames of any responses and remove any identifying language from recorded response, blah blah blah.
+Our sample size will be (Online calculator) because (our 10\% expected lift, we only want p=0.05)
+
+\section{Experimental Procedure}
+
+aTODO: fluff this up bigtime
+
+\subsection{Creating a Bank of Pull Requests} %acquiring or preparing any materials we need
+
+aTODO: include examples of documentation changes.
+
+Because the intention of this experiment is to
+
+To decide on which names are uniquely feminine, we use name frequency data calculated from %TODO:Source of names and ~\cite{censusorwhatever}
+%birth certificates of all babies born in Massachusettsbetween 1974 and 1979.
+We group these data by sex and consider distinct names to be those with the highest ratio identifying as female.
+%TODO: consider a small survey asking randos to identify a name as either "Feminine", "Masculine", "Other", "Can't Tell" as a sanity check of census reliability.
+A list of names used for this study is shown in TODO:refappendix%\ref{appendix} %as well as the results from the above survey?
+
+We randomly generate usernames, emails, and use github's provided
+
+
+\section{Analysis}
+
+cTODO: just copy the analysis from jamal paper.
+
+\section{Threats to Validity}
+
+c(a wants to rant some too)TODO: Here we rant about anon responses (who is deltron3000), ambiguous names (who is riley?), these are very trivial PRs which are not as involved, these are all new accounts with no reputation, we may be measuring a `new contributor only' effect.  Whatever, rif a bit, only worth 1 point, don't lose too much sleep here.
+
+\section{Conclusion}
+%
+
+\bibliographystyle{IEEEtran}
+\bibliography{assignment4}
+
+\end{document}
