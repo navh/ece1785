@@ -27,7 +27,7 @@
 
 \section{Introduction}
 
-In this assignment, we analyze the \textt{github.com} 2017 Open Source Survey results,
+In this assignment, we analyze the \texttt{github.com} 2017 Open Source Survey results,
 which gathered insights from over 5,500 respondents across 3,800 repositories and 500 non-random participants.
 The survey provides valuable information on attitudes, experiences, and backgrounds related to using, building,
 and maintaining open-source software. Based on these results,
@@ -39,19 +39,29 @@ RQ1: Does gender play a role in the rate of experiencing unwelcoming language?
 
 \subsection{Motivation}
 
-As part of the survey, respondents were asked if they had encountered unwelcoming language or content while using \textt{GitHub}.
+As part of the survey, respondents were asked if they had encountered unwelcoming language or content while using \texttt{GitHub}.
 Based on this question, we have formulated a research question to investigate the possible association between gender and the frequency of such experiences.
 Specifically, our research question seeks to understand whether gender has any bearing on the likelihood of encountering unwelcoming language on the platform.
-By exploring this relationship, our research can provide valuable insights into potential gender-based disparities in the experiences of individuals on GitHub.
+By exploring this relationship, our research can provide valuable insights into potential gender-based disparities in the experiences of individuals on \texttt{GitHub}.
 Additionally, this research may help identify areas for improvement in the platform's culture, particularly with respect to fostering a more inclusive and welcoming environment for all users.
 
 \subsection{Hypotheses}
+To study this question, we propose the following hypotheses.
 
 $H_0$: Gender does not play a role in the rate of experiencing unwelcoming language.
 
 $H_1$: Gender plays a role in the rate of experiencing unwelcoming language.
-\subsection{}
+\subsection{Data Cleaning and Analysis}
+During the data cleaning process, we took several steps to ensure the quality and reliability of our dataset. 
+Firstly, we removed all unfinished survey responses, as they were not suitable for analysis. 
+Next, we excluded any responses where the participant did not answer whether they had encountered unwelcoming language on GitHub or their gender. 
+We also removed responses where the participant identified their gender as ``prefer not to say'' or ``non-binary'', as these categories did not provide enough data for meaningful analysis. 
+By taking these steps, we aimed to create a clean and reliable dataset that would allow us to draw accurate conclusions about the relationship between gender and the likelihood of encountering unwelcoming language on \texttt{GitHub}.
 
+The following table presents the clean dataset obtained after the data cleaning process.
+\begin{table}[h]
+    \centering
+\caption{Clean Dataset for RQ1}
 \begin{tabular}{lrrr}
     \toprule
           & Yes & No   & Total \\
@@ -62,48 +72,60 @@ $H_1$: Gender plays a role in the rate of experiencing unwelcoming language.
     \bottomrule                \\
 \end{tabular}
 
-26\% of women and 15\% of men reported experiencing unwelcoming language.
-
-We will use quantitative methods to distinguish if this divergence in means is associated with gender, or simply the result of the expected variance.
-
-Due to the different sample sizes, it is unlikely that variance will be identical.
-This is confirmed by measuring the variance, we find women have a variance of 0.19 while men are at a lower 0.12
-This can be seen by the more squad density function in the figure below.
-Knowing that the groups have different sample sizes and different variances, we will use Welch's unequal variances t-test.
-This will allow us to learn if the observed measurement can be explained by normal variations expected in random sampling.
-
-This is still a t-statistic greater than 2.5, well within the rejection region, with a p-value of 0.015, meaning that we can confidently reject the null hypothesis.
-Even though we were only able to sample a few women, the incidents of reporting unwelcoming language can not be explained by random variation.
+\end{table}
+Our analysis of the clean dataset revealed that there is a significant difference in the frequency of experiencing unwelcoming language on \texttt{GitHub} between women (26\%) and men (15\%). 
+To determine if this divergence in means is associated with gender, we used statistical methods that take into account the expected variance. 
+However, since the sample sizes for the two groups are different, it is unlikely that the variance will be identical. Our measurement of the variance showed that women had a higher variance (0.19) compared to men (0.12), 
+which is evident from the more spread out density function in the figure below. 
+To account for these differences, we used Welch's unequal variances t-test to determine if the observed measurement can be explained by the normal variations expected in random sampling. 
+This approach allows us to assess the statistical significance of the observed differences between the two groups, and to draw conclusions about the relationship between gender and the likelihood of encountering unwelcoming language on \texttt{GitHub}.
 
 \begin{figure}[h]
     \centering
     \input{womenmenlanguage.pgf}
 \end{figure}
 
-This figure shows the difference in means, as well as the probability density functions due to the much lower number of respondents identifying as women.
-
-\subsection{RQ2: Professionals use Real Names}
-
+This figure shows probability density functions and the difference in means.
+\subsection{Brief Results}
+Upon conducting the t-test, we obtained a t-statistic greater than 2.5, which falls within the rejection region, 
+with a corresponding p-value of 0.015.
+This suggests that we can confidently reject the null hypothesis and conclude that gender is associated with the frequency of encountering unwelcoming language on \texttt{GitHub}. 
+Despite our limited sample size of women, the incidence of reporting unwelcoming language cannot be explained by random variation. 
+These findings underscore the need for continued efforts to address issues related to diversity and inclusion in the open-source community, and to promote a more welcoming and supportive environment for all users.
+\section{RQ2: Professionals use Real Names}
+RQ2: Does frequency of professionally contributing to producing software correlate with likelihood of using real name when contributing to open-source projects?
 \subsection{Motivation}
 
-The second research question explores the relationship between using a real name in open-source contributions and the frequency of contributing to software production at work.
+
+The second research question seeks to investigate the relationship between the frequency of contributing to software production at work and the tendency to use real names when contributing to open-source projects. 
+This question is of particular interest to professional software engineers, as using a real name or consistent alias can facilitate the linkage of code contributions to open-source projects with their personal brand, 
+potentially offering advantages for their career development. However, using real names may also raise concerns about personal security and privacy. 
+This research aims to shed light on how individuals manage the tension between personal safety and professional growth when contributing to open-source projects using real names. 
+By exploring the various factors that influence individuals' decisions to use real names in open-source contributions, we can gain valuable insights into the practices and norms of the open-source community and identify potential areas for improvement in the platform's culture.
 
 \subsection{Hypotheses}
+To study this question, we propose the following hypotheses.
 
-$H_0$: Frequency of professionally contributing to open source software has no impact on the use of real name online.
+$H_0$: Frequency of professionally contributing to producing software has no impact on the use of real name when contributing to open-source projects.
 
-$H_1$: Increased frequency of professionally contributing to open source software is associated with an increased likelihood of using real name online.
+$H_1$: Increased frequency of professionally contributing to producing software is associated with an increased likelihood of using real name when contributing to open-source projects.
 
-\subsection{Data Transformation}
+\subsection{Data Cleaning and Analysis}
+As with RQ1, we performed data cleaning for RQ2 by removing all unfinished survey responses. 
+In addition, we excluded responses from individuals who were not currently employed or did not provide information on the frequency of their contributions to building software at work, 
+as well as those who did not indicate their preference for using a real name or alias when contributing to open-source projects. 
+Although the responses to these questions were given in the form of full sentences, the answers we are investigating represent ordinal rankings that can be mapped to numeric values. 
+By doing so, we will be able to apply rank correlation methods to the observations, which will enable us to identify both the direction and strength of the association between writing open-source code professionally and using a real name online. 
+These findings may offer insights into the factors that influence individuals' decisions to use real names or aliases when contributing to open-source projects, and can potentially inform efforts to promote a more inclusive and supportive environment for all users
 
-Data are provided in the form of full sentences, but the two variables we are investigating are clearly ordinal rankings.
-By mapping both to numeric values, we will be able to apply a rank correlation method to the observations.
-This will indicate both the direction and the association between writing open-source code professionally and using a real name online.
+The mapping of answers to numerical values is demonstrated in the following tables.
 
 \begin{table}[h]
+    \centering
+    \caption{Value Mapping for Frequency of Profession Software Contribution}
     \begin{tabular}{|r|r|}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Language}} & \multicolumn{1}{c|}{\textbf{Rank}} \\ \hline
+        \multicolumn{1}{|c|}{\textbf{Frequency}} & \multicolumn{1}{c|}{\textbf{Rank}} \\ \hline
         Frequently                              & 3                                  \\ \hline
         Occasionally                            & 2                                  \\ \hline
         Rarely                                  & 1                                  \\ \hline
@@ -112,6 +134,8 @@ This will indicate both the direction and the association between writing open-s
 \end{table}
 
 \begin{table}[h]
+    \centering
+    \caption{Value Mapping for Online Name Choice Preference}
     \begin{tabular}{|r|r|}
         \hline
         \multicolumn{1}{|c|}{\textbf{Anonymity}}            & \multicolumn{1}{c|}{\textbf{Rank}} \\ \hline
@@ -121,57 +145,61 @@ This will indicate both the direction and the association between writing open-s
         Different usernames in different projects           & 0                                  \\ \hline
     \end{tabular}
 \end{table}
-
+The above table presents the clean dataset obtained after the data cleaning process.
 \begin{table}[h]
+    \centering
+    \caption{Clean Dataset for RQ2}
     \begin{tabular}{l|llll}
-               & Pro 3 & 2   & 1  & Rookie 0 \\ \hline
-        Real 3 & 888   & 132 & 61 & 35       \\
-        2      & 313   & 68  & 33 & 33       \\
-        1      & 78    & 17  & 11 & 13       \\
-        Anon 0 & 7     & 1   & 4  & 4        \\
+               & Frequently& Occasionally   & Rarely  & Never\\ \hline
+        Real Name & 888   & 132 & 61 & 35       \\
+        Consistent pseudonym easily linked real name online      & 313   & 68  & 33 & 33       \\
+        Consistent pseudonym not linked with my real name      & 78    & 17  & 11 & 13       \\
+        Different usernames in different projects  & 7     & 1   & 4  & 4        \\
     \end{tabular}
 \end{table}
 
-Printing out counts of respondents between these two rankings reveals the asymmetric responses, with almost all respondents both regularly contributing to open source software professionally and using real names.
-This could explain the small Spearman's Rank correlation coefficient of 0.13, as professional status has very little to do with choice of online name.
-Initially impressed by a p-value <0.00001, when printed out as absolute numbers it is clear that these ranks are not normally distributed rendering p-value meaningless.
+After performing Spearman's rank correlation on the cleaned data, we obtained a correlation coefficient of 0.13, which indicates a weak positive correlation between the frequency of contributing to building software at work and the tendency to use real names when contributing to open-source projects.
+\subsection{Brief Results}
+The table above shows the rankings for the frequency of contributing to building software professionally and the preference for using real names in open-source contributions. 
+The results reveal a high degree of symmetry, with most respondents reporting both frequent contributions to producing software professionally and a preference for using real names when contributing to open-source projects. 
+This could explain the weak Spearman's rank correlation coefficient of 0.13, as professional status may not be a significant factor in determining the choice of online name. 
+Although the initial p-value was calculated to be $<$ 0.00001, a closer examination of the absolute numbers indicates that the ranks are not normally distributed, rendering the p-value meaningless. 
+Consequently, we fail to reject the null hypothesis, which suggests that there is no significant relationship between professional status and the likelihood of using real names when contributing to open-source projects. 
+These findings may have implications for promoting diversity and inclusivity in the open-source community and for understanding the factors that influence individuals' choices of online identities.
 
-We fail to reject the null hypothesis, these data do not support the idea that professionals are more likely to use their real names when contributing to open source.
+% \section{Data Cleaning}
 
-\section{Data Cleaning}
+% Data are provided with a \textsc{README} and a \texttt{notes.txt} file.
+% \textsc{README} mostly details methodolgy, while \texttt{notes.txt} summarizes known data quality issues.
+% \subsection{\textsc{README}}
 
-Data are provided with a \textsc{README} and a \texttt{notes.txt} file.
-\textsc{README} mostly details methodolgy, while \texttt{notes.txt} summarizes known data quality issues.
-\subsection{\textsc{README}}
+% The \textsc{README} mostly contains Readme explains that harassment-related questions have been randomized.
 
-The \textsc{README} mostly contains Readme explains that harassment-related questions have been randomized.
+% \subsection{\texttt{notes.txt}}
 
-\subsection{\texttt{notes.txt}}
+% A document outlining six data quality issues ironically enumerated 1,2,2,3,4,5.
+% Based on the known issues with these data, and the substantial sample remaining, we have applied the following filters guided by the notes document.
+% The \texttt{NEGATIVE-WITNESS} family of columns were dropped, as they were not related to our research question.
+% Dates submitted are not considered.
+% We only consider rows where \texttt{*.ANY.RESPONSE} is 0, \texttt{STATUS} is \texttt{Complete}, \texttt{POPULATION} is \texttt{github}.
+% We removed 82 \texttt{TRANSLATED} responses.
 
-A document outlining six data quality issues ironically enumerated 1,2,2,3,4,5.
-Based on the known issues with these data, and the substantial sample remaining, we have applied the following filters guided by the notes document.
-The \texttt{NEGATIVE-WITNESS} family of columns were dropped, as they were not related to our research question.
-Dates submitted are not considered.
-We only consider rows where \texttt{*.ANY.RESPONSE} is 0, \texttt{STATUS} is \texttt{Complete}, \texttt{POPULATION} is \texttt{github}.
-We removed 82 \texttt{TRANSLATED} responses.
+% \subsection{Unaddressed Issues}
 
-\subsection{Unaddressed Issues}
-
-Some data quality issues could not be addressed due to the collection methodology.
-\texttt{EMPLOYMENT.STATUS} is mutually exclusive, so part-time student and part-time employed are not possible.
-\texttt{IMMIGRATION} does not include ``I intend to stay'' options for people living in the country where they were born.
-The entire section on helping forces mutually exclusive choices and asks for the most recent case where help took place instead of typical.
-All questions were optional, so ``prefer not to say'' is presumably encoded by a non-response. Certain questions also have an explicit ``prefer not to say'' response, many of these also have low response rates.
-Ages are bucketed unevenly within and different between the two age-related questions.
+% Some data quality issues could not be addressed due to the collection methodology.
+% \texttt{EMPLOYMENT.STATUS} is mutually exclusive, so part-time student and part-time employed are not possible.
+% \texttt{IMMIGRATION} does not include ``I intend to stay'' options for people living in the country where they were born.
+% The entire section on helping forces mutually exclusive choices and asks for the most recent case where help took place instead of typical.
+% All questions were optional, so ``prefer not to say'' is presumably encoded by a non-response. Certain questions also have an explicit ``prefer not to say'' response, many of these also have low response rates.
+% Ages are bucketed unevenly within and different between the two age-related questions.
 
 \section{Conclusion}
 
-After trying two different statistical techniques to try to prove two hypotheses we thought were quite obvious we only managed to reject one null hypothesis.
-It was tempting to play with numbers further, especially with the strange distributions, and we could arrive at very low p-values for unrelated columns.
-
-The data were interesting with a focus on the experiences of developers but would be even more interesting linked with other datasets.
-It was difficult to try to do much more than summary statistics as there was no way to even link participants across the two datasets.
-The limited sample size on some of the more outstanding demographics made it impossible to conclude anything significant about their behaviour.
+Our attempts to test two initially obvious hypotheses only led to the rejection of one null hypothesis, highlighting the complexity of the relationships between the variables of interest. 
+While the data provided valuable insights into the experiences of developers, it would have been even more informative if linked to other datasets. 
+Unfortunately, the limited sample sizes of some of the more notable demographic groups made it challenging to draw meaningful conclusions about their behavior. 
+Despite these challenges, the data provide a valuable starting point for future research that can build on these insights and explore the dynamics of the open-source community in greater depth. 
+By further examining the factors that influence individuals' decisions to participate in open-source projects and the impact of these activities on their professional development, we can better understand the nuances of the open-source community and promote a more inclusive and supportive environment for all users.
 
 \bibliographystyle{IEEEtran}
 \bibliography{assignment3}
