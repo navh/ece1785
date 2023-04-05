@@ -3,6 +3,7 @@
 \usepackage{hyperref}
 \usepackage{pgf}
 \usepackage{booktabs}
+\usepackage{wasysym}
 
 
 %%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
@@ -51,26 +52,83 @@ zTODO: Describe experimental (gets PR from 'female' dummy) vs
 \subsection{Recruitment}
 
 aTODO: Oh yikes, we can't get prior consent. We randomly sample from response. It's easy to recruit because we are just randomly firing out PRs. This is good because blah blah blah. This is ethical becaule blah blah blah (mention minnesota), We will not record usernames of any responses and remove any identifying language from recorded response, blah blah blah.
-Our sample size will be (Online calculator) because (our 10\% expected lift, we only want p=0.05)
 
 \section{Experimental Procedure}
 
 aTODO: fluff this up bigtime
 
-\subsection{Creating a Bank of Pull Requests} %acquiring or preparing any materials we need
+\subsection{Sample Size}
 
-aTODO: include examples of documentation changes.
+We will create 208 pull requests of equal quality, and 208 github profiles, 104 with uniquely feminine names, 104 with uniquely masculine names.
+208 is calculated based on the formula \ref{nsamples} for sample size calculation for comparing proportions~\cite{wang2007sample}.
 
-Because the intention of this experiment is to
+\begin{equation} \label{nsamples}
+    n \ge ( Z_{\alpha/2} + Z_{\beta} )^2 \times ( p_{\male} ( 1 - p_{\male} ) + p_{\female} ( 1 - p_{\female})) / ( p_{\male} - p_{\female})^2
+\end{equation}
 
-To decide on which names are uniquely feminine, we use name frequency data calculated from %TODO:Source of names and ~\cite{censusorwhatever}
-%birth certificates of all babies born in Massachusettsbetween 1974 and 1979.
-We group these data by sex and consider distinct names to be those with the highest ratio identifying as female.
-%TODO: consider a small survey asking randos to identify a name as either "Feminine", "Masculine", "Other", "Can't Tell" as a sanity check of census reliability.
-A list of names used for this study is shown in TODO:refappendix%\ref{appendix} %as well as the results from the above survey?
+For a confidence interval of 95\%, $Z_{\alpha/2} = 1.96$, for a power of 80\% $Z_{\beta} = 0.84$.
+Based on preliminary results from assignment 3, proportion of men reporting unwelcoming language $p_{\male} = 0.15$,
+while women reporting unwelcoming language $p_{\female} = 0.26$.
 
-We randomly generate usernames, emails, and use github's provided
+\begin{equation}
+    208 \ge (1.96 + 0.84)^2 \times (0.15 \times 0.85 + 0.26 \times 0.74) / (0.15 - 0.26)^2
+\end{equation}
 
+\subsection{Curating Uniquely Female Names}
+
+To decide on which names are uniquely feminine, we use first name frequency data calculated from the US Baby Names.~\cite{names}
+\citet{geiger17} show that most github users are between 18 and 44 years old.
+We group US Baby names by sex and count occurances between 1979 and 2005.
+We select the 1000 most popular names by sorting by the sum of occurances across sex.
+We calculate then sort by the ratio between male and female occurances.
+We select the 104 head rows to represent the most uniquely female popular names, the 104 tail rows to represent the most uniquely male popular names.
+
+As a sanity check, 10 names were sampled from each list and a small survey is conducted to see if random participants would identify each name as "Feminine", "Masculine", "Other", or "Can't Tell".
+The complete lists, as well as the results of this survey will be made available an appendix.
+
+Both the Feminine and Masculine name lists are shuffled using the same random seed.
+These are then paired with the 104 most common surnames from 1979 to 2005 such that every surname is given a uniquely feminine and uniquely masculine name of similar popularity.
+
+\subsection{Creating Github Profiles}
+
+The results in the GitHub Open Source Survey may have had confounding indicators of group membership which may have reduced occurances of unwelcoming language.
+To ensure we answer our research question, the github profiles must be identical other than treatment group having a uniquely feminine name.
+For our experiment, minimal new profiles will be created, and all will be opening their first commit.
+Github generated profile photo, no bio, no readme, no github page, no green squares, no badges, no pinned or starred repos.
+Usernames and emails will be full name followed by 4 random digits.
+Further customization is not needed as profiles like this are not unusual in open source.
+One example, at the time of writing the top two non-bot contributors to \url{\https://github.com/rust-lang/rust-clippy} use generated icons and `first-last' usernames with no bio or readme.
+
+\subsection{Curating Pull Requests} %acquiring or preparing any materials we need
+
+Because the intention of this experiment is to sample a broad array of communities across GitHub and create many pull requests of equal quality, pull requests must be language agnostic and fairly trivial to create and review.
+
+We are also aware of the negative impact on the open source community a University of Minnesota experiment TODO:cite involving creating pull requests has caused in the past.
+To ensure a positive impact on the open source community, all pull requests will require minimal maintainer time, being fewer than 100 insertions or deletions to a single file.
+They will not introduce security vulnerabilities, by not modifying source code at all.
+They will be useful improvements to documentation that have been explicitly solicited by the projects in question.
+All recommendations from maintainers will be implemented in a timely manner, all issues will be either merged or closed within 3 weeks of opening.
+
+We find active projects by using GitHub search to find the 750 most popular projects with an open issue containing the text "README" in any programming language, English spoken language projects.
+From this list, researchers each started looking at projects and started addressing simple issues.
+Remove secrets, sync readme with JSDocs or requirements.txt, Bump docker version, and similar type fixes.
+Researchers intentionally avoided opinionated issues, any requests asking for recommendations, emphasizing advantages, or prescribing solutions were not addressed.
+
+208 pull requests of roughly equal depth, quality, and utility were authored.
+Only after authoring were all pull requests randomly shuffled then assigned to profiles to ensure no bias is introduced while writing pull requests.
+
+\subsection{Opening 208 Pull Requests}
+
+Using the gh cli, 208 pull requests were all opened within 90 minutes of each other starting at 2pm EST on a Tuesday.
+One researcher will monitor for any comments or requests on any of the accounts, and will relay any requests, questions, or followup without profile identification to the two `blind' researchers.
+One of these two `blind' researchers will prepare revisions or respond to questions, verify with their colligue of the other gender identity that the response is neutral, before handing back to coordinator to send response from correct account.
+After 3 weeks, all unmerged issues are closed.
+
+The `merged',`maintainer-closed',`stale-closed' status of each issue, along with any text responses, are recorded.
+In response transcript, maintainer usernames are replaced with `maintainer', all contributing profiles replaced with either `feminine name' or `masculine name'.
+Actual contents of pull requests, along with uniquely identifiable responses and code snippits, are omitted.
+Researchers coded each response as either `contains unwelcoming language' or `no unwelcoming language'.
+Status, responses, and coding are all provided in an Appendix.
 
 \section{Analysis}
 
@@ -86,4 +144,7 @@ c(a wants to rant some too)TODO: Here we rant about anon responses (who is deltr
 \bibliographystyle{IEEEtran}
 \bibliography{assignment4}
 
+\end{document}
+\end{document}
+\end{document}
 \end{document}
