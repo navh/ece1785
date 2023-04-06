@@ -38,11 +38,15 @@ $H_1$: Github profiles with uniquely feminine names experience unwelcoming langu
 
 \subsection{Motivation}
 
-zTODO: Based on A3, we noticed blah blah 25\% vs 15\%, also 6000 men vs 200 women, yadda yadda.
+After conducting a quantitative analysis of the 2017 open-source survey outcomes, we discovered that female respondents reported a higher likelihood of receiving unwelcoming content compared to male respondents. However, we noted that the gender distribution of the survey sample was highly imbalanced, with only 3.5\% female respondents in our cleaned dataset, which raises concerns about the generalizability of the findings.
+
+To address this gap in the literature, we conducted a follow-up study to test the hypothesis that encountering unwelcoming language on the platform is affected by gender. Our research question is essential in addressing potential gender disparities on the platform, and its significance is amplified by the imbalanced gender distribution in the survey results. We utilized a controlled experiment design to ensure the validity and reliability of the results, and carefully selected a diverse sample of participants to ensure the generalizability of the findings.
+
+By exploring the impact of gender on the likelihood of encountering unwelcoming language on the platform, our study provides valuable insights into potential sources of gender disparities in the open-source software development community. Our findings may help inform strategies to promote diversity and inclusivity in the industry, and shed light on the broader societal issue of gender-based discrimination in technology.
 
 
 \section{Participants}
-
+In this experiment, a control group and an experimental group will be utilized to explore whether encountering unwelcoming language on the GitHub platform is affected by having a uniquely feminine name. The control group will consist of participants with a GitHub profile featuring a uniquely masculine name, while the experimental group will have a uniquely feminine name. Both groups will be identical in every other aspect, including profile information, profile picture, and pull request content. The aim of the control group is to establish an A-test for occurrence of unwelcoming language in pull request responses on GitHub. In comparison, the experimental group will enable researchers to determine whether encountering unwelcoming language is influenced by the gendered nature of the name associated with the profile. Through comparing the occurrence of unwelcoming language in pull request responses between the control and experimental groups, the experiment aims to determine whether there is a significant difference based on the gendered nature of the name.
 \subsection{Control Group}
 control (gets PR from 'male' dummy). Justify this by saying that 9n\% of people in the ghsurvey~\cite{gitHubOpenSourceSurvey2017} were men and therefore it is okay to treat male coded gh profiles as control.
 
@@ -132,12 +136,20 @@ Status, responses, and coding are all provided in an Appendix.
 
 \section{Analysis}
 
-cTODO: just copy the analysis from jamal paper.
+Our study aims to investigate whether there are gender differences in the frequency of receiving unwelcoming language in response to pull requests on GitHub. To achieve this, we will utilize a two-step coding process. Specifically, two independent researchers will first code the language used in response to each pull request as either 'contains unwelcoming language' or 'no unwelcoming language.'
+
+To ensure the accuracy and reliability of the coding process, the researchers will follow a set of pre-defined guidelines and be blinded to the gender of the requester. After independently coding the responses, the researchers will discuss their coding results and come to a consensus on whether each response contains unwelcoming language or not. Any discrepancies will be resolved through a third-party review.
+
+If a pull request does not receive any responses, it will be coded as 'no unwelcoming language.' Based on the coding results, we will calculate the ratio of unwelcoming responses received when using an account with a 'feminine' name versus a 'masculine' name. We will calculate the difference between the two ratios and test whether this difference is statistically significant using permutation tests.
+
+In addition, we will also investigate whether the acceptance status of the pull request has any impact on receiving unwelcoming language in response. Specifically, we will calculate the ratio of receiving unwelcoming responses with their corresponding acceptance status, and determine whether this impact is gender-related.
+
 
 \section{Threats to Validity}
 
 c(a wants to rant some too)TODO: Here we rant about anon responses (who is deltron3000), ambiguous names (who is riley?), these are very trivial PRs which are not as involved, these are all new accounts with no reputation, we may be measuring a `new contributor only' effect.  Whatever, rif a bit, only worth 1 point, don't lose too much sleep here.
-
+Internal validity -> coding of unwelcoming, selection? sample size may be too small
+external validity -> generalize: encountering unwelcoming language in other part of github or coding related communities
 \section{Conclusion}
 %
 
