@@ -1,7 +1,6 @@
 \documentclass[journal,12pt,onecolumn,]{IEEEtran}
 
 \usepackage{hyperref}
-\usepackage{pgf}
 \usepackage{booktabs}
 \usepackage{wasysym}
 
@@ -28,13 +27,16 @@
 
 \section{Introduction}
 
-In this assignment, we analyze the \texttt{github.com} 2017 Open Source Survey~\cite{gitHubOpenSourceSurvey2017},
+TODO: I think we should just smash-cut to the motivation section here, maybe move hypothesis below? And/or reword that to be more 'research questions' before hypos.
+In this assignment, we analyze the GitHub 2017 Open Source Survey~\cite{gitHubOpenSourceSurvey},
 
 \section{Hypothesis}
 
 $H_0$: Uniquely feminine names have no impact on the rate of experiencing unwelcoming language.
 
 $H_1$: Github profiles with uniquely feminine names experience unwelcoming language at a greater frequency.
+
+$H_2$: Github profiles with uniquely feminine names experience unwelcoming behaviour at a greater frequency.
 
 \subsection{Motivation}
 
@@ -55,15 +57,23 @@ zTODO: Describe experimental (gets PR from 'female' dummy) vs
 
 \subsection{Recruitment}
 
-aTODO: Oh yikes, we can't get prior consent. We randomly sample from response. It's easy to recruit because we are just randomly firing out PRs. This is good because blah blah blah. This is ethical becaule blah blah blah (mention minnesota), We will not record usernames of any responses and remove any identifying language from recorded response, blah blah blah.
+We intend to conduct a field experiment, so the subjects of our experiment are the maintainers who respond to pull requests opened.
+Like any field experiment, Care must be taken to ensure that there are no negative externalities from conducting our experiment.
+Lessons learned from a University of Minnesota experiment~\cite{hypocritecommits} which involved submitting pull requests will be applied to ensure appropriate consent and approval are obtained before conducting our experiment.
+
+We will avoid wasting maintainers' time by only opening useful and easy-to-review single-file and small-change pull requests.
+We avoid introducing security vulnerabilities by not making changes to the code, instead only making changes to documentation.
+We do not record the usernames of any responses and remove any identifying language from responses.
+For consent, we restrict our pull requests to projects that have explicitly solicited documentation improvements from the public.
+All recommendations and changes requests from maintainers will be implemented promptly, and all open pull requests will be closed after 3 weeks.
 
 \section{Experimental Procedure}
 
-aTODO: fluff this up bigtime
+Our experiment is a field experiment where we create many pull requests and profiles which are as similar as possible, changing only the name on the Github profiles, and recording responses.
 
 \subsection{Sample Size}
 
-We will create 208 pull requests of equal quality, and 208 github profiles, 104 with uniquely feminine names, 104 with uniquely masculine names.
+We will create 208 pull requests of equal quality, and 208 GitHub profiles, 104 with uniquely feminine names, and 104 with uniquely masculine names.
 208 is calculated based on the formula \ref{nsamples} for sample size calculation for comparing proportions~\cite{wang2007sample}.
 
 \begin{equation} \label{nsamples}
@@ -71,78 +81,78 @@ We will create 208 pull requests of equal quality, and 208 github profiles, 104 
 \end{equation}
 
 For a confidence interval of 95\%, $Z_{\alpha/2} = 1.96$, for a power of 80\% $Z_{\beta} = 0.84$.
-Based on preliminary results from assignment 3, proportion of men reporting unwelcoming language $p_{\male} = 0.15$,
+Based on preliminary results from assignment 3, the proportion of men reporting unwelcoming language $p_{\male} = 0.15$,
 while women reporting unwelcoming language $p_{\female} = 0.26$.
 
-\begin{equation}
+\begin{equation} \label{numspluggedin}
     208 \ge (1.96 + 0.84)^2 \times (0.15 \times 0.85 + 0.26 \times 0.74) / (0.15 - 0.26)^2
 \end{equation}
 
 \subsection{Curating Uniquely Female Names}
 
-To decide on which names are uniquely feminine, we use first name frequency data calculated from the US Baby Names.~\cite{names}
-\citet{geiger17} show that most github users are between 18 and 44 years old.
-We group US Baby names by sex and count occurances between 1979 and 2005.
-We select the 1000 most popular names by sorting by the sum of occurances across sex.
-We calculate then sort by the ratio between male and female occurances.
-We select the 104 head rows to represent the most uniquely female popular names, the 104 tail rows to represent the most uniquely male popular names.
+To decide on which names are uniquely feminine, we use first name frequency data calculated from the US Baby Names~\cite{names}.
+Most GitHub users are between 18 and 44 years old~\cite{geiger17}.
+We group US Baby names by sex and count occurrences between 1979 and 2005.
+We select the 1000 most popular names by sorting by the sum of occurrences across sex.
+We calculate and then sort by the ratio between male and female occurrences.
+We select the 104 head rows to represent the most uniquely female popular names, and the 104 tail rows to represent the most uniquely male popular names.
 
-As a sanity check, 10 names were sampled from each list and a small survey is conducted to see if random participants would identify each name as "Feminine", "Masculine", "Other", or "Can't Tell".
-The complete lists, as well as the results of this survey will be made available an appendix.
+As a sanity check, 10 names were sampled from each list and a small survey is conducted to see if random participants would identify each name as \textbf{Feminine}, \textbf{Masculine}, \textbf{Other}, or \textbf{Unsure}.
+The complete lists, as well as the results of this survey, will be made available as an appendix.
 
 Both the Feminine and Masculine name lists are shuffled using the same random seed.
 These are then paired with the 104 most common surnames from 1979 to 2005 such that every surname is given a uniquely feminine and uniquely masculine name of similar popularity.
 
 \subsection{Creating Github Profiles}
 
-The results in the GitHub Open Source Survey may have had confounding indicators of group membership which may have reduced occurances of unwelcoming language.
-To ensure we answer our research question, the github profiles must be identical other than treatment group having a uniquely feminine name.
+The results in the GitHub Open Source Survey may have had confounding indicators of group membership which may have reduced occurrences of unwelcoming language.
+To ensure we answer our research question, the GitHub profiles must be identical other than the treatment group having a uniquely feminine name.
 For our experiment, minimal new profiles will be created, and all will be opening their first commit.
-Github generated profile photo, no bio, no readme, no github page, no green squares, no badges, no pinned or starred repos.
-Usernames and emails will be full name followed by 4 random digits.
+Github-generated profile photo, no bio, no readme, no GitHub page, no green squares, no badges, no pinned or starred repos.
+Usernames and emails will be full names followed by 4 random digits.
 Further customization is not needed as profiles like this are not unusual in open source.
-One example, at the time of writing the top two non-bot contributors to \url{\https://github.com/rust-lang/rust-clippy} use generated icons and `first-last' usernames with no bio or readme.
+One example, at the time of writing the top two non-bot contributors to \href{https://github.com/rust-lang/rust-clippy}{\texttt{https://github.com/rust-lang/rust-clippy}} use, generated icons and `first-last' usernames with no bio or readme.
 
 \subsection{Curating Pull Requests} %acquiring or preparing any materials we need
 
-Because the intention of this experiment is to sample a broad array of communities across GitHub and create many pull requests of equal quality, pull requests must be language agnostic and fairly trivial to create and review.
+Because this experiment intends to sample a broad array of communities across GitHub and create many pull requests of equal quality, pull requests must be language agnostic and fairly trivial to create and review.
 
-We are also aware of the negative impact on the open source community a University of Minnesota experiment TODO:cite involving creating pull requests has caused in the past.
-To ensure a positive impact on the open source community, all pull requests will require minimal maintainer time, being fewer than 100 insertions or deletions to a single file.
-They will not introduce security vulnerabilities, by not modifying source code at all.
-They will be useful improvements to documentation that have been explicitly solicited by the projects in question.
-All recommendations from maintainers will be implemented in a timely manner, all issues will be either merged or closed within 3 weeks of opening.
-
-We find active projects by using GitHub search to find the 750 most popular projects with an open issue containing the text "README" in any programming language, English spoken language projects.
+We find active projects by using GitHub search to find the 750 most popular projects which have explicitly requested documentation changes by creating maintainer-opened issues containing the text "README" in any programming language, English spoken language projects.
 From this list, researchers each started looking at projects and started addressing simple issues.
 Remove secrets, sync readme with JSDocs or requirements.txt, Bump docker version, and similar type fixes.
 Researchers intentionally avoided opinionated issues, any requests asking for recommendations, emphasizing advantages, or prescribing solutions were not addressed.
 
 208 pull requests of roughly equal depth, quality, and utility were authored.
-Only after authoring were all pull requests randomly shuffled then assigned to profiles to ensure no bias is introduced while writing pull requests.
+Only after authoring were all pull requests randomly shuffled and then assigned to profiles to ensure no bias is introduced while writing pull requests.
 
 \subsection{Opening 208 Pull Requests}
 
-Using the gh cli, 208 pull requests were all opened within 90 minutes of each other starting at 2pm EST on a Tuesday.
-One researcher will monitor for any comments or requests on any of the accounts, and will relay any requests, questions, or followup without profile identification to the two `blind' researchers.
-One of these two `blind' researchers will prepare revisions or respond to questions, verify with their colligue of the other gender identity that the response is neutral, before handing back to coordinator to send response from correct account.
-After 3 weeks, all unmerged issues are closed.
+208 pull requests will be opened within 90 minutes of each other.
+One researcher will monitor for any comments or requests on any of the accounts and will relay any requests, questions, or follow-ups without profile identification to the two `blind' researchers.
+One of these two `blind' researchers will prepare revisions or respond to questions, and verify with their colleague of the other gender identity that the response is neutral, before handing back to the coordinator to send a response from the correct account.
 
-The `merged',`maintainer-closed',`stale-closed' status of each issue, along with any text responses, are recorded.
-In response transcript, maintainer usernames are replaced with `maintainer', all contributing profiles replaced with either `feminine name' or `masculine name'.
-Actual contents of pull requests, along with uniquely identifiable responses and code snippits, are omitted.
+The \textbf{merged}, \textbf{merged-after-changes}, \textbf{maintainer-closed}, or \textbf{stale-closed} status of each issue, along with any text responses, will be recorded.
+In response transcript, maintainer usernames are replaced with \textbf{maintainer}, and all contributing profiles are replaced with either \textbf{feminine name} or \textbf{masculine name}.
+Actual contents of pull requests, along with uniquely identifiable responses and code snippets, are omitted.
 Researchers coded each response as either `contains unwelcoming language' or `no unwelcoming language'.
 Status, responses, and coding are all provided in an Appendix.
 
 \section{Analysis}
 
-Our study aims to investigate whether there are gender differences in the frequency of receiving unwelcoming language in response to pull requests on GitHub. To achieve this, we will utilize a two-step coding process. Specifically, two independent researchers will first code the language used in response to each pull request as either 'contains unwelcoming language' or 'no unwelcoming language.'
+Our study aims to investigate whether there are gender differences in the frequency of receiving unwelcoming language in response to pull requests on GitHub.
+To achieve this, we will utilize a two-step coding process.
+Specifically, two independent researchers will first code the language used in response to each pull request as either \textbf{contains unwelcoming language} or \textbf{no unwelcoming language}.
 
-To ensure the accuracy and reliability of the coding process, the researchers will follow a set of pre-defined guidelines and be blinded to the gender of the requester. After independently coding the responses, the researchers will discuss their coding results and come to a consensus on whether each response contains unwelcoming language or not. Any discrepancies will be resolved through a third-party review.
+To ensure the accuracy and reliability of the coding process, the researchers will follow a set of pre-defined guidelines and be blinded to the gender of the requester.
+After independently coding the responses, the researchers will discuss their coding results and come to a consensus on whether each response contains unwelcoming language or not.
+Any discrepancies will be resolved through a third-party review.
 
-If a pull request does not receive any responses, it will be coded as 'no unwelcoming language.' Based on the coding results, we will calculate the ratio of unwelcoming responses received when using an account with a 'feminine' name versus a 'masculine' name. We will calculate the difference between the two ratios and test whether this difference is statistically significant using permutation tests.
+If a pull request does not receive any responses, it will be coded as \textbf{no unwelcoming language}.
+Based on the coding results, we will calculate the ratio of unwelcoming responses received when using an account with a `feminine' name versus a `masculine' name.
+We will calculate the difference between the two ratios and test whether this difference is statistically significant using permutation tests.
 
-In addition, we will also investigate whether the acceptance status of the pull request has any impact on receiving unwelcoming language in response. Specifically, we will calculate the ratio of receiving unwelcoming responses with their corresponding acceptance status, and determine whether this impact is gender-related.
+In addition, we will also investigate whether the acceptance status of the pull request has any impact on receiving unwelcoming language in response.
+Specifically, we will calculate the ratio of receiving unwelcoming responses with their corresponding acceptance status, and determine whether this impact is gender-related.
 
 
 \section{Threats to Validity}
@@ -150,6 +160,15 @@ In addition, we will also investigate whether the acceptance status of the pull 
 c(a wants to rant some too)TODO: Here we rant about anon responses (who is deltron3000), ambiguous names (who is riley?), these are very trivial PRs which are not as involved, these are all new accounts with no reputation, we may be measuring a `new contributor only' effect.  Whatever, rif a bit, only worth 1 point, don't lose too much sleep here.
 Internal validity -> coding of unwelcoming, selection? sample size may be too small
 external validity -> generalize: encountering unwelcoming language in other part of github or coding related communities
+
+\subsection{Internal Validity}
+
+\subsection{External Validity}
+
+Limiting ourselves to projects that have explicitly solicited changes may result in unwelcoming communities being excluded.
+The changes are trivial and do not touch code, so may not solicit the same responses to something more foundational.
+The conversations generated by opening pull requests may not represent the kinds of languages that typically result in unwelcoming language being used.
+
 \section{Conclusion}
 %
 
