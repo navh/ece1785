@@ -27,39 +27,39 @@
 
 \section{Introduction}
 
-TODO: I think we should just smash-cut to the motivation section here, maybe move hypothesis below? And/or reword that to be more 'research questions' before hypos.
-In this assignment, we analyze the GitHub 2017 Open Source Survey~\cite{gitHubOpenSourceSurvey},
+In this assignment, we design an experiment based on our previous analyses of the GitHub open-source survey. We describe the experimental hypothesis, the control and experimental groups, the participants, the procedure, and the data analysis process. 
+We also assess potential threats to the validity of the experiment. This study is inspired by Jadidi et al.~\cite{jadidi2018gender}, which investigated gender disparities in computer science, including productivity, collaborations, and success rates.
+
 
 \section{Hypothesis}
 
 $H_0$: Uniquely feminine names have no impact on the rate of experiencing unwelcoming language.
 
-$H_1$: Github profiles with uniquely feminine names experience unwelcoming language at a greater frequency.
+$H_1$: Github profiles opening pull requests with uniquely feminine names experience unwelcoming language at a greater frequency.
 
-$H_2$: Github profiles with uniquely feminine names experience unwelcoming behaviour at a greater frequency.
+%$H_2$: Github profiles with uniquely feminine names experience unwelcoming behaviour at a greater frequency.
 
 \subsection{Motivation}
 
-After conducting a quantitative analysis of the 2017 open-source survey outcomes, we discovered that female respondents reported a higher likelihood of receiving unwelcoming content compared to male respondents. However, we noted that the gender distribution of the survey sample was highly imbalanced, with only 3.5\% female respondents in our cleaned dataset, which raises concerns about the generalizability of the findings.
+After conducting a quantitative analysis of the 2017 open-source survey outcomes~\cite{gitHubOpenSourceSurvey}, we discovered that female respondents reported a higher likelihood of receiving unwelcoming content compared to male respondents. However, we noted that the gender distribution of the survey sample was highly imbalanced, with only 3.5\% female respondents in our cleaned dataset, which raises concerns about the generalizability of the findings.
 
-To address this gap in the literature, we conducted a follow-up study to test the hypothesis that encountering unwelcoming language on the platform is affected by gender. Our research question is essential in addressing potential gender disparities on the platform, and its significance is amplified by the imbalanced gender distribution in the survey results. We utilized a controlled experiment design to ensure the validity and reliability of the results, and carefully selected a diverse sample of participants to ensure the generalizability of the findings.
+To address this gap in the literature, we will conduct a follow-up study to test the hypothesis that encountering unwelcoming language on the platform is affected by gender. Our research question is essential in addressing potential gender disparities on the platform, and its significance is amplified by the imbalanced gender distribution in the survey results. We utilize a controlled experiment design to ensure the validity and reliability of the results, and carefully select a diverse sample of participants to ensure the generalizability of the findings.
 
 By exploring the impact of gender on the likelihood of encountering unwelcoming language on the platform, our study provides valuable insights into potential sources of gender disparities in the open-source software development community. Our findings may help inform strategies to promote diversity and inclusivity in the industry, and shed light on the broader societal issue of gender-based discrimination in technology.
 
 
-\section{Participants}
-In this experiment, a control group and an experimental group will be utilized to explore whether encountering unwelcoming language on the GitHub platform is affected by having a uniquely feminine name. The control group will consist of participants with a GitHub profile featuring a uniquely masculine name, while the experimental group will have a uniquely feminine name. Both groups will be identical in every other aspect, including profile information, profile picture, and pull request content. The aim of the control group is to establish an A-test for occurrence of unwelcoming language in pull request responses on GitHub. In comparison, the experimental group will enable researchers to determine whether encountering unwelcoming language is influenced by the gendered nature of the name associated with the profile. Through comparing the occurrence of unwelcoming language in pull request responses between the control and experimental groups, the experiment aims to determine whether there is a significant difference based on the gendered nature of the name.
-\subsection{Control Group}
-control (gets PR from 'male' dummy). Justify this by saying that 9n\% of people in the ghsurvey~\cite{gitHubOpenSourceSurvey2017} were men and therefore it is okay to treat male coded gh profiles as control.
+\section{Control and Experimental Groups}
+This experiment will use a control group and an experimental group to explore whether encountering unwelcoming language on GitHub is influenced by having a uniquely feminine name.  
+The control group will consist of maintainers who respond to a pull request from a profile with a \textbf{Masculine} name, while the experimental group will receive the pull request from a profile with a \textbf{Feminine} name. 
+The aim of the control group is to establish the A-test occurrence of unwelcoming language in pull request responses on GitHub. 
+In comparison, the experimental group will enable researchers to determine whether encountering unwelcoming language is influenced by the gendered nature of the name associated with the pull request profile. 
+By comparing the occurrence of unwelcoming language in pull request responses between the control and experimental groups, the experiment aims to determine whether there is a significant difference based on the gendered nature of the name.
 
-\subsection{Experimental Group}
-zTODO: Describe experimental (gets PR from 'female' dummy) vs
 
-\subsection{Recruitment}
+\section{Participants and Recruitment}
 
-We intend to conduct a field experiment, so the subjects of our experiment are the maintainers who respond to pull requests opened.
-Like any field experiment, Care must be taken to ensure that there are no negative externalities from conducting our experiment.
-Lessons learned from a University of Minnesota experiment~\cite{hypocritecommits} which involved submitting pull requests will be applied to ensure appropriate consent and approval are obtained before conducting our experiment.
+We plan to conduct a field experiment, with the subjects of our experiment being the maintainers who respond to pull requests.
+As with any field experiment, we must take care to avoid any negative externalities that may arise from our study. We will apply lessons learned from a previous experiment conducted at the University of Minnesota~\cite{hypocritecommits}, which involved submitting pull requests, to ensure that we obtain appropriate consent and approval before conducting our experiment.
 
 We will avoid wasting maintainers' time by only opening useful and easy-to-review single-file and small-change pull requests.
 We avoid introducing security vulnerabilities by not making changes to the code, instead only making changes to documentation.
@@ -73,14 +73,14 @@ Our experiment is a field experiment where we create many pull requests and prof
 
 \subsection{Sample Size}
 
-We will create 208 pull requests of equal quality, and 208 GitHub profiles, 104 with uniquely feminine names, and 104 with uniquely masculine names.
+We will create 208 pull requests of equal quality, and 208 GitHub profiles, half of which will have uniquely feminine names and the other half uniquely masculine names.
 208 is calculated based on the formula \ref{nsamples} for sample size calculation for comparing proportions~\cite{wang2007sample}.
 
 \begin{equation} \label{nsamples}
     n \ge ( Z_{\alpha/2} + Z_{\beta} )^2 \times ( p_{\male} ( 1 - p_{\male} ) + p_{\female} ( 1 - p_{\female})) / ( p_{\male} - p_{\female})^2
 \end{equation}
 
-For a confidence interval of 95\%, $Z_{\alpha/2} = 1.96$, for a power of 80\% $Z_{\beta} = 0.84$.
+For a confidence interval of 95\%, $Z_{\alpha/2} = 1.96$, and for a power of 80\%, $Z_{\beta} = 0.84$.
 Based on preliminary results from assignment 3, the proportion of men reporting unwelcoming language $p_{\male} = 0.15$,
 while women reporting unwelcoming language $p_{\female} = 0.26$.
 
@@ -88,53 +88,48 @@ while women reporting unwelcoming language $p_{\female} = 0.26$.
     208 \ge (1.96 + 0.84)^2 \times (0.15 \times 0.85 + 0.26 \times 0.74) / (0.15 - 0.26)^2
 \end{equation}
 
-\subsection{Curating Uniquely Female Names}
+\subsection{Curating Uniquely Feminine Names}
 
-To decide on which names are uniquely feminine, we use first name frequency data calculated from the US Baby Names~\cite{names}.
-Most GitHub users are between 18 and 44 years old~\cite{geiger17}.
-We group US Baby names by sex and count occurrences between 1979 and 2005.
-We select the 1000 most popular names by sorting by the sum of occurrences across sex.
-We calculate and then sort by the ratio between male and female occurrences.
-We select the 104 head rows to represent the most uniquely female popular names, and the 104 tail rows to represent the most uniquely male popular names.
+To determine which names are uniquely feminine, we will use first name frequency data from the US Baby Names database for the period between 1979 and 2005~\cite{names}, 
+as this covers the birth years of most GitHub users who are between 18 and 44 years old~\cite{geiger17}. 
+We will group US baby names by sex and counted occurrences to select the 1,000 most popular names. 
+Next, we will rank the names by the ratio of male to female occurrences and select the 104 names with the highest ratio to represent the most uniquely female popular names and the 104 names with the lowest ratio to represent the most uniquely male popular names. 
+Two researchers will verify whether each name is uniquely feminine or masculine. The complete lists and survey results will be available in an appendix.
 
-As a sanity check, 10 names were sampled from each list and a small survey is conducted to see if random participants would identify each name as \textbf{Feminine}, \textbf{Masculine}, \textbf{Other}, or \textbf{Unsure}.
-The complete lists, as well as the results of this survey, will be made available as an appendix.
-
-Both the Feminine and Masculine name lists are shuffled using the same random seed.
+Both the Feminine and Masculine name lists will be shuffled using the same random seed.
 These are then paired with the 104 most common surnames from 1979 to 2005 such that every surname is given a uniquely feminine and uniquely masculine name of similar popularity.
 
 \subsection{Creating Github Profiles}
 
-The results in the GitHub Open Source Survey may have had confounding indicators of group membership which may have reduced occurrences of unwelcoming language.
-To ensure we answer our research question, the GitHub profiles must be identical other than the treatment group having a uniquely feminine name.
-For our experiment, minimal new profiles will be created, and all will be opening their first commit.
-Github-generated profile photo, no bio, no readme, no GitHub page, no green squares, no badges, no pinned or starred repos.
-Usernames and emails will be full names followed by 4 random digits.
-Further customization is not needed as profiles like this are not unusual in open source.
-One example, at the time of writing the top two non-bot contributors to \href{https://github.com/rust-lang/rust-clippy}{\texttt{https://github.com/rust-lang/rust-clippy}} use, generated icons and `first-last' usernames with no bio or readme.
+The results of the GitHub Open Source Survey may have been affected by confounding indicators of group membership, which could have reduced the incidence of unwelcoming language. 
+To answer our research question, we must ensure that the GitHub profiles used in our experiment are identical, except for the treatment group having a uniquely feminine name. 
+We will create minimal new profiles, and all profiles will be opening their first commit. The profiles will feature a GitHub-generated profile photo, with no bio, \texttt{README.md}, 
+GitHub page, green squares, badges, or pinned or starred repositories. Usernames and emails will consist of full names followed by four random digits. 
+Further customization is unnecessary, as profiles like these are not uncommon in open source. For example, at the time of writing, the top two non-bot contributors to \href{https://github.com/rust-lang/rust-clippy}{\texttt{https://github.com/rust-lang/rust-clippy}} use generated icons and 'first-last' usernames, with no bio or \texttt{README.md}.
+
 
 \subsection{Curating Pull Requests} %acquiring or preparing any materials we need
 
 Because this experiment intends to sample a broad array of communities across GitHub and create many pull requests of equal quality, pull requests must be language agnostic and fairly trivial to create and review.
 
-We find active projects by using GitHub search to find the 750 most popular projects which have explicitly requested documentation changes by creating maintainer-opened issues containing the text "README" in any programming language, English spoken language projects.
-From this list, researchers each started looking at projects and started addressing simple issues.
-Remove secrets, sync readme with JSDocs or requirements.txt, Bump docker version, and similar type fixes.
-Researchers intentionally avoided opinionated issues, any requests asking for recommendations, emphasizing advantages, or prescribing solutions were not addressed.
+To identify active projects, we use the GitHub search function to find the 750 most popular English-spoken language projects that have explicitly requested documentation changes. 
+We will do this by searching for maintainer-opened issues that contain the text \texttt{README.md} in any programming language. 
+From this list, researchers examine each project and address simple issues such as removing secrets, syncing \texttt{README.md}  with \texttt{JSDocs} or \texttt{requirements.txt}, 
+bumping Docker version, and similar fixes. We intentionally avoid addressing opinionated issues, or any requests that ask for recommendations, emphasized advantages, or prescribe solutions.
 
-208 pull requests of roughly equal depth, quality, and utility were authored.
-Only after authoring were all pull requests randomly shuffled and then assigned to profiles to ensure no bias is introduced while writing pull requests.
+208 pull requests of roughly equal depth, quality, and utility are authored. 
+Only after authoring are all pull requests randomly shuffled and then assigned to profiles to ensure no bias is introduced while writing pull requests.
 
 \subsection{Opening 208 Pull Requests}
 
 208 pull requests will be opened within 90 minutes of each other.
-One researcher will monitor for any comments or requests on any of the accounts and will relay any requests, questions, or follow-ups without profile identification to the two `blind' researchers.
+One researcher will monitor for any comments or requests on any of the accounts and will relay any requests, questions, or follow-ups without profile identification to the two `blind' researcher colleagues.
 One of these two `blind' researchers will prepare revisions or respond to questions, and verify with their colleague of the other gender identity that the response is neutral, before handing back to the coordinator to send a response from the correct account.
 
 The \textbf{merged}, \textbf{merged-after-changes}, \textbf{maintainer-closed}, or \textbf{stale-closed} status of each issue, along with any text responses, will be recorded.
-In response transcript, maintainer usernames are replaced with \textbf{maintainer}, and all contributing profiles are replaced with either \textbf{feminine name} or \textbf{masculine name}.
-Actual contents of pull requests, along with uniquely identifiable responses and code snippets, are omitted.
-Researchers coded each response as either `contains unwelcoming language' or `no unwelcoming language'.
+In response transcript, maintainer usernames will be anonymized as \textbf{maintainer}, and all contributing profiles will be anonymized as either \textbf{feminine name} or \textbf{masculine name}.
+The actual contents of pull requests, along with uniquely identifiable responses and code snippets, will be omitted.
+Researchers code each response as either `contains unwelcoming language' or `no unwelcoming language'.
 Status, responses, and coding are all provided in an Appendix.
 
 \section{Analysis}
@@ -148,8 +143,8 @@ After independently coding the responses, the researchers will discuss their cod
 Any discrepancies will be resolved through a third-party review.
 
 If a pull request does not receive any responses, it will be coded as \textbf{no unwelcoming language}.
-Based on the coding results, we will calculate the ratio of unwelcoming responses received when using an account with a `feminine' name versus a `masculine' name.
-We will calculate the difference between the two ratios and test whether this difference is statistically significant using permutation tests.
+Based on the coding results, we will calculate the ratio of unwelcoming responses received when using an account with a feminine name versus a masculine name.
+We will calculate the difference between the two ratios and test whether this difference is statistically significant using permutation tests. Since we are using a confidence interval of 95\%, we will reject the null hypothesis if the p-value is smaller than 0.05.
 
 In addition, we will also investigate whether the acceptance status of the pull request has any impact on receiving unwelcoming language in response.
 Specifically, we will calculate the ratio of receiving unwelcoming responses with their corresponding acceptance status, and determine whether this impact is gender-related.
@@ -157,19 +152,12 @@ Specifically, we will calculate the ratio of receiving unwelcoming responses wit
 
 \section{Threats to Validity}
 
-c(a wants to rant some too)TODO: Here we rant about anon responses (who is deltron3000), ambiguous names (who is riley?), these are very trivial PRs which are not as involved, these are all new accounts with no reputation, we may be measuring a `new contributor only' effect.  Whatever, rif a bit, only worth 1 point, don't lose too much sleep here.
-Internal validity -> coding of unwelcoming, selection? sample size may be too small
-external validity -> generalize: encountering unwelcoming language in other part of github or coding related communities
-
 \subsection{Internal Validity}
-
+The study may be subject to threats to internal validity in two aspects. Firstly, the standard of coding responses to unwelcoming language as either present or absent would be mostly performed by two independent researchers, which could potentially introduce subjectivity in the coding results. Secondly, a significant part of our experiment involves constructing unique \textbf{Feminine/Masculine names}. Despite conducting a verification, the names denoted as feminine may still be interpreted as masculine by repository maintainers, and vice versa.
 \subsection{External Validity}
+The study has potential threats to external validity, which need to be acknowledged. Specifically, the research aimes to investigate if pull request responses to accounts with \textbf{Feminine names} receive more unwelcoming responses than those with \textbf{Masculine names}. However, the results may not be generalizable to other GitHub functions that involve perceiving unwelcoming language or actions in the git community. Furthermore, the study is limited to projects that have explicitly solicited changes, which could exclude unwelcoming communities. The changes requested in the study are minor and may not elicit the same responses as more foundational changes. Additionally, the conversations generated by opening pull requests may not represent the types of languages that typically result in unwelcoming language being used. Although the study provides valuable insights into the relationship between gender and the perception of unwelcoming language or actions in pull request responses, it is crucial to recognize and address these potential threats to validity.
 
-Limiting ourselves to projects that have explicitly solicited changes may result in unwelcoming communities being excluded.
-The changes are trivial and do not touch code, so may not solicit the same responses to something more foundational.
-The conversations generated by opening pull requests may not represent the kinds of languages that typically result in unwelcoming language being used.
 
-\section{Conclusion}
 %
 
 \bibliographystyle{IEEEtran}
