@@ -1,0 +1,133 @@
+%\documentclass[sigconf,authorversion,nonacm]{acmart}
+\documentclass[authorversion,nonacm]{acmart}
+\bibliographystyle{ACM-Reference-Format}
+\usepackage{hyperref}
+
+%\widowpenalties 4 0 9000 10000 10000
+
+%%%%%Prof Zhou's Rant on Citations, Punctuation, and Quotes %%%%%%
+%%%
+%%% Yes - ...of seventy-two''~\cite{42}.
+%%% Yes - ...of seventy-two.''\footnote{42}
+%%%
+%%% NO! - ...of seventy-two.''~\cite{42}.
+%%%
+%%% https://advice.writing.utoronto.ca/wp-content/uploads/sites/2/quotations.pdf
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\title[Visualizing CAD changes with Boolean Differences]
+{Visualizing CAD changes with Boolean Differences\\
+	\normalsize{Group 25 Final Report}}
+%I'd like to remove the 'group 25 report' from the title, not really sure where to put it though .
+
+\author{Amos Hebb}
+\affiliation{\institution{University of Toronto}}
+\email{a.hebb@mail.utoronto.ca}
+\author{Yilong Wang}
+\affiliation{\institution{University of Toronto}}
+\email{yilongece.wang@mail.utoronto.ca}
+\author{Zhenyue Yu}
+\affiliation{\institution{University of Toronto}}
+\email{zhenyue.yu@mail.utoronto.ca}
+
+\makeatletter
+\def\@ACM@checkaffil{% Only warnings <<<<<<<<<<<<<<<<
+	\if@ACM@instpresent\else
+		\ClassWarningNoLine{\@classname}{No institution present for an affiliation}%
+	\fi
+	\if@ACM@citypresent\else
+		\ClassWarningNoLine{\@classname}{No city present for an affiliation}%
+	\fi
+	\if@ACM@countrypresent\else
+		\ClassWarningNoLine{\@classname}{No country present for an affiliation}%
+	\fi
+}
+\makeatother
+
+\maketitle
+
+\section{Introduction}
+
+TODO:This section will include the background of our project and introduce computer-aided design (CAD), OpenSCAD, GIT and Boolean differences. In this section, we will also outline our research question and discuss the motivation behind its development.
+
+\subsection{CAD}
+
+TODO:Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
+
+\subsection{OpenSCAD}
+
+TODO:Description of OpenSCAD and \texttt{.stl} files.
+
+\subsection{GIT}
+
+TODO:Description of \texttt{git}, \texttt{git diff} tool, and \texttt{git cherry-pick} tool.
+
+\subsection{Boolean Differences}
+
+TODO:Explanation of Boolean differences visualization techniques and how visualizations of Boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
+
+\section{Literature Review}
+
+TODO:The motivating paper for this project is \citet{cheng2023age}. The author of this paper also guided us to existing tools, such as \texttt{onshape.com}, which implement similar visualizations.
+
+\subsection{Previous Work}
+
+TODO:Summarize the findings from \citet{cheng2023age}  that explores distributed teams, version control, and summarization of changes between CAD file versions.
+TODO:We will provide a concise overview of a chapter from \citet{Frazelle_2021} on version control to justify the use of \texttt{GIT}-like semantics.
+
+\subsection{Existing CAD Version Control}
+
+TODO:We will provide a summary of the concepts we will adopt from GitHub's \citet{github_blog_2013} and the implementation of the change detection solution discussed in \citet{3drepo_blog}.
+TODO:Additionally, we will outline GrabCAD's Cosmo Quiz\cite{revisions_2014}, an initiative aimed at codifying current best practices in CAD work.
+TODO:Furthermore, we will condense the information on change management and version control mechanisms from \citet{Bricogne_Rivest_Troussier_Eynard_2012}, while also highlighting the identified opportunities for improvement.
+
+\section{Methodology}
+
+TODO:Subsections will outline details of both our proposed experiments, including refinements made as a result of the feedback described in Appendix A.
+
+\subsection{Timed Cherry-Picking Experiment}
+
+TODO:We will elaborate on the experiment detailed in the initial proposal, placing emphasis on the evaluation of metrics. In addition to time, we will also incorporate accuracy as a response to the feedback received.
+
+\subsection{Summarization Experiment}
+
+TODO:We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
+
+\section{Dataset}
+
+TODO:The subsections will cover our carefully curated collection of OpenSCAD files with revisions, as well as their organization. Additionally, we will provide pre-compiled differences visualizations saved in \texttt{.stl} format for review by future researchers. These files will be sourced from the Git commit history of an open-source OpenSCAD project hosted on \texttt{github.com}, and from an open-source project on \texttt{onshape.com} with a complete modification history.
+TODO:We will also include figures that demonstrate a before, after, addition, and subtraction example for a single, straightforward object.
+
+\section{Results}
+
+TODO:In this section, we will present and discuss the results we expect to get from each experiment.
+
+\subsection{Timed Cherry-Picking Experiment}
+
+TODO:We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
+
+\subsection{Summarization Experiment}
+
+TODO:We expect to receive a diverse array of responses from the interviewees. The Boolean difference visualizations may influence the choice of words for both the experimental and control groups, even when presented with the same object and asked identical questions. A qualitative analysis of the answers will be conducted to identify any differences.
+
+\section{Discussion}
+
+TODO:We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our anticipated experiment results. Additionally, we will discuss any intriguing visual artifacts generated during the development of difference visualizations for changes to \texttt{.stl} files. We will also discuss the limits of our experiments.
+
+\section{Conclusion}
+
+TODO:We will draw conclusions from the expected results of our research. Our aim is to address the research question of whether Boolean difference visualizations effectively summarize changes between CAD file versions, based on the outcomes.
+
+\bibliography{report}
+
+%\appendix
+%\section*{APPENDIX}
+
+% \section*{Appendix C: Egg man}
+
+% \texttt{https://github.com/skalnik}
+
+\end{document}
