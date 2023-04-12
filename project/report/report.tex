@@ -1,5 +1,4 @@
 \documentclass[sigconf,authorversion,nonacm]{acmart}
-%\documentclass[authorversion,nonacm]{acmart}
 \bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
 
@@ -16,6 +15,7 @@
 %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% 8-10 pagecount.
 
 \begin{document}
 \title[Visualizing CAD changes with Boolean Differences]
@@ -88,9 +88,75 @@ TODO:Furthermore, we will condense the information on change management and vers
 
 TODO:Subsections will outline details of both our proposed experiments, including refinements made as a result of the feedback described in Appendix A.
 
+
+
+
+
 \subsection{Timed Cherry-Picking Experiment}
 
-TODO:We will elaborate on the experiment detailed in the initial proposal, placing emphasis on the evaluation of metrics. In addition to time, we will also incorporate accuracy as a response to the feedback received.
+
+\subsubsection{Participants}
+
+The participants are randomly assigned to one of two groups: the experimental group and the control group.
+
+% What about collecting years of experience? Maybe having the two groups? 
+
+Participants will be informed of the purpose of the experiment and their rights as participants.
+Only times will be recorder, with no way to link times back to individual participants.
+Participants may withdraw from the experiment at any time.
+
+\subsubsection{Task}
+
+The participants will be tasked with reversing a certain part of an object back to a previous version while keeping the rest of the object the same as the final version.
+
+Git cherry-pick is a feature of Git which allows you to apply changes made in one commit to another branch or commit.
+It is useful when you want to selectively apply a specific change or set of changes to a different branch without merging the entire branch.
+It is typically used when there are changes in a \emph{feature} branch that you want to apply to the \emph{main} branch.
+Instead of merging the entire \emph{feature} branch into \emph{main}, which would bring in all the changes in \emph{feature}, you can use Git cherrypick to apply only the specific commits that contain the change you want.
+To do this, you would first identify the commits in the \emph{feature} branch that contain the change you want to apply.
+You can then use the Git cherrypick command to apply those commits to the \emph{main} branch.
+This creates a new commit in \emph{main} that contains only the changes from the selected commit in \emph{feature}.
+
+A concrete example grounded in 3D CAD, a company produces a teapot which is described by a 3D CAD file (\emph{main} branch).
+Three changes are made to this initial file.
+First, the spout is straightened.
+Second, the handle is made bigger.
+Third, the knob on top is made bigger.
+The resulting prototype file (\emph{feature} branch) has a straight spout, bigger handle, and bigger knob.
+After prototyping, the company wishes to keep the straight spout and bigger knob, but keep the original size handle.
+
+\subsubsection{Procedure}
+
+Each group will receive a series of OpenSCAD files for the same project but in different versions.
+
+The experimental group will be provided with boolean differences between the different versions, while the control group will only have the code files.
+
+\subsubsection{Evaluation}
+
+We will measure.
+
+Accuracy will be measured by counting the number of tasks completed.
+Every task will have a canonical solution, with a certain set of commits either labeled as include or exclude.
+We will compare this canonical solution to the solution produced by each participant and count the number of incorrectly labeled commits.
+The count of incorrect label will be our accuracy count, meaning that accuracy will be an integer values where 0 is perfect.
+
+
+Time will be measured in seconds from when participants are shown the first solid.
+Participants will complete the experiment in a web interface which will log a timestamp when the first \texttt{.stl} file is opened, and another timestamp when a \emph{Done} button is clicked.
+The difference in these timestamps will be recorded as that participants time to completion.
+
+\subsubsection{Data Analysis}
+
+The first step in analyzing the data is to collect descriptive statistics for both accuracy and time.
+
+Times will be normally distributed about the mean time to complete for each group.
+A T-Test will reveal if there is a difference in completion time between the two groups.
+
+Accuracy follows a long tail distribution with most participants making 0 mistakes, some making 1, and rare very poor performing participants making many.
+Applying statisticts that are based on variance and standard deviation to accuracy scores will be impacted by single large outliers.
+We fit a poisson distribution to the accuracy scores of each group treating each mistake as a discrete event, and then compare the rate at which mistakes are made between the two groups.
+A C-Test~\cite{przyborowski1940homogeneity} is well suited for 0 included poisson distributions to see if the rate of errors has been changed by the introduction of the Boolean difference view.
+
 
 \subsection{Summarization Experiment}
 \subsubsection{Experimental and Control Groups}
