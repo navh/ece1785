@@ -1,5 +1,5 @@
-%\documentclass[sigconf,authorversion,nonacm]{acmart}
-\documentclass[authorversion,nonacm]{acmart}
+\documentclass[sigconf,authorversion,nonacm]{acmart}
+%\documentclass[authorversion,nonacm]{acmart}
 \bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
 
@@ -93,8 +93,32 @@ TODO:Subsections will outline details of both our proposed experiments, includin
 TODO:We will elaborate on the experiment detailed in the initial proposal, placing emphasis on the evaluation of metrics. In addition to time, we will also incorporate accuracy as a response to the feedback received.
 
 \subsection{Summarization Experiment}
+\subsubsection{Experimental and Control Groups}
 
-TODO:We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
+The study will use a randomized controlled design, in which participants will be assigned to either the experimental or control group by random assignment. This approach aims to eliminate confounding factors such as prior experience with 3D CAD Design or Git Diff. Assigning participants based on their experience level may introduce systematic error and relying on self-reported experience may not ensure a fair assignment. Therefore, the groups will be assigned by total random assignment.
+
+Both groups will have access to the \texttt{.stl} file and the visualization of 3D objects. The experimental group will also have access to the visualization of Boolean differences. This approach will allow for a comparison between the two groups in terms of their ability to work with the Boolean difference visualization.
+\subsubsection{Experimental Procedures}
+This summarization experiment employs semi-structured interviews to explore the impact of Boolean difference visualizations on participants' ability to identify and describe changes between two 3D CAD objects. The experiment consists of three distinct stages: preparation, inspection, and summarization, each designed to ensure a smooth and effective process.
+
+During the preparation stage, researchers take care to address participants' rights and confidentiality. They emphasize the voluntary nature of participation and confirm that participants understand the experiment's purpose and methodology. 
+To facilitate a successful experience, researchers provide a comprehensive walkthrough of the visualization platform's operation techniques. This includes demonstrating how to switch between \texttt{.stl files}, 3D object visualizations, and Boolean difference visualizations, when applicable. 
+Participants are given ample time to familiarize themselves with the platform and its features, ensuring they feel comfortable and confident before the experiment begins.
+
+In the inspection stage, participants carefully examine the two CAD objects presented to them. Researchers adopt the role of non-participant observers, maintaining a neutral presence and refraining from answering any questions related to the objects, their differences, or the locations of changes. 
+The only exception to this rule occurs when a participant encounters a technical issue with the visualization platform. 
+In such cases, researchers step in to resolve the problem and ensure the participant can continue their inspection without further difficulties.
+
+Once participants feel ready to proceed, they provide a summary of the changes they have identified between the CAD objects. Researchers carefully record their responses for future analysis. 
+Throughout this stage, participants are allowed to pause, return to the visualization platform for additional inspection, and resume their summary as needed. In cases where a participant's answer is too vague, 
+researchers may gently prompt them to refine their response and include more specific details, all while avoiding the introduction of any hints or suggestions.
+
+This experiment distinguishes itself by offering the experimental group access to visualizations of Boolean differences between the two objects, in addition to the standard .stl files and 3D object visualizations. 
+After completing the experiment, researchers ask members of the experimental group to provide feedback on how the Boolean difference visualizations impacted their summarization process. 
+\By gathering these insights, researchers aim to better understand the potential benefits and drawbacks of this visualization technique. 
+These additional responses are also recorded and analyzed alongside the main summaries, contributing to a comprehensive understanding of the experiment's outcomes.
+
+%TODO:We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
 
 \section{Dataset}
 
