@@ -61,10 +61,15 @@ TODO:This section will include the background of our project and introduce compu
 
 \subsection{CAD}
 
-TODO:Definition and significance of CAD in complex product design and development. Description of challenges associated with distributed CAD practice.
+CAD (computer-aided design) is the use of computer-based software to aid in design processes. CAD software is frequently used by different types of engineers and designers. CAD software can be used to create two-dimensional (2-D) drawings or three-dimensional (3-D) models. 
+The purpose of CAD is to optimize and streamline the designer's workflow, increase productivity, improve the quality and level of detail in the design, improve documentation communications and often contribute toward a manufacturing design database. 
+CAD software outputs come in the form of electronic files, which are then used accordingly for manufacturing processes. CAD is often used in tandem with digitized manufacturing processes. CAD/CAM (computer-aided design/computer-aided manufacturing) is software used to design products such as electronic circuit boards in computers and other devices. 
+With the faster and higher demands of new and customized products, companies need to participate in global design chains and collaborate with each other and overseas partners to gain competitive advantages. Product design, manufacturing and analysis have therefore the strong needs for various levels of collaboration in a distributed environment. 
+It is both technically and commercially imperative to develop new collaborative design tools or renovate traditional standalone CAD system by making it collaboration-native. 
 
 \subsection{OpenSCAD}
-
+3-D digital designs can be created from existing designs using OpenSCAD, which is a free and open-source script-based solid modeling program. OpenSCAD using parametric variables that automatically manipulate the entire part to enable simple modifications without the need for a deep knowledge in 3-D modeling. An OpenSCAD script specifies geometric primitives and defines how they are modified and combined to render a 3D model. 
+In this project, we used OpenSCAD to create stl files as our control group and experiment group. 
 \subsection{\texttt{.stl} files}
 
 The \texttt{.stl} file format is a representation of the surface geometry of a three-dimensional object common in both CAD and 3D art.
@@ -120,6 +125,22 @@ Only the two desired changes from `v2' are applied to `main', resulting in `main
 \subsection{Boolean Differences}
 
 TODO:Explanation of Boolean differences visualization techniques and how visualizations of Boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
+\subsection{Motivation}
+Computer-Aided Design (CAD) collaboration has been studied since the early days of CAD research, but standardized metrics and experimental procedures for synchronous, cloud-based CAD research are lacking in the literature. In this work, we lay out an empirical approach to investigate collaboration in CAD. 
+Recently, extensive research and development works have been carried out to develop prototype systems and methodologies for collaborative CAD, and software vendors have launched a number of systems in markets to take advantage of the huge business opportunities in this area. 
+As the Covid-19 pandemic spread rapidly across the globe in 2020 and 2021, CAD design collaboration became more important than ever in the industry. 
+Typical Product Data Management (PDM) issues were amplified as much of the world shifted to a remote environment. Working from different locations added another layer of difficulty to checking CAD designs in and out of PDM systems. 
+Cheng et al.~\cite{cheng2023age} identifies challenges associated with distributed Computer-Aided Design (CAD) practice. One of the challenges is a lack of change summarization support between file versions. 
+Teams currently rely on their memory or tedious Excel spreadsheets to capture changes between different versions of CAD files, which is time-consuming and prone to errors. 
+Collaborating on CAD design is essential to effective product development. Facilitating the team to work together increases checkpoints, provides unbiased feedback and reviews, and adds complementary expertise to optimize the final production part.
+\subsection{RQ}
+In this paper, we present a mixed method to answer exploratory research questions (RQ) about collaborative CAD. In particular, we are interested in the following:
+RQ: Do visualizations of Boolean differences summarize changes between CAD file versions?
+The purpose of this research is to investigate whether visualizations of Boolean differences summarize changes between CAD file versions. 
+A visualization technique inspired by git diff and 3D art workflows, Boolean differences, will be evaluated to make it easier for CAD users to identify and track changes between versions of files. 
+In 3D art, Boolean operations can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying Boolean operations help designers understand changes between versions of files. 
+This research is important because it will explore a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files. 
+It can also have implications for other domains where changes in complex files should be summarized.
 
 \section{Literature Review}
 
