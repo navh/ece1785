@@ -1,6 +1,12 @@
 \documentclass[sigconf,authorversion,nonacm]{acmart}
 \bibliographystyle{ACM-Reference-Format}
 \usepackage{hyperref}
+\usepackage{alltt}
+
+%TODO: disable folios
+\settopmatter{printfolios=true}
+
+\definecolor{ForestGreen}{RGB}{34,139,34}
 
 %\widowpenalties 4 0 9000 10000 10000
 
@@ -59,11 +65,57 @@ TODO:Definition and significance of CAD in complex product design and developmen
 
 \subsection{OpenSCAD}
 
-TODO:Description of OpenSCAD and \texttt{.stl} files.
+\subsection{\texttt{.stl} files}
 
-\subsection{GIT}
+The \texttt{.stl} file format is a representation of the surface geometry of a three-dimensional object common in both CAD and 3D art.
+These files are among the \textit{dumb solid} types described in \cite{cheng2023age}, a neutral file format interoperable between most CAD and 3D art platforms, but missing critical information for CAD practitioners.
+\texttt{.stl} files have no way to represent curves, holes, orientation, or distinguish multiple parts in an assembly.
+Providing measurements is optional in \texttt{.stl} files. CAD programs usually store this optional information about units.
+We hope this tool can be used with any CAD software.
+Most CAD programs support exporting models to \texttt{.stl} files and our visualization only relies on surface geometry, making \texttt{.stl} files appealing for producing quick summaries.
 
-TODO:Description of \texttt{git}, \texttt{git diff} tool, and \texttt{git cherry-pick} tool.
+\subsection{Git}
+
+Git is a version control system designed by the Linux kernel team to support many coders making changes to text files in a distributed and collaborative way.
+Git has become one of the most widely used version control systems and is particularly popular in open-source development projects which face similar challenges to the Linux kernel team.
+It has many powerful utilities for manipulating text files.
+While Git can handle binary files, the utilities that make it so useful for the collaborative editing of text files do not exist for the complex binary files used in 3D CAD.
+
+\texttt{git diff} is a utility that allows a user to see changes.
+These changes are represented by insertions and deletions.
+For example, running \texttt{git diff} on a branch where a punctuation mark is added to a hello world program will show unchanged lines in black, insertions in green, and deletions in red.
+
+\begin{alltt}
+	fn main ()\{
+	\textcolor{red}{   - println!("Hello World");}
+	\textcolor{ForestGreen}{   + println!("Hello World!");}
+	\}
+\end{alltt}
+
+Integrated development environments, git hosts, and other command line tools present git diff with different formatting, layout, and truncation of unchanged code.
+There is one thing that unifies every visualization of \texttt{git diff}, the red deletions and green insertions visual.
+This red and green visual is ubiquitous in code tools, it is the default presentation of a branch, merge, history, and pull request on every major git platform and every integrated development environment with git support.
+These clear visual representations of the differences between different versions of a file make it easy for developers to see what has changed and where.
+
+\texttt{git cherry-pick} is a less common git command.
+A developer checks out a target branch and then runs the \texttt{git cherry-pick} with a commit hash to apply a specific commit to the target branch.
+
+It is typically used when there are changes in a \emph{feature} branch that one wishes to apply to the \emph{target} branch.
+Instead of merging the entire \emph{feature} branch into \emph{target}, which would bring in all the changes in \emph{feature}, \texttt{git cherry-pick} is used to apply only the specific commits desired.
+To do this, a developer would first identify the commits in the \emph{feature} branch that apply the changes they wish to apply.
+The developer would \texttt{git checkout} the \emph{target} branch.
+The developer then uses \texttt{git cherry-pick} command to apply those commits to the \emph{target} branch.
+This creates a new commit in \emph{target} that contains only the changes from the selected commit in \emph{feature}.
+
+A concrete example grounded in 3D CAD.
+A company produces a teapot which is modeled in 3D CAD file saved as `main'.
+Three changes are made to this initial file.
+First, the spout is shortened.
+Second, the handle is made square.
+Third, the knob on top is made bigger.
+The resulting prototype file is saved as `v2', and has a short spout, square handle, and large knob.
+After prototyping, the company wishes to keep the short spout and large knob, but keep the original handle.
+Only the two desired changes from `v2' are applied to `main', resulting in `main2' with the desired changes.
 
 \subsection{Boolean Differences}
 
@@ -72,6 +124,32 @@ TODO:Explanation of Boolean differences visualization techniques and how visuali
 \section{Literature Review}
 
 TODO:The motivating paper for this project is \citet{cheng2023age}. The author of this paper also guided us to existing tools, such as \texttt{onshape.com}, which implement similar visualizations.
+
+\section{\texttt{onshape.com}}
+
+An existing tool, \texttt{onshape.com}, was evaluated as part of this review.
+We were able to create an account and get access to Daniel Riley's Sailboat
+%https://cad.onshape.com/documents/a8a8056c3b88f0daf9611dcb/w/221f8e757824bdfe5ba7440b/e/ee5cdb3266c7d6966d32f749
+which is a public model which shows a rich combination of \texttt{onshape.com}'s capabilities, in particular, once signed in, the `Versions and History' tab.
+This shows a branching visual, with symbols for versions, releases, and the current workspace.
+This is initially collapsed, with only versions showing, but expanding a version shows each of the modifications applied.
+These modifications are clearly automatically generated, as they are far more granular than would typically be checked into version control manually.
+For example, many trivial `Hide', `Show', and long chains of `Drag, Drag, Drag, Drag' and `Move, Move, Move, Move' where the CAD designer seems to be making minor intermediate adjustments.
+By default, no `diff' like view is shown.
+Instead, the entire document re-loads when clicking on any change.
+Right-clicking does reveal a `Compare' option, instead of just `View'.
+Many changes throw an error, for example, comparing Main `Show:Keel Mold - Daniel Riley - 1:01 PM Mar 8 2023' to one change before it, the `Move:Rollback bar - Daniel Riley - 12:18 PM Mar 8 2023' removes the render from the screen and shows the error message ``NOT COMPARABLE: Comparing Assemblies is not yet supported.''
+Selecting individual components reveals \texttt{onshape.com}'s comparison interface.
+The assembly is scattered into an unwieldy exploded view where parts overlap.
+Instead of rendering boolean differences, \texttt{onshape.com} renders a before and after visual, and allows a user to scroll a slider left to right while moving the entire exploded state around.
+Subtractions are highlighted in red, while new volumes are rendered in blue.
+Figure \ref{fig:onshapescreenshot} shows a screenshot with the slider roughly 2/3 toward the new component, showing a partially transparent blue volume, and orange-red holes being cut.
+
+\begin{figure}[t]
+	\includegraphics[width=\linewidth]{onshapescreenshot.png}
+	\caption{Example of \texttt{onshape.com} compare visual}
+	\label{fig:onshapescreenshot}
+\end{figure}
 
 \subsection{Previous Work}
 
@@ -88,75 +166,89 @@ TODO:Furthermore, we will condense the information on change management and vers
 
 TODO:Subsections will outline details of both our proposed experiments, including refinements made as a result of the feedback described in Appendix A.
 
-
-
-
-
 \subsection{Timed Cherry-Picking Experiment}
-
 
 \subsubsection{Participants}
 
 The participants are randomly assigned to one of two groups: the experimental group and the control group.
-
-% What about collecting years of experience? Maybe having the two groups? 
-
+We expect that individual participants may have different levels of experience with each of CAD tools, version control tools, and 3D Art tools.
+Recruiting participants with experience in all three will be difficult, so instead we will design our experiment assuming no prior knowledge of any of the above.
+We rely on simple random assignment to keep familiarity with the above tools similar between the two groups.
 Participants will be informed of the purpose of the experiment and their rights as participants.
-Only times will be recorder, with no way to link times back to individual participants.
-Participants may withdraw from the experiment at any time.
+Participants who wish to complete this experiment virtually will require a connection to the internet and a web browser with WebGL support.
+Participants may also complete this experiment in person using a computer provided by experimenters.
+Only completion times and accuracy scores will be recorded with no way to link times back to individual participants.
+Participants will be informed that data will be openly available in a public repository that does not issue DOIs.
+Participants may withdraw from the experiment at any time and incomplete results will be discarded.
 
 \subsubsection{Task}
 
 The participants will be tasked with reversing a certain part of an object back to a previous version while keeping the rest of the object the same as the final version.
 
-Git cherry-pick is a feature of Git which allows you to apply changes made in one commit to another branch or commit.
-It is useful when you want to selectively apply a specific change or set of changes to a different branch without merging the entire branch.
-It is typically used when there are changes in a \emph{feature} branch that you want to apply to the \emph{main} branch.
-Instead of merging the entire \emph{feature} branch into \emph{main}, which would bring in all the changes in \emph{feature}, you can use Git cherrypick to apply only the specific commits that contain the change you want.
-To do this, you would first identify the commits in the \emph{feature} branch that contain the change you want to apply.
-You can then use the Git cherrypick command to apply those commits to the \emph{main} branch.
-This creates a new commit in \emph{main} that contains only the changes from the selected commit in \emph{feature}.
+As we assume participants are not familiar with version control, CAD, or 3D art tools, we will not use any existing tools in the experiment to reduce the effect of prior exposure to any of these tools.
+Version control tools have specific commands that are not intuitive, and both CAD and 3D art tools have very complex interfaces that could distract participants.
+We instead produce a stripped-down interface which only allows participants to view files, and mark files to be included or excluded.
 
-A concrete example grounded in 3D CAD, a company produces a teapot which is described by a 3D CAD file (\emph{main} branch).
-Three changes are made to this initial file.
-First, the spout is straightened.
-Second, the handle is made bigger.
-Third, the knob on top is made bigger.
-The resulting prototype file (\emph{feature} branch) has a straight spout, bigger handle, and bigger knob.
-After prototyping, the company wishes to keep the straight spout and bigger knob, but keep the original size handle.
+%Attached are screenshots from both the control and experimental group. 
+%Figure \ref{fig:controlscreenshot} shows a screenshot of the interface that will be shown to the control group.
+The interface has two frames which will render a webGL view \texttt{.stl} renderings of our revisions.
+Participants do not need to know file formats, and instead will just refer to changes as an enumerated list of `Original, Change 1, Change 2, Change 3 refer to changes as an enumerated list `Original, Change 1, Change 2, etc.'.
+Below each of these frames is a drop-down menu allowing participants to select any of the change files.
+The task goal is displayed below these frames.
+Below the task goal is a list of changes, along with a radio button group with labels `Include' and `Exclude', which by default will not be selected.
+To complete a task, participants must select one of `Include' or `Exclude' for every change, and then press the `Submit' button.
+%Figure \ref{fig:experimentscreenshot} shows a screenshot of the interface that will be shown to the experiment group.
+The \textbf{experimental group} will have a 3rd frame.
+This 3rd frame will render the red and green \emph{diff} view produced by performing boolean operations on the two selected files.
+
 
 \subsubsection{Procedure}
 
-Each group will receive a series of OpenSCAD files for the same project but in different versions.
+Before the experiment begins, participants may complete a practice task with assistance from the experimenters as many times as they desire.
+Once participants have indicated that they understand the task, experimenters will leave participants to complete the experiment on their own.
 
-The experimental group will be provided with boolean differences between the different versions, while the control group will only have the code files.
+Only a `Begin' button will be shown.
+Once clicked, a timestamp is logged, and the first task will be presented to the participant.
+Once a participant has selected either `Include' or `Exclude' for each of the changes, the `Submit' button will be enabled.
+Once a participant clicks the `Submit' button, a second timestamp is logged, along with the `Include' or `Exclude' status of every change.
+The task is now over, and the `Begin' button will be shown for the next task.
+Once a participant has completed 5 tasks, a `Thanks for participating' screen will be shown.
 
 \subsubsection{Evaluation}
 
-We will measure.
+Accuracy will be measured by counting the number of correctly marked changes a participant has submitted to a reference solution.
+Every task will have a canonical solution, with a certain set of commits labelled as either `include' or `exclude'.
+We will compare this canonical solution to the solution produced by each participant and count the number of correctly labeled changes.
+The fraction of correct labels will be our accuracy count, meaning that accuracy will be from 0-1 where 1 is perfect.
 
-Accuracy will be measured by counting the number of tasks completed.
-Every task will have a canonical solution, with a certain set of commits either labeled as include or exclude.
-We will compare this canonical solution to the solution produced by each participant and count the number of incorrectly labeled commits.
-The count of incorrect label will be our accuracy count, meaning that accuracy will be an integer values where 0 is perfect.
-
-
-Time will be measured in seconds from when participants are shown the first solid.
-Participants will complete the experiment in a web interface which will log a timestamp when the first \texttt{.stl} file is opened, and another timestamp when a \emph{Done} button is clicked.
-The difference in these timestamps will be recorded as that participants time to completion.
+Time will be measured in seconds from when participants click the begin button until when they click the submit button.
 
 \subsubsection{Data Analysis}
 
 The first step in analyzing the data is to collect descriptive statistics for both accuracy and time.
+These descriptive statistics will be used to confirm our assumptions about the distributions of both of these data.
+We will also clean these data to remove any faulty submissions (time is impossibly fast, marked all files `Include', etc.).
+Removed rows will be marked `True' in the column \texttt{removed\_from\_analysis} for the public dataset.
 
-Times will be normally distributed about the mean time to complete for each group.
-A T-Test will reveal if there is a difference in completion time between the two groups.
+We expect times to be normally distributed about the task mean time for each task.
+A T-Test will reveal if there is a difference in completion time for the same task between the two groups.
+This test will allow us to accept or reject the following hypotheses.
 
-Accuracy follows a long tail distribution with most participants making 0 mistakes, some making 1, and rare very poor performing participants making many.
-Applying statisticts that are based on variance and standard deviation to accuracy scores will be impacted by single large outliers.
-We fit a poisson distribution to the accuracy scores of each group treating each mistake as a discrete event, and then compare the rate at which mistakes are made between the two groups.
-A C-Test~\cite{przyborowski1940homogeneity} is well suited for 0 included poisson distributions to see if the rate of errors has been changed by the introduction of the Boolean difference view.
+$H_{0}$: Access to the boolean difference view has no impact on the completion time of cherry-picking changes in 3D files.
 
+$H_{Time}$: Access to the boolean difference view reduces mean completion time of cherry-picking changes in 3D files.
+
+As the tasks are fairly obvious, we expect accuracy will follow some long tail distribution with most participants making no mistakes, some making one or two, and rare unusually poor performing participants making many.
+Applying statistics that are based on variance and standard deviation to accuracy scores will be impacted by single large outliers.
+Instead, we will fit a Poisson distribution to the accuracy scores of each group treating each mistake as a discrete event, and then compare the rate at which mistakes are made between the two groups.
+A C-Test~\cite{przyborowski1940homogeneity} is well suited for 0 included Poisson distributions to see if the rate of errors has been changed by the introduction of the Boolean difference view.
+This test will allow us to accept or reject the following hypotheses.
+
+$H_{0}$: Access to the boolean difference view has no impact on the accuracy of cherry-picking changes in 3D files.
+
+$H_{Accuracy}$: Access to the boolean difference view reduces the rate of mistakes when cherry-picking changes in 3D files.
+
+A reduction in time and mistakes will indicate that the boolean difference view helps summarize differences, as participants were able to more quickly and more accurately understand changes that had been made in 3D files when they had access to these visualizations.
 
 \subsection{Summarization Experiment}
 \subsubsection{Experimental and Control Groups}
@@ -168,17 +260,17 @@ Both groups will have access to the \texttt{.stl} file and the visualization of 
 This summarization experiment employs semi-structured interviews to explore the impact of Boolean difference visualizations on participants' ability to identify and describe changes between two 3D CAD objects. 
 The experiment consists of three distinct stages: preparation, inspection, and summarization, each designed to ensure a smooth and effective process. We anticipate the whole experiment will take 60 to 90 minutes to complete.
 
-During the preparation stage, researchers take care to address participants' rights and confidentiality. They emphasize the voluntary nature of participation and confirm that participants understand the experiment's purpose and methodology. 
-To facilitate a successful experience, researchers provide a comprehensive walkthrough of the visualization platform's operation techniques. This includes demonstrating how to switch between \texttt{.stl files}, 3D object visualizations, and Boolean difference visualizations, when applicable. 
+During the preparation stage, researchers take care to address participants' rights and confidentiality. They emphasize the voluntary nature of participation and confirm that participants understand the experiment's purpose and methodology.
+To facilitate a successful experience, researchers provide a comprehensive walkthrough of the visualization platform's operation techniques. This includes demonstrating how to switch between \texttt{.stl files}, 3D object visualizations, and Boolean difference visualizations, when applicable.
 Participants are given ample time to familiarize themselves with the platform and its features, ensuring they feel comfortable and confident before the experiment begins.
 
-In the inspection stage, participants carefully examine the two CAD objects presented to them. Researchers adopt the role of non-participant observers, maintaining a neutral presence and refraining from answering any questions related to the objects, their differences, or the locations of changes. 
-The only exception to this rule occurs when a participant encounters a technical issue with the visualization platform. 
+In the inspection stage, participants carefully examine the two CAD objects presented to them. Researchers adopt the role of non-participant observers, maintaining a neutral presence and refraining from answering any questions related to the objects, their differences, or the locations of changes.
+The only exception to this rule occurs when a participant encounters a technical issue with the visualization platform.
 In such cases, researchers step in to resolve the problem and ensure the participant can continue their inspection without further difficulties.
 
-Once participants feel ready to proceed, they provide a summary of the changes they have identified between the CAD objects. Researchers carefully record their responses for future analysis. 
-Throughout this stage, participants are allowed to pause, return to the visualization platform for additional inspection, and resume their summary as needed. In cases where a participant's answer is too vague, 
-researchers may gently prompt them to refine their response and include more specific details, all while avoiding the introduction of any hints or suggestions.
+Once participants feel ready to proceed, they provide a summary of the changes they have identified between the CAD objects. Researchers carefully record their responses for future analysis.
+Throughout this stage, participants are allowed to pause, return to the visualization platform for additional inspection, and resume their summary as needed. In cases where a participant's answer is too vague,
+researchers may gently prompt them to refine their responses and include more specific details, all while avoiding the introduction of any hints or suggestions.
 
 This experiment distinguishes itself by offering the experimental group access to visualizations of Boolean differences between the two objects, in addition to the standard .stl files and 3D object visualizations. 
 After completing the experiment, researchers ask members of the experimental group to provide feedback on how the Boolean difference visualizations impacted their summarization process. 
