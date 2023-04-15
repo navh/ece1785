@@ -432,8 +432,9 @@ By employing open coding and axial coding techniques, researchers aim to identif
 
 \section{Dataset}
 
-TODO:The subsections will cover our carefully curated collection of OpenSCAD files with revisions, as well as their organization. Additionally, we will provide pre-compiled differences visualizations saved in \texttt{.stl} format for review by future researchers. These files will be sourced from the Git commit history of an open-source OpenSCAD project hosted on \texttt{github.com}, and from an open-source project on \texttt{onshape.com} with a complete modification history.
-TODO:We will also include figures that demonstrate a before, after, addition, and subtraction example for a single, straightforward object.
+In this study, the 3D objects used will be selected from open-source repositories on GitHub, such as Original-Prusa-i3~\cite{prusa3d_2022}, Kossel~\cite{ jcrocholl_2015}, and Snappy-RepRap~\cite{revarbat_2019}. 
+These objects will be sourced from the commit history of the chosen repositories. By utilizing real-world CAD development projects, the study aims to provide valuable insights into the impact of Boolean difference visualization on summarizing changes between different versions and performing related tasks. 
+Furthermore, we will offer pre-compiled difference visualizations saved in \texttt{.stl} format for future researchers to review and build upon our findings, fostering continued exploration in this field.
 
 \section{Results}
 
@@ -470,7 +471,7 @@ This approach will not only shed light on the potential benefits and drawbacks o
 
 \section{Discussion}
 
-TODO:We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our anticipated experiment results. Additionally, we will discuss any intriguing visual artifacts generated during the development of difference visualizations for changes to \texttt{.stl} files. We will also discuss the limits of our experiments.
+
 \subsection{Threats to validity}
 An internal threat to the validity of this study lies in the participant selection process. As mentioned in the methodology section, participants will be recruited through purposive sampling.
 This approach targets individuals with specific skills or experience in CAD design, as indicated by their LinkedIn profiles. Despite the random assignment process employed to divide participants into experimental and control groups, the recruitment method may still introduce bias into the research results.
@@ -503,7 +504,15 @@ Future work could involve creating a \texttt{gofmt} for CAD to address this chal
 
 \section{Conclusion}
 
-TODO:We will draw conclusions from the expected results of our research. Our aim is to address the research question of whether Boolean difference visualizations effectively summarize changes between CAD file versions, based on the outcomes.
+In conclusion, the report underscores the difficulties in monitoring changes made to CAD files in a distributed CAD environment. 
+The paper suggests using Boolean differences to summarize differences between versions of CAD files. Moreover, the report discusses how Boolean differences can be employed to track changes visually. 
+Two experiments were conducted to test the efficacy of this approach. In the two experiments on CAD object interpretation and summarization, the use of Boolean difference visualizations was evaluated for its potential advantages as well as its drawbacks. 
+The first experiment, the Cherry-Picking Experiment, evaluated the statistical significance of the differences observed between experimental and control groups in the time and accuracy distributions. 
+By comparing the p-values obtained from both the t-test and c-test to a predetermined significance level, we could reject or accept the null hypothesis and determine the impact of the visualization methods utilized in the study on participants' performance. 
+The second experiment, the Summarization Experiment, analyzed participant responses using axial coding and triangulation before cross-referencing the outcomes with additional question and response information. 
+A comprehensive and nuanced analysis of the impact of Boolean difference visualizations on participants' ability to interpret and summarize CAD changes is presented in the findings of both experiments, pointing out best practices and recommendations for future research and application. 
+Participants were significantly better able to identify changes made to CAD files using Boolean differences as a visual aid. Our research may provide valuable insights into engineering, architecture, and manufacturing industries that rely on CAD technology. 
+They can also contribute to developing techniques and tools for visualizing differences between complex CAD files.
 
 \bibliography{report}
 
