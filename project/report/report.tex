@@ -113,13 +113,13 @@ The developer then uses \texttt{git cherry-pick} command to apply those commits 
 This creates a new commit in \emph{target} that contains only the changes from the selected commit in \emph{feature}.
 
 A concrete example grounded in 3D CAD.
-A company produces a teapot which is modeled in 3D CAD file saved as `main'.
+A company produces a teapot which is modelled in 3D CAD file saved as `main'.
 Three changes are made to this initial file.
 First, the spout is shortened.
 Second, the handle is made square.
 Third, the knob on top is made bigger.
 The resulting prototype file is saved as `v2', and has a short spout, square handle, and large knob.
-After prototyping, the company wishes to keep the short spout and large knob, but keep the original handle.
+After prototyping, the company wishes to keep the short spout and large knob but keep the original handle.
 Only the two desired changes from `v2' are applied to `main', resulting in `main2' with the desired changes.
 
 \subsection{Boolean Differences}
@@ -155,98 +155,30 @@ This paper by \citet{cheng2023age} aims to close the academic-practitioner knowl
 After interviews focusing on mechanical CAD, 14 challenges are identified.
 It paints a fairly linear history of CAD, first standalone, then distributed, and now collaborative tools have early adopters.
 It classifies these with place and time, implying that different-place and same-time collaborative tools are the future.
-Our group takes the position that different-place and same-time editing may not be the next logical step in CAD workflows.
+Our group focuses on improving the different-place and different-time editing, informed by the history of collaboration in code tools.
+Distributed code editor, standalone editors combined with a data management system like distributed CAD, have become the norm in programming.
+Tools like Git are far newer than synchronous multi-user text editors.
+The Mother of All Demos featured a collaborative real-time editor in 1968.~\cite{motherofalldemos}
+Many other real-time editors, both 3rd party and included in operating systems, have been created over the last 50 years.
+Despite this, different-place, different-time collaboration tools remain far more popular in software development.
+We work on improving distributed CAD on the assumption that distributed CAD tools will be popular with CAD practitioners for the same reasons they are popular among software developers.
 
-We suspect this, because tools like Git are far newer than different-place, same-time editing for code.
-The 1968 Mother of All Demos featured a collaborative real-time editor, and by the early 70s nearly every operating system featured some way to mount network files and make collaborative edits in real time.
-Despite the ubiquity and widespread knowledge of these tools for over 50 years, we were unable to find any examples of projects employing this design pattern.
+Some of the specific challenges we hope to address with this work are:
 
+Challenge 1, identified both in literature and interviews was inconsistency in design practices between designers.
+Nearly all respondents felt that standards were not enforced.
+The only respondent who felt this was not an issue is a CEO asserting that he had resolved this issue using onboarding documents.
+Our discussion section contains our thoughts on how a lack of standards may threaten the usefulness of our proposed solution.
 
-% % - distributed cad: standalone combined with data managemeent system, shared files.
-% % - synchronous multi-user cad (MUCAD) (different-place, same time)
-% % in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
-% % in 2021: 20\% of pros, $>$50\% hobbyists
-% % interview 20 pros.
-% % RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
-% % RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
-% % BACKGROUND
-% % Distributed vs Collaborative, Distributed needs data management tool
-% % data management tools can be [manual, partilaly-automated, fully-automated]
-% % existing probs in literature
-% % - inconsistency in design practices between designers
-% % - `some best practices, standardize cite[53,68]'
-% % - non-interoperability,
-% % - \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
-% % - distributed teams suck more
-% % - cross-discipline teams suck more
-% % - IP issues
-% % - each discipline's respective standards, best practices, jargon, and schemata
-% % - git also sucks, here are some attempts [27,34,45,88,89,100,110]
-% % - merge conflicts in git are handled smoothly? (I guess compared to CAD?)
-% % METHODS
-% % semi-structured interviews
-% % 20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
-% % 5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
-% % CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
-% % Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
-% % See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
-% % Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
-% % DATA ANALYSIS
-% % NVivo, open coding.
-% % RESULTS
-% % 4 categories, 14 challenges, sorted by pervasive
-% % Cat 4.1) Collaborative Design Challenges and Strategies
-% % C-1) Absent or varied modelling conventions across collaborators
-% % - manually changing coordinate systems
-% % - design tolerancing standards different in different teams
-% % - mechanical/electrical engineering follow different conventions
-% % - designers fail to follow standards
-% % S-1) Imposing standards and best practices for modelling
-% % Author notes nobody other than ID10 has ever seen this work.
-% % (ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
-% % (amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
-% % C-2) Infrequent Model Uploads
-% % Checks out, doesn't upload, particularly difficult with big assemblies
-% % No strategy.
-% % (amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
-% % C-3) Lack of designer awareness of model dependencies
-% % Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta.
-% % No strategy.
-% % C-4) Lack of awareness of collaborators' model changes
-% % Bad pull discipline. Merge conflicts.
-% % C-5) No Synchronous editing
-% % 0/20 use `3rd gen' cad tools with this ability.
-% % S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
-% % (amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
-% % Cat 4.2) Synchronous communication challenges
-% % C-6) Cumbersome presentation of CAD models in synchronous work settings
-% % Design review meetings are awful. Clients make them worse.
-% % C-7) no back-of-the-envelope CAD
-% % Cat 4.3) Data Management Challenges and Strategies
-% % C-8) Lack of interoperability
-% % Different software, even different versions, incompatible. Mech/EE problems x10.
-% % S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
-% % (amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
-% % S-4) Simplify CAD models. EE people toss rectangles into mech builds.
-% % (amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
-% % C-9) Lack of change summarization support between file versions
-% % Excel spradsheets, tedious.
-% % C-10) Lack of version control for non-PLM users
-% % check-in/check-out function more like locks on files(!?)
-% % S-5) Just use PLM.
-% % C-11) Poor CAD file organization
-% % S-6) Use standard part libraries
-% % (amos-thinks: This whole para sounds like dependency management strikes again.)
-% % C-12) Poor traceability of scattered file management
-% % \textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
-% % S-7) Using integrated digital markup tools
-% % (amos-thinks: Yes, this feels solved, just tools suck.)
-% % Cat 4.4) Permissioning Challenges
-% % C-13) Cumbersome stakeholder access to CAD files.
-% % External collaborators locked out, fragmentation.
-% % (amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
-% % C-14) Lack of stakeholder access to CAD software.
-% % Basically the same thing, but with added SolidWorks vs NXCAD spice
+Challenge 4, Lack of awareness of collaborators' changes.
+We hope that by being able to quickly produce diff views, much like in code, when somebody wishes to understand changes made they can quickly analyze these and understand changes made.
+
+Challenge 8, Lack of interoperability is identified as an issue, something we hope to avoid this issue by proposing a solution relying only on \emph{dumb solids}.
+
+\textbf{Challenge 9, Lack of change summarization support between file versions.}
+This is the primary motivating challenge for our project.
+Currently, the state of summarization seems to be primarily nothing, with a select few shops using infrequent, stale, or tedious text-based summaries stored in \texttt{.xlsx} files.
+We hope that by proposing a visualization that can quickly produce summaries at no cost to the existing workflow, boolean difference visualizations may be adopted to help summarize changes.
 
 \subsection{\texttt{onshape.com}}
 
@@ -276,7 +208,6 @@ Figure \ref{fig:onshapescreenshot} shows a screenshot with the slider roughly 2/
 
 \subsection{Previous Work}
 
-TODO:Summarize the findings from \citet{cheng2023age}  that explores distributed teams, version control, and summarization of changes between CAD file versions.
 TODO:We will provide a concise overview of a chapter from \citet{Frazelle_2021} on version control to justify the use of \texttt{GIT}-like semantics.
 
 \subsection{Existing CAD Version Control}
@@ -451,6 +382,7 @@ TODO:In this section, we will present and discuss the results we expect to get f
 TODO:We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
 
 \subsection{Summarization Experiment}
+% % TODO: use the words "open coding."
 
 The results of the axial coding will be presented in the form of a frequency table, which will offer a systematic and organized representation of the identified codes and their occurrences.
 By analyzing these frequencies, researchers will be able to identify the key themes or categories that have emerged from the participants' responses, providing a deeper understanding of their perspectives and experiences.
@@ -482,6 +414,21 @@ In such scenarios, Boolean difference visualization might even make it more chal
 
 To address these threats and enhance the validity of the research, researchers should be aware of the potential biases introduced by the purposive sampling and instrumentation methods.
 They should also consider the limitations of the study in terms of generalizability and carefully interpret the results within the context of the specific changes examined in the experiment.
+
+\subsection{Conflicting Challenges}
+
+A lack of standardization could render boolean difference views useless.
+In particular, changing only the axis of a model and making no other changes would result in a large boolean difference.
+This problem exists with \texttt{git diff} as well.
+Some programmers prefer spaces, others prefer tabs.
+This change in whitespace can be done by a code formatting tool and will result in an unusably noisy \texttt{git diff} output despite no actual changes to code being made.
+`Z-axis up' vs `Y-axis up' is an equally trivial change which could cause significant noise in a boolean difference view.
+
+Git diff does not solve this, instead, a different category of programs has been invented to enforce formatting.
+Many projects using pre-git programming languages enforce pre-commit formatters like C++'s ClangFmt, Python's Black, or JavaScript's Prettier.
+Languages invented after git often have a formatter included in the standard toolchain, like Rust's \texttt{cargo fmt}.
+Golang takes this to the extreme and fails to compile if not formatted~\cite{golangfaq} identically to the output of \texttt{gofmt}.
+Future work could involve creating a \texttt{gofmt} for CAD to address this challenge.
 
 \section{Conclusion}
 
