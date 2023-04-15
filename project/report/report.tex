@@ -272,6 +272,13 @@ Due to how concise and readable the code implementing the \texttt{.stl} viewer i
 
 In \citet{Dobos}, previous work recording and replaying actions made in an editor is first summarized.
 It mentions 3D Sys's 3D-Diff, a Visual Basic add-on to Catia, which highlights structural differences in CAD models.
+This paper focuses on merging tools more than the actuall presentation of the diff.
+They perform 2-way and 3-way differencing and merging, compare them, identify differences, and then identify various categories of changes.
+Our work only considers the 2-way merge case, where the state can only be one of `Unmodified',`Added', or `Deleted'.
+The 3-way case considers multiple different types of deletions and modifications, and well as conflicts.
+The visualizations in this work are busy, described as `Overlay' and `Smart', without describing what these visuals represent.
+The `Smart' visualization describes using a common ancestor to resolve ambiguities.
+It does not appear that this tool is intended for quick summaries of small parts, but instead for comparing large assemblies with major changes.
 
 \section{Methodology}
 
