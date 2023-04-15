@@ -57,23 +57,68 @@
 
 \section{Introduction}
 
-TODO:This section will include the background of our project and introduce computer-aided design (CAD), OpenSCAD, GIT and Boolean differences. In this section, we will also outline our research question and discuss the motivation behind its development.
+In today's fast-paced and complex digital world, Computer-Aided Design (CAD) has become an indispensable tool in various industries, including engineering, architecture, and manufacturing. 
+However, with the increasing use of distributed CAD practices, new challenges have emerged in tracking changes made to CAD files. 
+To address this issue, our report explores the challenges associated with distributed Computer-Aided Design (CAD) practice and investigates whether visualizations of Boolean differences can summarize changes between CAD file versions. 
+Our report proposes two experiments to test the effectiveness of Boolean differences in summarizing changes. The first experiment involves timed cherry-picking tasks where participants are divided into two groups, one with access to Boolean differences between CAD file versions and the other without. 
+The second experiment involves summarization tasks where participants are again divided into two groups, one with access to Boolean differences and the other without. 
+Our report highlights the importance of this research in providing a faster and more accurate alternative to the current methods used to capture CAD file changes, as well as contributing to the development of techniques and tools for visualizing differences between complex files. Our report also acknowledges the challenges associated with the lack of standardization and the difficulty in interpreting visual differences from Boolean differences for some types of changes. 
+Finally, our report predicts that Boolean differences will facilitate the reversing process significantly in the cherry-picking experiment and help users better summarize changes in the summarization experiment.
 
+\subsection{Motivation}
+Computer-Aided Design (CAD) collaboration has been studied since the early days of CAD research, but standardized metrics and experimental procedures for synchronous, collaborative CAD research are lacking in the literature. In order to keep up with the increasingly rapid pace of innovation and consumer demand for customization, businesses must engage in global design chains and work collaboratively with partners both locally and overseas. 
+This type of collaboration allows companies to gain a competitive edge by leveraging the strengths and expertise of different team members and partners in diverse locations. 
+As the world becomes more interconnected, the ability to collaborate effectively across distances and cultural barriers becomes increasingly important for companies seeking to succeed in today's fast-paced marketplace~\cite{fuh2005advances}. 
+In modern product design, manufacturing, and analysis, there is a growing need for collaboration in distributed environments. This collaboration is essential both technically and commercially, and it is critical to develop new collaborative design tools or update traditional standalone CAD systems to become collaboration native. 
+With the increasing complexity of products, it is necessary to involve a team of experts with different specializations, and collaboration tools can facilitate communication, increase productivity, and reduce errors~\cite{fuh2005advances}. 
+
+Additionally, as the Covid-19 pandemic spread rapidly across the globe in 2020 and 2021, CAD design collaboration became more important than ever in the industry. 
+With team members working from various locations, the process of checking CAD designs in and out of production data management systems has become more complex. 
+This has further amplified the typical issues that arise with production data management, such as version control and collaboration, making it even more critical to develop effective strategies for managing CAD files remotely. 
+As a result, there is a growing need for innovative solutions that can help teams efficiently manage their design files and collaborate effectively, regardless of their location~\cite{armstrong}. 
+Our motivating paper is from Cheng et al.~\cite{cheng2023age} which identifies challenges associated with distributed Computer-Aided Design (CAD) practice. One of the challenges is a lack of change summarization support between file versions. 
+Teams currently rely on their memory or tedious Excel spreadsheets to capture changes between different versions of CAD files, which is time-consuming and prone to errors. Collaborating on CAD design is essential to effective product development. 
+Facilitating the team to work together increases checkpoints, provides unbiased feedback and reviews, and adds complementary expertise to optimize the final production part. 
+\subsection{Research Question}
+In this report, we present a mixed method to answer exploratory research questions (RQ) about collaborative CAD. 
+We have a particular interest in determining whether visual representations of Boolean differences can effectively summarize the modifications between various versions of a CAD file. 
+To figure this out, we study the following questions:
+
+\textbf{RQ1: Does Boolean difference visualization help people understand the variations between different versions of CAD files?}
+
+\textbf{RQ2: Does Boolean difference visualization impact people's ability to interpret and summarize changes between different CAD files?}
+
+The main objective of this research is to evaluate whether Boolean differences can effectively summarize changes between Computer-Aided Design (CAD) file versions. 
+Boolean differences are a visualization technique inspired by git diff and 3D art workflows that can be applied to 3D solids to create new solids. 
+By investigating whether these new solids can help designers understand changes between versions of CAD files, this research aims to provide a faster and more accurate alternative to the current methods used to capture CAD file changes. 
+Moreover, this study aims to contribute to the development of techniques and tools for visualizing differences between complex files, which can have implications for other domains where changes in complex files should be summarized. 
+The importance of this research lies in the fact that it can help CAD users identify and track changes between versions of files more efficiently. 
+This, in turn, can lead to faster and more accurate design iterations, ultimately resulting in better-designed products. 
+Additionally, this research can help advance the field of visualization by developing new techniques and tools for visualizing differences between complex files. 
+Such tools can be useful in various domains, including engineering, architecture, and graphic design. 
 \subsection{CAD}
 
-CAD (computer-aided design) is the use of computer-based software to aid in design processes. CAD software is frequently used by different types of engineers and designers. CAD software can be used to create two-dimensional (2-D) drawings or three-dimensional (3-D) models.
-The purpose of CAD is to optimize and streamline the designer's workflow, increase productivity, improve the quality and level of detail in the design, improve documentation communications and often contribute toward a manufacturing design database.
-CAD software outputs come in the form of electronic files, which are then used accordingly for manufacturing processes. CAD is often used in tandem with digitized manufacturing processes. CAD/CAM (computer-aided design/computer-aided manufacturing) is software used to design products such as electronic circuit boards in computers and other devices.
-With the faster and higher demands of new and customized products, companies need to participate in global design chains and collaborate with each other and overseas partners to gain competitive advantages. Product design, manufacturing and analysis have therefore the strong needs for various levels of collaboration in a distributed environment.
-It is both technically and commercially imperative to develop new collaborative design tools or renovate traditional standalone CAD system by making it collaboration-native.
+CAD or computer-aided design refers to the use of computer software to create, modify, and optimize design processes. 
+It has revolutionized the way engineers and designers work by simplifying the design process and increasing the accuracy and precision of designs. 
+CAD software can create both 2D drawings and 3D models, enabling designers to create complex designs with ease. The use of CAD can help streamline the designer's workflow, leading to increased productivity and faster turnaround times. 
+Additionally, CAD can improve the quality and level of detail in the design, making it easier to communicate with stakeholders, clients, and manufacturers. 
+It can also contribute to a manufacturing design database, allowing for the creation of future designs that can be built upon existing ones. 
+CAD software is utilized to create electronic files that are then utilized for various manufacturing procedures. 
+CAD is typically utilized together with digital production techniques. CAD/CAM software is utilized to develop items such as electronic circuit boards for use in computers and other devices. 
+These software tools allow for more precise designs, faster manufacturing processes, and increased efficiency in the production of products. 
+By streamlining the design and manufacturing process, CAD software has become an essential tool for many industries, including architecture, engineering, and product design~\cite{chai_2020}. 
 
 \subsection{OpenSCAD}
-3-D digital designs can be created from existing designs using OpenSCAD, which is a free and open-source script-based solid modeling program. OpenSCAD using parametric variables that automatically manipulate the entire part to enable simple modifications without the need for a deep knowledge in 3-D modeling. An OpenSCAD script specifies geometric primitives and defines how they are modified and combined to render a 3D model.
-In this project, we used OpenSCAD to create stl files as our control group and experiment group.
+OpenSCAD is a software program for solid modeling that is script-based, free, and open-source. 
+With OpenSCAD, 3D digital designs can be created easily and quickly by manipulating parametric variables that automatically adjust the entire part. 
+This feature of OpenSCAD enables even those without extensive knowledge in 3D modeling to make simple modifications to existing designs. 
+By using OpenSCAD, designers can save time and effort while producing accurate and detailed 3D designs~\cite{pearce2015applications}. 
+The OpenSCAD program is used to create 3D models by defining geometric primitives and then modifying and combining them according to user-defined parameters. 
+In this project, we chose to use OpenSCAD to create STL files for our dataset. By using OpenSCAD in this way, we were able to accurately compare the performance of different 3D printing methods and evaluate the effectiveness of their proposed techniques.
 \subsection{\texttt{.stl} files}
 
 The \texttt{.stl} file format is a representation of the surface geometry of a three-dimensional object common in both CAD and 3D art.
-These files are among the \textit{dumb solid} types described in \citet{cheng2023age}, a neutral file format interoperable between most CAD and 3D art platforms, but missing critical information for CAD practitioners.
+These files are among the \textit{dumb solid} types described in~\cite{cheng2023age}, a neutral file format interoperable between most CAD and 3D art platforms, but missing critical information for CAD practitioners.
 \texttt{.stl} files have no way to represent curves, holes, orientation, or distinguish multiple parts in an assembly.
 Providing measurements is optional in \texttt{.stl} files. CAD programs usually store this optional information about units.
 We hope this tool can be used with any CAD software.
@@ -124,34 +169,23 @@ Only the two desired changes from `v2' are applied to `main', resulting in `main
 
 \subsection{Boolean Differences}
 
-TODO:Explanation of Boolean differences visualization techniques and how visualizations of Boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
-\subsection{Motivation}
-Computer-Aided Design (CAD) collaboration has been studied since the early days of CAD research, but standardized metrics and experimental procedures for synchronous, cloud-based CAD research are lacking in the literature. In this work, we lay out an empirical approach to investigate collaboration in CAD.
-Recently, extensive research and development works have been carried out to develop prototype systems and methodologies for collaborative CAD, and software vendors have launched a number of systems in markets to take advantage of the huge business opportunities in this area.
-As the Covid-19 pandemic spread rapidly across the globe in 2020 and 2021, CAD design collaboration became more important than ever in the industry.
-Typical Product Data Management (PDM) issues were amplified as much of the world shifted to a remote environment. Working from different locations added another layer of difficulty to checking CAD designs in and out of PDM systems.
-\citet{cheng2023age} identifies challenges associated with distributed Computer-Aided Design (CAD) practice. One of the challenges is a lack of change summarization support between file versions.
-Teams currently rely on their memory or tedious Excel spreadsheets to capture changes between different versions of CAD files, which is time-consuming and prone to errors.
-Collaborating on CAD design is essential to effective product development. Facilitating the team to work together increases checkpoints, provides unbiased feedback and reviews, and adds complementary expertise to optimize the final production part.
-\subsection{RQ}
-In this paper, we present a mixed method to answer exploratory research questions (RQ) about collaborative CAD. In particular, we are interested in the following:
-RQ: Do visualizations of Boolean differences summarize changes between CAD file versions?
-The purpose of this research is to investigate whether visualizations of Boolean differences summarize changes between CAD file versions.
-A visualization technique inspired by git diff and 3D art workflows, Boolean differences, will be evaluated to make it easier for CAD users to identify and track changes between versions of files.
-In 3D art, Boolean operations can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying Boolean operations help designers understand changes between versions of files.
-This research is important because it will explore a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files.
-It can also have implications for other domains where changes in complex files should be summarized.
+The use of Boolean operations, such as intersection, union, and difference, is vital in CAD/CAM systems. 
+They help create complex geometric structures from simple building blocks, analyze spatial phenomena like interference, and model manufacturing processes such as machining. 
+In order for these operations to be applied effectively in a CAD/CAM system, algorithms must be able to produce representations of geometric entities that are also closed under these operations. 
+This ensures that the output from applying Boolean operations can also be used as input for subsequent operations. 
+Therefore, it is crucial that the domain of a CAD/CAM system be algebraically closed under these operations~\cite{tilove1980closure}. 
+
 
 \section{Literature Review}
 
-The motivating paper for this project is \citet{cheng2023age}.
+The motivating paper for this project is~\citet{cheng2023age}.
 We focus specifically on the sections about tooling for version control.
 This also identified some existing tools, such as \texttt{onshape.com}, and \texttt{github.com}'s now deprecated \texttt{.stl} diff visualization, which attempt to summarize changes with similar visualizations.
 We have reviewed this work and evaluated these tools ourselves.
 
 \subsection{Computer-Aided Design Ecosystem is Behind}
 
-This paper by \citet{cheng2023age} aims to close the academic-practitioner knowledge gap on the state of collaboration with CAD workflows.
+This paper by~\citet{cheng2023age} aims to close the academic-practitioner knowledge gap on the state of collaboration with CAD workflows.
 After interviews focusing on mechanical CAD, 14 challenges are identified.
 It paints a fairly linear history of CAD, first standalone, then distributed, and now collaborative tools have early adopters.
 It classifies these with place and time, implying that different-place and same-time collaborative tools are the future.
@@ -208,13 +242,13 @@ Figure \ref{fig:onshapescreenshot} shows a screenshot with the slider roughly 2/
 
 \subsection{Previous Work}
 
-TODO:We will provide a concise overview of a chapter from \citet{Frazelle_2021} on version control to justify the use of \texttt{GIT}-like semantics.
+TODO:We will provide a concise overview of a chapter from~\cite{Frazelle_2021} on version control to justify the use of \texttt{GIT}-like semantics.
 
 \subsection{Existing CAD Version Control}
 
-TODO:We will provide a summary of the concepts we will adopt from GitHub's \citet{github_blog_2013} and the implementation of the change detection solution discussed in \citet{3drepo_blog}.
-TODO:Additionally, we will outline GrabCAD's Cosmo Quiz\cite{revisions_2014}, an initiative aimed at codifying current best practices in CAD work.
-TODO:Furthermore, we will condense the information on change management and version control mechanisms from \citet{Bricogne_Rivest_Troussier_Eynard_2012}, while also highlighting the identified opportunities for improvement.
+TODO:We will provide a summary of the concepts we will adopt from GitHub's~\citet{github_blog_2013} and the implementation of the change detection solution discussed in~\citet{3drepo_blog}.
+TODO:Additionally, we will outline GrabCAD's Cosmo Quiz~\citet{revisions_2014}, an initiative aimed at codifying current best practices in CAD work.
+TODO:Furthermore, we will condense the information on change management and version control mechanisms from~\citet{Bricogne_Rivest_Troussier_Eynard_2012}, while also highlighting the identified opportunities for improvement.
 
 \section{Methodology}
 
@@ -273,7 +307,7 @@ Once a participant has completed 5 tasks, a `Thanks for participating' screen wi
 \subsubsection{Evaluation}
 
 Accuracy will be measured by counting the number of correctly marked changes a participant has submitted to a reference solution.
-Every task will have a canonical solution, with a certain set of commits labelled as either `include' or `exclude'.
+Every task will have a canonical solution, with a certain set of commits labeled as either `include' or `exclude'.
 We will compare this canonical solution to the solution produced by each participant and count the number of correctly labeled changes.
 The fraction of correct labels will be our accuracy count, meaning that accuracy will be from 0-1 where 1 is perfect.
 
@@ -320,16 +354,17 @@ A table will be presented to summarize the demographic information of the partic
 
 The study will use a randomized controlled design, in which participants will be assigned to either the experimental or control group by random assignment. This approach aims to eliminate confounding factors such as prior experience with 3D CAD Design or Git Diff. Assigning participants based on their experience level may introduce systematic error and relying on self-reported experience may not ensure a fair assignment. Therefore, the groups will be assigned by total random assignment.
 
-Both groups will have access to the \texttt{.stl} file and the visualization of 3D objects. The experimental group will also have access to the visualization of Boolean differences. This approach will allow for a comparison between the two groups in terms of their ability to work with the Boolean difference visualization.
-\subsubsection{Experimental Procedures}
+Both groups will have access to the visualization of 3D objects. The experimental group will also have access to the visualization of Boolean differences. This approach will allow for a comparison between the two groups in terms of their ability to work with the Boolean difference visualization.
+\subsubsection{Procedure}
 This summarization experiment employs semi-structured interviews to explore the impact of Boolean difference visualizations on participants' ability to identify and describe changes between two 3D CAD objects.
 The experiment consists of three distinct stages: preparation, inspection, and summarization, each designed to ensure a smooth and effective process. We anticipate the whole experiment will take 60 to 90 minutes to complete.
 
 During the preparation stage, researchers take care to address participants' rights and confidentiality. They emphasize the voluntary nature of participation and confirm that participants understand the experiment's purpose and methodology.
-To facilitate a successful experience, researchers provide a comprehensive walkthrough of the visualization platform's operation techniques. This includes demonstrating how to switch between \texttt{.stl} files, 3D object visualizations, and Boolean difference visualizations, when applicable.
+To facilitate a successful experience, researchers provide a comprehensive walkthrough of the visualization platform's operation techniques. This includes demonstrating how to switch from 3D object visualizations and Boolean difference visualizations, when applicable.
 Participants are given ample time to familiarize themselves with the platform and its features, ensuring they feel comfortable and confident before the experiment begins.
 
-In the inspection stage, participants carefully examine the two CAD objects presented to them. Researchers adopt the role of non-participant observers, maintaining a neutral presence and refraining from answering any questions related to the objects, their differences, or the locations of changes.
+In the inspection stage, participants carefully examine the two CAD objects presented to them. This experiment distinguishes itself by offering the experimental group access to visualizations of Boolean differences between the two objects, in addition to the 3D object visualizations. 
+In this stage, researchers adopt the role of non-participant observers, maintaining a neutral presence and refraining from answering any questions related to the objects, their differences, or the locations of changes.
 The only exception to this rule occurs when a participant encounters a technical issue with the visualization platform.
 In such cases, researchers step in to resolve the problem and ensure the participant can continue their inspection without further difficulties.
 
@@ -337,10 +372,14 @@ Once participants feel ready to proceed, they provide a summary of the changes t
 Throughout this stage, participants are allowed to pause, return to the visualization platform for additional inspection, and resume their summary as needed. In cases where a participant's answer is too vague,
 researchers may gently prompt them to refine their responses and include more specific details, all while avoiding the introduction of any hints or suggestions.
 
-This experiment distinguishes itself by offering the experimental group access to visualizations of Boolean differences between the two objects, in addition to the standard \texttt{.stl} files and 3D object visualizations.
-After completing the experiment, researchers ask members of the experimental group to provide feedback on how the Boolean difference visualizations impacted their summarization process.
-By gathering these insights, researchers aim to better understand the potential benefits and drawbacks of this visualization technique.
-These additional responses are also recorded and analyzed alongside the main summaries, contributing to a comprehensive understanding of the experiment's outcomes.
+After participants complete the summarization process, researchers will ask them to comment on the experience, highlighting any problems or difficulties they encountered during the task. 
+Participants will also be asked to compare different changes and identify those that were easier to locate and understand. 
+By gathering these insights, researchers aim to better understand the potential benefits and drawbacks of the visualization technique used in the experiment.
+
+These additional responses will be recorded and analyzed alongside the main summaries, contributing to a more comprehensive understanding of the experiment's outcomes. 
+This holistic approach will allow researchers to assess not only the effectiveness of the visualization technique but also the participants' overall experience and perceptions of the task. 
+By considering both the summary outcomes and participants' feedback, researchers can develop a nuanced understanding of the impact of the visualization technique on interpreting and summarizing CAD object changes.
+
 
 \subsubsection{Analysis}
 The primary analysis methods for this study will be open coding and axial coding, which are essential components of qualitative data analysis. These methods will help researchers gain deeper insights into the participants' responses and identify potential patterns that emerge from the data.
@@ -357,14 +396,14 @@ If not, they will attempt to resolve their differences through discussion. Shoul
 Once the open coding process is complete, researchers will transition to axial coding. This phase involves analyzing the relationships between the various codes and organizing them into cohesive subcategories and categories using a coding paradigm.
 Axial coding helps researchers refine their understanding of the data, discover connections, and identify overarching themes that may emerge from the participants' responses.
 
-Specifically, the additional question and response regarding the impact of Boolean difference visualizations will be coded and triangulated with the coding results of the change summarizations.
+Specifically, the additional question and responses regarding the impact of Boolean difference visualizations will be coded and triangulated with the coding results of the change summarizations.
 Through triangulation, researchers aim to identify patterns or themes consistent across both sets of responses. By analyzing and interpreting these patterns or themes, we hope to better understand the influence of Boolean difference visualizations on individuals' ability to interpret and summarize changes between CAD objects.
 This approach will provide valuable insights into the potential benefits and drawbacks of using Boolean difference visualizations in the context of CAD design analysis.
 
-It is important to note that specific codes will be developed after the summary experiment is conducted. Based on the hypothesis, the researchers anticipate that the experimental group,
-which has access to the Boolean difference visualizations, will describe changes more intuitively. This might result in phrases such as ``the knob is larger in object A than in object B.''
-In contrast, the control group, relying primarily on the \texttt{.stl files}, might describe changes using specific measurements, such as ``the radius of this knob is $2$ centimeters larger than before''
-By employing open coding and axial coding techniques, the researchers aim to identify these and other potential patterns within the data, ultimately enhancing their understanding of the experiment's outcomes and the impact of different visualization methods on participants' summarization processes.
+It is important to note that specific codes will be developed after conducting the summary experiment. Researchers anticipate that for addition changes, both the experimental and control groups will likely detect them easily and provide thorough descriptions of the changes. 
+For subtraction changes, however, the experimental group with access to Boolean difference visualizations is expected to detect these changes more easily and provide more detailed descriptions. 
+In contrast, the control group, relying primarily on 3D visualizations, may find it more challenging to detect such changes, resulting in either missed changes or less detailed summarizations. 
+By employing open coding and axial coding techniques, researchers aim to identify these and other potential patterns within the data, ultimately enhancing their understanding of the experiment's outcomes and the impact of different visualization methods on participants' summarization processes.
 
 %TODO:We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
 
@@ -375,11 +414,20 @@ TODO:We will also include figures that demonstrate a before, after, addition, an
 
 \section{Results}
 
-TODO:In this section, we will present and discuss the results we expect to get from each experiment.
+In this section, we will present and discuss the results we expect to get from each experiment.
 
 \subsection{Timed Cherry-Picking Experiment}
 
-TODO:We anticipate observing a difference in both the time taken to complete the task and the accuracy of responses between the experimental group and the control group. If Boolean difference visualizations aid in understanding the changes, we expect the experimental group to require less time and achieve greater accuracy compared to the control group.
+In the results section for the cherry-picking experiment, the focus will be on discussing the decision to reject or accept the null hypothesis based on the outcomes of the quantitative analysis. 
+The researchers will present the p-values obtained from both the t-test of time distribution and the c-test of accuracy distribution, illustrating the differences between the experimental and control groups. 
+The comparison of these values will help determine the impact of the visualization methods used in the study.
+
+To assess whether the observed differences are statistically significant, the researchers will compare the calculated p-values to a predetermined significance level.
+If the p-values fall below the chosen threshold, it will indicate that the differences are statistically significant, and the null hypothesis can be rejected in favor of the alternative hypothesis. 
+This outcome would suggest that the visualization methods employed had a meaningful effect on the participants' performance in the cherry-picking experiment.
+
+By thoroughly analyzing the results and presenting the statistical findings, the researchers can provide a comprehensive understanding of the potential benefits or drawbacks of the visualization techniques utilized in the experiment. 
+This in-depth analysis will offer valuable insights into the effectiveness of the methods and contribute to the broader knowledge of CAD object visualization and interpretation.
 
 \subsection{Summarization Experiment}
 % % TODO: use the words "open coding."
