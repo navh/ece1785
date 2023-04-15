@@ -180,7 +180,7 @@ Therefore, it is crucial that the domain of a CAD/CAM system be algebraically cl
 
 The motivating paper for this project is~\citet{cheng2023age}.
 We focus specifically on the sections about tooling for version control.
-This also identified some existing tools, such as \texttt{onshape.com}, and \texttt{github.com}'s now deprecated \texttt{.stl} diff visualization, which attempt to summarize changes with similar visualizations.
+This also identified some existing tools, such as \texttt{onshape.com}, and \texttt{github.com}'s now deprecated \texttt{.stl} diff visualization, both of which attempt to summarize changes with similar visualizations.
 We have reviewed this work and evaluated these tools ourselves.
 
 \subsection{Computer-Aided Design Ecosystem is Behind}
@@ -214,7 +214,7 @@ This is the primary motivating challenge for our project.
 Currently, the state of summarization seems to be primarily nothing, with a select few shops using infrequent, stale, or tedious text-based summaries stored in \texttt{.xlsx} files.
 We hope that by proposing a visualization that can quickly produce summaries at no cost to the existing workflow, boolean difference visualizations may be adopted to help summarize changes.
 
-\subsection{\texttt{onshape.com}}
+\subsection{Evaluating \texttt{onshape.com}}
 
 An existing tool, \texttt{onshape.com}, was evaluated as part of this review.
 We were able to create an account and get access to Daniel Riley's Sailboat
@@ -240,15 +240,38 @@ Figure \ref{fig:onshapescreenshot} shows a screenshot with the slider roughly 2/
 	\label{fig:onshapescreenshot}
 \end{figure}
 
-\subsection{Previous Work}
+\subsection{3D File Diffs on \texttt{github.com}}
 
-TODO:We will provide a concise overview of a chapter from~\cite{Frazelle_2021} on version control to justify the use of \texttt{GIT}-like semantics.
+As part of a grey literature review, we came across \texttt{github.com}'s 2013 blog post about adding a 3D File Diff view to \texttt{github.com}.~\cite{github_blog_2013}
+The blog post presents two visualizations, one uses what the blog refers to as \emph{binary space partitioning}, which is a technique used by 3D video games and is essentially a polygon-based boolean difference.
+The second is a slider-based transparency approach which is a rudimentary version of to \texttt{onshape.com}'s compare visualization.
 
-\subsection{Existing CAD Version Control}
+The blog explains how it works.
+The visualization is done using \texttt{csgtool} and a Ruby \texttt{csg} gem which appears to have already been in use in 2013 for the git 3D file interface.
+\texttt{csgtool} and the ruby gem appear to have been abandoned around 2014, receiving only minor updates bumping dependency versions or correcting typos since.
 
-TODO:We will provide a summary of the concepts we will adopt from GitHub's~\citet{github_blog_2013} and the implementation of the change detection solution discussed in~\citet{3drepo_blog}.
-TODO:Additionally, we will outline GrabCAD's Cosmo Quiz~\citet{revisions_2014}, an initiative aimed at codifying current best practices in CAD work.
-TODO:Furthermore, we will condense the information on change management and version control mechanisms from~\citet{Bricogne_Rivest_Troussier_Eynard_2012}, while also highlighting the identified opportunities for improvement.
+As of early 2023, there is no 3D File Diff view on \texttt{github.com}.
+The specifics of the tool are part of the opaque and closed source code of \texttt{github.com}.
+It is not obvious when support stopped.
+The comment chain on the file included in the blog post~\cite{death_of_a_diffsman} documents the atrophy of an abandoned project.
+The comments reveal a 2013 positive initial reception, a 2017 question about the source code, a 2019 plea to \texttt{github.com} to open source the visualization.
+A 2021 post is a disguised advertisement for \citet{3drepoblog}.
+This is aBIM tool we were unable to evaluate, but the founder of this company has published a paper about 3D Diff.~\cite{Dobos}
+By 2022, users report this is not working on Firefox or Chrome.
+
+\subsection{3D File Diffs on \texttt{gitlab.com}}
+
+Discouraged that this utility has been abandoned, we took our search to \texttt{gitlab.com}.
+The key difference between \texttt{gitlab.com} and \texttt{github.com} is that \texttt{gitlab.com} is open source.
+We had hoped that \texttt{gitlab.com} may have copied this feature, but done so in a repo where we could access their implementation.
+Inspecting \texttt{gitlab.com} source code quickly reveals a \texttt{.stl} file viewer in the source code.~\cite{gitlabsource}
+All 3 files implementing \texttt{.stl} viewing are fewer than 200 lines of generously spaced JavaScript, none of which attempt to compare files.
+Due to how concise and readable the code implementing the \texttt{.stl} viewer is, we have decided to explore using the \texttt{threejs.org} webGL library for our interface.
+
+\subsection{3D Diff}
+
+In \citet{Dobos}, previous work recording and replaying actions made in an editor is first summarized.
+It mentions 3D Sys's 3D-Diff, a Visual Basic add-on to Catia, which highlights structural differences in CAD models.
 
 \section{Methodology}
 
