@@ -61,19 +61,19 @@ TODO:This section will include the background of our project and introduce compu
 
 \subsection{CAD}
 
-CAD (computer-aided design) is the use of computer-based software to aid in design processes. CAD software is frequently used by different types of engineers and designers. CAD software can be used to create two-dimensional (2-D) drawings or three-dimensional (3-D) models. 
-The purpose of CAD is to optimize and streamline the designer's workflow, increase productivity, improve the quality and level of detail in the design, improve documentation communications and often contribute toward a manufacturing design database. 
-CAD software outputs come in the form of electronic files, which are then used accordingly for manufacturing processes. CAD is often used in tandem with digitized manufacturing processes. CAD/CAM (computer-aided design/computer-aided manufacturing) is software used to design products such as electronic circuit boards in computers and other devices. 
-With the faster and higher demands of new and customized products, companies need to participate in global design chains and collaborate with each other and overseas partners to gain competitive advantages. Product design, manufacturing and analysis have therefore the strong needs for various levels of collaboration in a distributed environment. 
-It is both technically and commercially imperative to develop new collaborative design tools or renovate traditional standalone CAD system by making it collaboration-native. 
+CAD (computer-aided design) is the use of computer-based software to aid in design processes. CAD software is frequently used by different types of engineers and designers. CAD software can be used to create two-dimensional (2-D) drawings or three-dimensional (3-D) models.
+The purpose of CAD is to optimize and streamline the designer's workflow, increase productivity, improve the quality and level of detail in the design, improve documentation communications and often contribute toward a manufacturing design database.
+CAD software outputs come in the form of electronic files, which are then used accordingly for manufacturing processes. CAD is often used in tandem with digitized manufacturing processes. CAD/CAM (computer-aided design/computer-aided manufacturing) is software used to design products such as electronic circuit boards in computers and other devices.
+With the faster and higher demands of new and customized products, companies need to participate in global design chains and collaborate with each other and overseas partners to gain competitive advantages. Product design, manufacturing and analysis have therefore the strong needs for various levels of collaboration in a distributed environment.
+It is both technically and commercially imperative to develop new collaborative design tools or renovate traditional standalone CAD system by making it collaboration-native.
 
 \subsection{OpenSCAD}
-3-D digital designs can be created from existing designs using OpenSCAD, which is a free and open-source script-based solid modeling program. OpenSCAD using parametric variables that automatically manipulate the entire part to enable simple modifications without the need for a deep knowledge in 3-D modeling. An OpenSCAD script specifies geometric primitives and defines how they are modified and combined to render a 3D model. 
-In this project, we used OpenSCAD to create stl files as our control group and experiment group. 
+3-D digital designs can be created from existing designs using OpenSCAD, which is a free and open-source script-based solid modeling program. OpenSCAD using parametric variables that automatically manipulate the entire part to enable simple modifications without the need for a deep knowledge in 3-D modeling. An OpenSCAD script specifies geometric primitives and defines how they are modified and combined to render a 3D model.
+In this project, we used OpenSCAD to create stl files as our control group and experiment group.
 \subsection{\texttt{.stl} files}
 
 The \texttt{.stl} file format is a representation of the surface geometry of a three-dimensional object common in both CAD and 3D art.
-These files are among the \textit{dumb solid} types described in \cite{cheng2023age}, a neutral file format interoperable between most CAD and 3D art platforms, but missing critical information for CAD practitioners.
+These files are among the \textit{dumb solid} types described in \citet{cheng2023age}, a neutral file format interoperable between most CAD and 3D art platforms, but missing critical information for CAD practitioners.
 \texttt{.stl} files have no way to represent curves, holes, orientation, or distinguish multiple parts in an assembly.
 Providing measurements is optional in \texttt{.stl} files. CAD programs usually store this optional information about units.
 We hope this tool can be used with any CAD software.
@@ -126,25 +126,127 @@ Only the two desired changes from `v2' are applied to `main', resulting in `main
 
 TODO:Explanation of Boolean differences visualization techniques and how visualizations of Boolean differences can be an alternative to current methods for summarizing changes between CAD file versions.
 \subsection{Motivation}
-Computer-Aided Design (CAD) collaboration has been studied since the early days of CAD research, but standardized metrics and experimental procedures for synchronous, cloud-based CAD research are lacking in the literature. In this work, we lay out an empirical approach to investigate collaboration in CAD. 
-Recently, extensive research and development works have been carried out to develop prototype systems and methodologies for collaborative CAD, and software vendors have launched a number of systems in markets to take advantage of the huge business opportunities in this area. 
-As the Covid-19 pandemic spread rapidly across the globe in 2020 and 2021, CAD design collaboration became more important than ever in the industry. 
-Typical Product Data Management (PDM) issues were amplified as much of the world shifted to a remote environment. Working from different locations added another layer of difficulty to checking CAD designs in and out of PDM systems. 
-Cheng et al.~\cite{cheng2023age} identifies challenges associated with distributed Computer-Aided Design (CAD) practice. One of the challenges is a lack of change summarization support between file versions. 
-Teams currently rely on their memory or tedious Excel spreadsheets to capture changes between different versions of CAD files, which is time-consuming and prone to errors. 
+Computer-Aided Design (CAD) collaboration has been studied since the early days of CAD research, but standardized metrics and experimental procedures for synchronous, cloud-based CAD research are lacking in the literature. In this work, we lay out an empirical approach to investigate collaboration in CAD.
+Recently, extensive research and development works have been carried out to develop prototype systems and methodologies for collaborative CAD, and software vendors have launched a number of systems in markets to take advantage of the huge business opportunities in this area.
+As the Covid-19 pandemic spread rapidly across the globe in 2020 and 2021, CAD design collaboration became more important than ever in the industry.
+Typical Product Data Management (PDM) issues were amplified as much of the world shifted to a remote environment. Working from different locations added another layer of difficulty to checking CAD designs in and out of PDM systems.
+\citet{cheng2023age} identifies challenges associated with distributed Computer-Aided Design (CAD) practice. One of the challenges is a lack of change summarization support between file versions.
+Teams currently rely on their memory or tedious Excel spreadsheets to capture changes between different versions of CAD files, which is time-consuming and prone to errors.
 Collaborating on CAD design is essential to effective product development. Facilitating the team to work together increases checkpoints, provides unbiased feedback and reviews, and adds complementary expertise to optimize the final production part.
 \subsection{RQ}
 In this paper, we present a mixed method to answer exploratory research questions (RQ) about collaborative CAD. In particular, we are interested in the following:
 RQ: Do visualizations of Boolean differences summarize changes between CAD file versions?
-The purpose of this research is to investigate whether visualizations of Boolean differences summarize changes between CAD file versions. 
-A visualization technique inspired by git diff and 3D art workflows, Boolean differences, will be evaluated to make it easier for CAD users to identify and track changes between versions of files. 
-In 3D art, Boolean operations can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying Boolean operations help designers understand changes between versions of files. 
-This research is important because it will explore a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files. 
+The purpose of this research is to investigate whether visualizations of Boolean differences summarize changes between CAD file versions.
+A visualization technique inspired by git diff and 3D art workflows, Boolean differences, will be evaluated to make it easier for CAD users to identify and track changes between versions of files.
+In 3D art, Boolean operations can be applied to 3D solids to create new solids. We will investigate if the new 3D solids created by applying Boolean operations help designers understand changes between versions of files.
+This research is important because it will explore a faster and more accurate alternative to the current methods used to capture CAD file changes. Additionally, the research contributes to the development of techniques and tools for visualizing differences between complex files.
 It can also have implications for other domains where changes in complex files should be summarized.
 
 \section{Literature Review}
 
-TODO:The motivating paper for this project is \citet{cheng2023age}. The author of this paper also guided us to existing tools, such as \texttt{onshape.com}, which implement similar visualizations.
+The motivating paper for this project is \citet{cheng2023age}.
+We focus specifically on the sections about tooling for version control.
+This also identified some existing tools, such as \texttt{onshape.com}, and \texttt{github.com}'s now deprecated \texttt{.stl} diff visualization, which attempt to summarize changes with similar visualizations.
+We have reviewed this work and evaluated these tools ourselves.
+
+\subsection{Computer-Aided Design Ecosystem is Behind}
+
+This paper by \citet{cheng2023age} aims to close the academic-practitioner knowledge gap on the state of collaboration with CAD workflows.
+After interviews focusing on mechanical CAD, 14 challenges are identified.
+It paints a fairly linear history of CAD, first standalone, then distributed, and now collaborative tools have early adopters.
+It classifies these with place and time, implying that different-place and same-time collaborative tools are the future.
+Our group takes the position that different-place and same-time editing may not be the next logical step in CAD workflows.
+
+We suspect this, because tools like Git are far newer than different-place, same-time editing for code.
+The 1968 Mother of All Demos featured a collaborative real-time editor, and by the early 70s nearly every operating system featured some way to mount network files and make collaborative edits in real time.
+Despite the ubiquity and widespread knowledge of these tools for over 50 years, we were unable to find any examples of projects employing this design pattern.
+
+
+% % - distributed cad: standalone combined with data managemeent system, shared files.
+% % - synchronous multi-user cad (MUCAD) (different-place, same time)
+% % in 2017: \textless10\% of pros use cloud-based CAD, \textgreater50\% of enterprises not considering
+% % in 2021: 20\% of pros, $>$50\% hobbyists
+% % interview 20 pros.
+% % RQ1: What are the collaboration challenges faced by professionals using distributed CAD?
+% % RQ2: What strategies are CAD professionals or organizations using to remedy collaboration challenges with distributed CAD?
+% % BACKGROUND
+% % Distributed vs Collaborative, Distributed needs data management tool
+% % data management tools can be [manual, partilaly-automated, fully-automated]
+% % existing probs in literature
+% % - inconsistency in design practices between designers
+% % - `some best practices, standardize cite[53,68]'
+% % - non-interoperability,
+% % - \textit{dumb solid}, STEP - Standard for the Exchange of Product Data.
+% % - distributed teams suck more
+% % - cross-discipline teams suck more
+% % - IP issues
+% % - each discipline's respective standards, best practices, jargon, and schemata
+% % - git also sucks, here are some attempts [27,34,45,88,89,100,110]
+% % - merge conflicts in git are handled smoothly? (I guess compared to CAD?)
+% % METHODS
+% % semi-structured interviews
+% % 20 Pros, friends, CAD primarily. Experience cad: mean 8, sigma 7.
+% % 5 aerospace, 4 auto, 4 electronics. (7 unaccounted for?)
+% % CAD Software: 7 use NX, 7 use SolidWorks, 5 use Creo, 10 use $>$2 regularly (sum!=20 again, not mutually exclusive? Were above? So few participants, why not just be exhaustive?)
+% % Version Control: 4 use manual version control, 16 use fully-automated PLM tools. 3/4 manual in $<$100 person companies.
+% % See Figure 1 Appendix A. (horizontal JPEG of a table in CM font... I could almost tolerate the single column, but this is just straight up unreadable. This is also far more useful than the written out version.)
+% % Learning: 17 responded? 5 update $>$ monthly, 9 $>$annual, 3 $<$annual. (another sum!=20, $>$20 on 'where')
+% % DATA ANALYSIS
+% % NVivo, open coding.
+% % RESULTS
+% % 4 categories, 14 challenges, sorted by pervasive
+% % Cat 4.1) Collaborative Design Challenges and Strategies
+% % C-1) Absent or varied modelling conventions across collaborators
+% % - manually changing coordinate systems
+% % - design tolerancing standards different in different teams
+% % - mechanical/electrical engineering follow different conventions
+% % - designers fail to follow standards
+% % S-1) Imposing standards and best practices for modelling
+% % Author notes nobody other than ID10 has ever seen this work.
+% % (ID10 is a CEO, I wonder if his engineers say his extra onboarding docs are as helpful as his VPs tell him they are.)
+% % (amos-thinks: snooze of a suggestion, people said this in code forever, gofmt/black/prettier or die.)
+% % C-2) Infrequent Model Uploads
+% % Checks out, doesn't upload, particularly difficult with big assemblies
+% % No strategy.
+% % (amos-thinks: notice all the `fully-automated PLM' responders say long lived private checkouts exist... interesting)
+% % C-3) Lack of designer awareness of model dependencies
+% % Dep management sucks. Author seems to imply modelling from scratch $>$ dep copy pasta.
+% % No strategy.
+% % C-4) Lack of awareness of collaborators' model changes
+% % Bad pull discipline. Merge conflicts.
+% % C-5) No Synchronous editing
+% % 0/20 use `3rd gen' cad tools with this ability.
+% % S-2) (Yes, Strategy numbers != challenge numbers in this paper) Using assembly configurations, another worker seems to describe branches (personal sandboxes)
+% % (amos-thinks: sync is really overrated, nobody codes in google docs, I like this suggestion.)
+% % Cat 4.2) Synchronous communication challenges
+% % C-6) Cumbersome presentation of CAD models in synchronous work settings
+% % Design review meetings are awful. Clients make them worse.
+% % C-7) no back-of-the-envelope CAD
+% % Cat 4.3) Data Management Challenges and Strategies
+% % C-8) Lack of interoperability
+% % Different software, even different versions, incompatible. Mech/EE problems x10.
+% % S-3) Use dumb solids. Sounds like CAD practitioners have zero interest. It's a hack.
+% % (amos-thinks: maybe better dumb solids? But frankly I can't see this working, there are no examples anywhere)
+% % S-4) Simplify CAD models. EE people toss rectangles into mech builds.
+% % (amos-thinks: obvious hack. just do twice as much work and keep these in sync magically. Not obvious how this strategy helps.)
+% % C-9) Lack of change summarization support between file versions
+% % Excel spradsheets, tedious.
+% % C-10) Lack of version control for non-PLM users
+% % check-in/check-out function more like locks on files(!?)
+% % S-5) Just use PLM.
+% % C-11) Poor CAD file organization
+% % S-6) Use standard part libraries
+% % (amos-thinks: This whole para sounds like dependency management strikes again.)
+% % C-12) Poor traceability of scattered file management
+% % \textit{redlining}, passing files around with comments. ID20 says aesthetics can't be put it CAD. (dubious, just sounds like trash CAD)
+% % S-7) Using integrated digital markup tools
+% % (amos-thinks: Yes, this feels solved, just tools suck.)
+% % Cat 4.4) Permissioning Challenges
+% % C-13) Cumbersome stakeholder access to CAD files.
+% % External collaborators locked out, fragmentation.
+% % (amos-thinks: Feels solvable with cloud? Maybe? (some sort of browser-viewer?))
+% % C-14) Lack of stakeholder access to CAD software.
+% % Basically the same thing, but with added SolidWorks vs NXCAD spice
 
 \subsection{\texttt{onshape.com}}
 
@@ -185,9 +287,11 @@ TODO:Furthermore, we will condense the information on change management and vers
 
 \section{Methodology}
 
-TODO:Subsections will outline details of both our proposed experiments, including refinements made as a result of the feedback described in Appendix A.
+In this section, we outline the methodology for both the quantitative timed cherry-picking experiment and the qualitative summarization experiment.
 
 \subsection{Timed Cherry-Picking Experiment}
+
+The timed cherry-picking experiment intends to use the accuracy and time that it takes for users to perform a task which requires understanding changes in 3D files as a measurable proxy for `useful summarization'.
 
 \subsubsection{Participants}
 
@@ -274,9 +378,9 @@ A reduction in time and mistakes will indicate that the boolean difference view 
 \subsection{Summarization Experiment}
 \subsubsection{Participants and Recruitment}
 For the summarization experiment, we plan to recruit participants using purposive sampling. Our target population will consist of individuals with experience in CAD design, as indicated by the inclusion of ``CAD,'' ``CAD Design,''
-or similar tags in the Skills section of their LinkedIn profiles. Potential participants will be contacted through LinkedIn messages. 
+or similar tags in the Skills section of their LinkedIn profiles. Potential participants will be contacted through LinkedIn messages.
 
-In our initial communication, we will provide an overview of the experiment's purpose and outline the main experimental procedures. 
+In our initial communication, we will provide an overview of the experiment's purpose and outline the main experimental procedures.
 This will help ensure that prospective participants have a clear understanding of what is involved before deciding to participate. As an incentive for their time and effort, those who complete the experiment will receive a \$25 gift card as compensation.
 
 A table will be presented to summarize the demographic information of the participants, including their years of experience with CAD and related information such as whether they use CAD in their daily work.
@@ -312,23 +416,23 @@ The primary analysis methods for this study will be open coding and axial coding
 
 Before initiating the coding process, researchers will convert the recorded responses into detailed transcripts. By reviewing these transcripts, they will familiarize themselves with the data and gain a foundational understanding of the participants' perspectives.
 
-During the open coding phase, researchers will examine and label segments of the interviews. This process involves two researchers working independently to label the responses, after which they will compare and discuss their respective labeling results. 
+During the open coding phase, researchers will examine and label segments of the interviews. This process involves two researchers working independently to label the responses, after which they will compare and discuss their respective labeling results.
 This collaborative approach helps ensure the coding process is thorough and reduces potential bias or oversight.
 
-If a segment is labeled by only one researcher, both researchers will carefully review it together and decide whether labeling is necessary. In cases where the same segment has been assigned different labels by the two researchers, 
-they will first evaluate if the labels have the same underlying meaning. If so, they will agree on a single label to be used consistently throughout the coding process. 
+If a segment is labeled by only one researcher, both researchers will carefully review it together and decide whether labeling is necessary. In cases where the same segment has been assigned different labels by the two researchers,
+they will first evaluate if the labels have the same underlying meaning. If so, they will agree on a single label to be used consistently throughout the coding process.
 If not, they will attempt to resolve their differences through discussion. Should a consensus remain elusive, a third researcher will be consulted to provide an impartial perspective and arbitrate the disagreement.
 
-Once the open coding process is complete, researchers will transition to axial coding. This phase involves analyzing the relationships between the various codes and organizing them into cohesive subcategories and categories using a coding paradigm. 
+Once the open coding process is complete, researchers will transition to axial coding. This phase involves analyzing the relationships between the various codes and organizing them into cohesive subcategories and categories using a coding paradigm.
 Axial coding helps researchers refine their understanding of the data, discover connections, and identify overarching themes that may emerge from the participants' responses.
 
-Specifically, the additional question and response regarding the impact of Boolean difference visualizations will be coded and triangulated with the coding results of the change summarizations. 
-Through triangulation, researchers aim to identify patterns or themes consistent across both sets of responses. By analyzing and interpreting these patterns or themes, we hope to better understand the influence of Boolean difference visualizations on individuals' ability to interpret and summarize changes between CAD objects. 
+Specifically, the additional question and response regarding the impact of Boolean difference visualizations will be coded and triangulated with the coding results of the change summarizations.
+Through triangulation, researchers aim to identify patterns or themes consistent across both sets of responses. By analyzing and interpreting these patterns or themes, we hope to better understand the influence of Boolean difference visualizations on individuals' ability to interpret and summarize changes between CAD objects.
 This approach will provide valuable insights into the potential benefits and drawbacks of using Boolean difference visualizations in the context of CAD design analysis.
 
-It is important to note that specific codes will be developed after the summary experiment is conducted. Based on the hypothesis, the researchers anticipate that the experimental group, 
-which has access to the Boolean difference visualizations, will describe changes more intuitively. This might result in phrases such as ``the knob is larger in object A than in object B.'' 
-In contrast, the control group, relying primarily on the \texttt{.stl files}, might describe changes using specific measurements, such as ``the radius of this knob is $2$ centimeters larger than before'' 
+It is important to note that specific codes will be developed after the summary experiment is conducted. Based on the hypothesis, the researchers anticipate that the experimental group,
+which has access to the Boolean difference visualizations, will describe changes more intuitively. This might result in phrases such as ``the knob is larger in object A than in object B.''
+In contrast, the control group, relying primarily on the \texttt{.stl files}, might describe changes using specific measurements, such as ``the radius of this knob is $2$ centimeters larger than before''
 By employing open coding and axial coding techniques, the researchers aim to identify these and other potential patterns within the data, ultimately enhancing their understanding of the experiment's outcomes and the impact of different visualization methods on participants' summarization processes.
 
 %TODO:We will provide further details on the experiment, highlighting the specific open-ended questions that will be employed during the interviews in conjunction with this study.
@@ -348,16 +452,16 @@ TODO:We anticipate observing a difference in both the time taken to complete the
 
 \subsection{Summarization Experiment}
 
-The results of the axial coding will be presented in the form of a frequency table, which will offer a systematic and organized representation of the identified codes and their occurrences. 
+The results of the axial coding will be presented in the form of a frequency table, which will offer a systematic and organized representation of the identified codes and their occurrences.
 By analyzing these frequencies, researchers will be able to identify the key themes or categories that have emerged from the participants' responses, providing a deeper understanding of their perspectives and experiences.
 
-A primary focus of the analysis will be on the differences in the main categories identified in the coding results between the experimental and control groups. 
+A primary focus of the analysis will be on the differences in the main categories identified in the coding results between the experimental and control groups.
 This comparative approach will enable researchers to gain insights into the varying effects of Boolean difference visualizations on participants' abilities to interpret and summarize changes between CAD objects.
 
-In addition to examining the axial coding results, researchers will utilize triangulation by cross-referencing the coding outcomes with the additional question and response data regarding the impact of Boolean difference visualizations. 
+In addition to examining the axial coding results, researchers will utilize triangulation by cross-referencing the coding outcomes with the additional question and response data regarding the impact of Boolean difference visualizations.
 This method will help validate the findings and identify consistent patterns or themes across both sets of responses.
 
-By combining the differences observed in the axial coding results with the triangulation outcomes, researchers will be able to provide a comprehensive and nuanced analysis of the impact of Boolean difference visualizations on participants' abilities to interpret and summarize changes between CAD objects. 
+By combining the differences observed in the axial coding results with the triangulation outcomes, researchers will be able to provide a comprehensive and nuanced analysis of the impact of Boolean difference visualizations on participants' abilities to interpret and summarize changes between CAD objects.
 This approach will not only shed light on the potential benefits and drawbacks of using Boolean difference visualizations in CAD design analysis but also contribute to the development of best practices and recommendations for future research and application in the field.
 
 
@@ -365,18 +469,18 @@ This approach will not only shed light on the potential benefits and drawbacks o
 
 TODO:We will explore our insights concerning the effectiveness of Boolean differences in summarizing changes between CAD files, based on our anticipated experiment results. Additionally, we will discuss any intriguing visual artifacts generated during the development of difference visualizations for changes to \texttt{.stl} files. We will also discuss the limits of our experiments.
 \subsection{Threats to validity}
-An internal threat to the validity of this study lies in the participant selection process. As mentioned in the methodology section, participants will be recruited through purposive sampling. 
-This approach targets individuals with specific skills or experience in CAD design, as indicated by their LinkedIn profiles. Despite the random assignment process employed to divide participants into experimental and control groups, the recruitment method may still introduce bias into the research results. 
+An internal threat to the validity of this study lies in the participant selection process. As mentioned in the methodology section, participants will be recruited through purposive sampling.
+This approach targets individuals with specific skills or experience in CAD design, as indicated by their LinkedIn profiles. Despite the random assignment process employed to divide participants into experimental and control groups, the recruitment method may still introduce bias into the research results.
 For instance, purposive sampling might lead to a non-representative sample, as it may be more likely to attract individuals with specific characteristics or professional backgrounds that are not reflective of the broader population of CAD users.
 
-Another internal threat stems from instrumentation, which relates to the tools and methods used to collect data. When asked about the impact of Boolean difference visualizations, participants in the experimental group of the summarization experiment may exaggerate or overstate its influence on their summarization process. 
+Another internal threat stems from instrumentation, which relates to the tools and methods used to collect data. When asked about the impact of Boolean difference visualizations, participants in the experimental group of the summarization experiment may exaggerate or overstate its influence on their summarization process.
 This response bias could lead to potentially misleading or inaccurate conclusions about the effectiveness of Boolean difference visualizations.
 
-The main external threat to the study's validity concerns the potential lack of generalizability to other types of changes. Our study focuses on local, small geometric changes, such as size alterations of specific parts or the addition or deletion of portions of the objects. 
-As a result, the findings may not be applicable to other contexts, particularly those involving more complex changes or cases where parts of the object rotate to different angles. 
+The main external threat to the study's validity concerns the potential lack of generalizability to other types of changes. Our study focuses on local, small geometric changes, such as size alterations of specific parts or the addition or deletion of portions of the objects.
+As a result, the findings may not be applicable to other contexts, particularly those involving more complex changes or cases where parts of the object rotate to different angles.
 In such scenarios, Boolean difference visualization might even make it more challenging for people to comprehend the changes, limiting the broader applicability of the study's findings.
 
-To address these threats and enhance the validity of the research, researchers should be aware of the potential biases introduced by the purposive sampling and instrumentation methods. 
+To address these threats and enhance the validity of the research, researchers should be aware of the potential biases introduced by the purposive sampling and instrumentation methods.
 They should also consider the limitations of the study in terms of generalizability and carefully interpret the results within the context of the specific changes examined in the experiment.
 
 \section{Conclusion}
