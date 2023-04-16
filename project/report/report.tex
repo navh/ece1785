@@ -177,22 +177,16 @@ Therefore, it is crucial that the domain of a CAD/CAM system be algebraically cl
 
 To produce our visuals, we will use only the boolean difference operation.
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\includegraphics[width=0.5\linewidth]{cube-before.png}
 	\caption{Unmodified cube $x$}
 	\label{fig:cubex}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\includegraphics[width=0.5\linewidth]{cube-after.png}
 	\caption{Cube $y$ modified with a notch and bulge}
 	\label{fig:cubey}
-\end{figure}
-
-\begin{figure}[t]
-	\includegraphics[width=0.5\linewidth]{cube-additions-deletions.png}
-	\caption{Green insertions and Red deletions}
-	\label{fig:booldiff}
 \end{figure}
 
 Consider a file version $x$ that is modified somehow to produce file $y$.
@@ -200,6 +194,12 @@ Borrowing terminology from \texttt{git diff}, we consider $x \neg y$ to be the \
 As we are using this operation on 3D solids, we have rendered an example with a simple cube to be $x$ shown in figure \ref{fig:cubex}.
 A modified cube $y$ in figure \ref{fig:cubey} with a square notch removed from the front and a round bulge added to the back.
 The result of performing the boolean operations is rendered in figure \ref{fig:booldiff}, showing insertions as a green sphere with a notch cut out of it, and the deletions as a red cube.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\linewidth]{cube-additions-deletions.png}
+	\caption{Green insertions and Red deletions}
+	\label{fig:booldiff}
+\end{figure}
 
 
 \section{Literature Review}
