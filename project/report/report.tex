@@ -185,17 +185,14 @@ We have reviewed this work and evaluated these tools ourselves.
 
 \subsection{Computer-Aided Design Ecosystem is Behind}
 
-This paper by~\citet{cheng2023age} aims to close the academic-practitioner knowledge gap on the state of collaboration with CAD workflows.
-After interviews focusing on mechanical CAD, 14 challenges are identified.
-It paints a fairly linear history of CAD, first standalone, then distributed, and now collaborative tools have early adopters.
-It classifies these with place and time, implying that different-place and same-time collaborative tools are the future.
-Our group focuses on improving the different-place and different-time editing, informed by the history of collaboration in code tools.
-Distributed code editor, standalone editors combined with a data management system like distributed CAD, have become the norm in programming.
-Tools like Git are far newer than synchronous multi-user text editors.
-The Mother of All Demos featured a collaborative real-time editor in 1968.~\cite{motherofalldemos}
-Many other real-time editors, both 3rd party and included in operating systems, have been created over the last 50 years.
-Despite this, different-place, different-time collaboration tools remain far more popular in software development.
-We work on improving distributed CAD on the assumption that distributed CAD tools will be popular with CAD practitioners for the same reasons they are popular among software developers.
+This paper by~\citet{cheng2023age} aims to bridge the knowledge gap between academia and practitioners regarding the current state of collaboration in CAD workflows. 
+The authors conducted interviews with a focus on mechanical CAD and identified 14 challenges. The paper provides a linear history of CAD, from standalone to distributed, and now to collaborative tools with early adopters. 
+The authors classify these tools based on place and time, suggesting that different-place and same-time collaborative tools are the future.
+Our group focuses on improving the different-place and different-time editing informed by the history of collaboration in code tools.
+For example, distributed code editors and standalone editors combined with a data management system, like distributed CAD, have become the norm in programming. 
+While newer tools like Git exist, synchronous multi-user text editors have been around for over 50 years, with the first collaborative real-time editor featured in the Mother of All Demos in 1968.~\cite{motherofalldemos}
+Despite this, different-place and different-time collaboration tools remain more popular in software development.
+We believe that distributed CAD tools will be popular among CAD practitioners for the same reasons they are popular among software developers. Therefore, our work focuses on improving distributed CAD with this assumption in mind.
 
 Some of the specific challenges we hope to address with this work are:
 
@@ -261,24 +258,24 @@ By 2022, users report this is not working on Firefox or Chrome.
 
 \subsection{3D File Diffs on \texttt{gitlab.com}}
 
-Discouraged that this utility has been abandoned, we took our search to \texttt{gitlab.com}.
-The key difference between \texttt{gitlab.com} and \texttt{github.com} is that \texttt{gitlab.com} is open source.
-We had hoped that \texttt{gitlab.com} may have copied this feature, but done so in a repo where we could access their implementation.
+Disappointed that the utility had been abandoned, we turned our search to \texttt{gitlab.com}.
+One key difference between \texttt{gitlab.com} and \texttt{github.com} is that \texttt{gitlab.com} is open source.
+We hoped that \texttt{gitlab.com} might have a similar feature to the one on \texttt{github.com} but implemented in a repository where we could access its code.
 Inspecting \texttt{gitlab.com} source code quickly reveals a \texttt{.stl} file viewer in the source code.~\cite{gitlabsource}
 All 3 files implementing \texttt{.stl} viewing are fewer than 200 lines of generously spaced JavaScript, none of which attempt to compare files.
 Due to how concise and readable the code implementing the \texttt{.stl} viewer is, we have decided to explore using the \texttt{threejs.org} webGL library for our interface.
 
 \subsection{3D Diff}
 
-In \citet{Dobos}, previous work recording and replaying actions made in an editor is first summarized.
-It mentions 3D Sys's 3D-Diff, a Visual Basic add-on to Catia, which highlights structural differences in CAD models.
-This paper focuses on merging tools more than the actuall presentation of the diff.
-They perform 2-way and 3-way differencing and merging, compare them, identify differences, and then identify various categories of changes.
-Our work only considers the 2-way merge case, where the state can only be one of `Unmodified',`Added', or `Deleted'.
-The 3-way case considers multiple different types of deletions and modifications, and well as conflicts.
-The visualizations in this work are busy, described as `Overlay' and `Smart', without describing what these visuals represent.
-The `Smart' visualization describes using a common ancestor to resolve ambiguities.
-It does not appear that this tool is intended for quick summaries of small parts, but instead for comparing large assemblies with major changes.
+In previous work by~\citet{Dobos}, the recording and replaying of actions made in an editor are first summarized. 
+The paper mentions 3D Sys's 3D-Diff, a Visual Basic add-on to Catia, which highlights structural differences in CAD models. 
+However, this paper primarily focuses on merging tools rather than the presentation of the differences. 
+The authors perform 2-way and 3-way differencing and merging, compare them, identify differences, and categorize them into various categories of changes.
+
+In contrast, our work only considers the 2-way merge case, where the state can only be one of `Unmodified', `Added', or `Deleted'. 
+The 3-way case considers multiple different types of deletions and modifications, as well as conflicts. 
+Additionally, the visualizations in Dobos's work are described as `Overlay' and `Smart', without a clear explanation of what these visuals represent. 
+The `Smart' visualization describes using a common ancestor to resolve ambiguities. It does not appear that the tool is intended for quick summaries of small parts, but instead for comparing large assemblies with significant changes.
 
 \section{Methodology}
 
@@ -290,79 +287,74 @@ The timed cherry-picking experiment intends to use the accuracy and time that it
 
 \subsubsection{Participants}
 
-The participants are randomly assigned to one of two groups: the experimental group and the control group.
-We expect that individual participants may have different levels of experience with each of CAD tools, version control tools, and 3D Art tools.
-Recruiting participants with experience in all three will be difficult, so instead we will design our experiment assuming no prior knowledge of any of the above.
-We rely on simple random assignment to keep familiarity with the above tools similar between the two groups.
-Participants will be informed of the purpose of the experiment and their rights as participants.
-Participants who wish to complete this experiment virtually will require a connection to the internet and a web browser with WebGL support.
-Participants may also complete this experiment in person using a computer provided by experimenters.
-Only completion times and accuracy scores will be recorded with no way to link times back to individual participants.
-Participants will be informed that data will be openly available in a public repository that does not issue DOIs.
-Participants may withdraw from the experiment at any time and incomplete results will be discarded.
+The participants will be randomly assigned to one of two groups: the experimental group and the control group. 
+We acknowledge that individual participants may have varying levels of experience with CAD tools, version control tools, and 3D art tools. 
+However, recruiting participants with experience in all three areas may be difficult. Thus, we will design our experiment assuming no prior knowledge of any of the tools. 
+We will rely on simple random assignment to maintain similarity in the familiarity with the tools between the two groups.
+
+Before the experiment begins, participants will be informed of the purpose of the experiment and their rights as participants. 
+To participate in the experiment virtually, participants will require an internet connection and a web browser with WebGL support. 
+Participants may also complete the experiment in person using a computer provided by the experimenters. Only completion times and accuracy scores will be recorded, and there will be no way to link times back to individual participants. 
+Participants will be informed that the data will be openly available in a public repository that does not issue DOIs. Participants may withdraw from the experiment at any time, and incomplete results will be discarded
 
 \subsubsection{Task}
 
-The participants will be tasked with reversing a certain part of an object back to a previous version while keeping the rest of the object the same as the final version.
+The participants will be tasked with reversing a specific part of an object back to a previous version while keeping the rest of the object unchanged from the final version.
 
-As we assume participants are not familiar with version control, CAD, or 3D art tools, we will not use any existing tools in the experiment to reduce the effect of prior exposure to any of these tools.
-Version control tools have specific commands that are not intuitive, and both CAD and 3D art tools have very complex interfaces that could distract participants.
-We instead produce a stripped-down interface which only allows participants to view files, and mark files to be included or excluded.
+Since we assume that participants are not familiar with version control, CAD, or 3D art tools, we will not use any existing tools in the experiment to minimize the effects of prior exposure to these tools. 
+Version control tools have specific, unintuitive commands, and both CAD and 3D art tools have complex interfaces that could distract participants. 
+Instead, we will provide a stripped-down interface that only allows participants to view files and mark files to be included or excluded.
 
 %Attached are screenshots from both the control and experimental group. 
 %Figure \ref{fig:controlscreenshot} shows a screenshot of the interface that will be shown to the control group.
-The interface has two frames which will render a webGL view \texttt{.stl} renderings of our revisions.
-Participants do not need to know file formats, and instead will just refer to changes as an enumerated list of `Original, Change 1, Change 2, Change 3 refer to changes as an enumerated list `Original, Change 1, Change 2, etc.'.
-Below each of these frames is a drop-down menu allowing participants to select any of the change files.
-The task goal is displayed below these frames.
-Below the task goal is a list of changes, along with a radio button group with labels `Include' and `Exclude', which by default will not be selected.
-To complete a task, participants must select one of `Include' or `Exclude' for every change, and then press the `Submit' button.
-%Figure \ref{fig:experimentscreenshot} shows a screenshot of the interface that will be shown to the experiment group.
-The \textbf{experimental group} will have a 3rd frame.
-This 3rd frame will render the red and green \emph{diff} view produced by performing boolean operations on the two selected files.
+The interface consists of two frames which will render a webGL view \texttt{.stl} renderings of our revisions.
+Participants do not need to know file formats; instead, they will refer to changes as an enumerated list (e.g., Original, Change 1, Change 2,' etc.).
+Below each frame is a drop-down menu that allows participants to select any of the change files. 
+The task goal is displayed below these frames, along with a list of changes and a radio button group labeled Include' and Exclude', which will not be selected by default. 
+To complete a task, participants must select either Include' or Exclude' for every change and then click the `Submit' button. 
+The \textbf{experimental group} will have a third frame that will render the red and green \emph{diff} view produced by performing boolean operations on the two selected files.
 
 
 \subsubsection{Procedure}
 
-Before the experiment begins, participants may complete a practice task with assistance from the experimenters as many times as they desire.
-Once participants have indicated that they understand the task, experimenters will leave participants to complete the experiment on their own.
+Before the experiment begins, participants may complete a practice task with assistance from the experimenters as many times as they wish. 
+Once participants have indicated that they understand the task, the experimenters will leave participants to complete the experiment on their own.
 
-Only a `Begin' button will be shown.
-Once clicked, a timestamp is logged, and the first task will be presented to the participant.
-Once a participant has selected either `Include' or `Exclude' for each of the changes, the `Submit' button will be enabled.
-Once a participant clicks the `Submit' button, a second timestamp is logged, along with the `Include' or `Exclude' status of every change.
-The task is now over, and the `Begin' button will be shown for the next task.
+Before the experiment starts, only a `Begin' button will be displayed.
+Once the participant clicks it, a timestamp will be logged, and the first task will be presented.
+Once a participant has selected either `Include' or `Exclude' for each change, the `Submit' button will be enabled.
+After the participant clicks the `Submit' button, a second timestamp will be logged, along with the `Include' or `Exclude' status of every change.
+The task is now complete, and the `Begin' button will be shown for the next task.
 Once a participant has completed 5 tasks, a `Thanks for participating' screen will be shown.
 
 \subsubsection{Evaluation}
 
-Accuracy will be measured by counting the number of correctly marked changes a participant has submitted to a reference solution.
-Every task will have a canonical solution, with a certain set of commits labeled as either `include' or `exclude'.
+We will measure accuracy by counting the number of correctly marked changes that a participant submits compared to a reference solution. 
+Each task will have a canonical solution, with a certain set of commits labeled as either `include' or `exclude'.
 We will compare this canonical solution to the solution produced by each participant and count the number of correctly labeled changes.
-The fraction of correct labels will be our accuracy count, meaning that accuracy will be from 0-1 where 1 is perfect.
+The fraction of correctly labeled changes will be our accuracy score, ranging from 0 to 1, where 1 represents perfect accuracy.
 
 Time will be measured in seconds from when participants click the begin button until when they click the submit button.
 
 \subsubsection{Data Analysis}
 
-The first step in analyzing the data is to collect descriptive statistics for both accuracy and time.
-These descriptive statistics will be used to confirm our assumptions about the distributions of both of these data.
-We will also clean these data to remove any faulty submissions (time is impossibly fast, marked all files `Include', etc.).
-Removed rows will be marked `True' in the column \texttt{removed\_from\_analysis} for the public dataset.
+The first step in data analysis is to collect descriptive statistics for both accuracy and completion time.
+These descriptive statistics will be used to confirm our assumptions about the distribution of the data. 
+Additionally, we will clean the data by removing any faulty submissions, such as those with impossibly fast completion times or marked all files as Include'
+Any removed rows will be marked `True' in the column \texttt{removed\_from\_analysis} for the public dataset.
 
-We expect times to be normally distributed about the task mean time for each task.
-A T-Test will reveal if there is a difference in completion time for the same task between the two groups.
-This test will allow us to accept or reject the following hypotheses.
+We anticipate that completion times for each task will follow a normal distribution around the mean time. 
+A T-Test can be used to determine if there is a significant difference in completion time for the same task between the two groups. 
+This test will enable us to accept or reject the following hypotheses.
 
 $H_{0}$: Access to the boolean difference view has no impact on the completion time of cherry-picking changes in 3D files.
 
 $H_{Time}$: Access to the boolean difference view reduces mean completion time of cherry-picking changes in 3D files.
 
-As the tasks are fairly obvious, we expect accuracy will follow some long tail distribution with most participants making no mistakes, some making one or two, and rare unusually poor performing participants making many.
-Applying statistics that are based on variance and standard deviation to accuracy scores will be impacted by single large outliers.
-Instead, we will fit a Poisson distribution to the accuracy scores of each group treating each mistake as a discrete event, and then compare the rate at which mistakes are made between the two groups.
-A C-Test~\cite{przyborowski1940homogeneity} is well suited for 0 included Poisson distributions to see if the rate of errors has been changed by the introduction of the Boolean difference view.
-This test will allow us to accept or reject the following hypotheses.
+As the tasks are fairly straightforward, we anticipate that accuracy will follow a long-tail distribution, with most participants making few or no mistakes, some making one or two, and a few rare participants performing significantly worse. 
+Applying statistical methods that are based on variance and standard deviation to accuracy scores will be impacted by large outliers. 
+Instead, we plan to fit a Poisson distribution to the accuracy scores of each group, treating each mistake as a discrete event, and then compare the rate at which mistakes are made between the two groups. 
+An E-Test~\cite{krishnamoorthy2004more} is well-suited to test for Poisson distributions with a rate of 0, and can be used to determine if the rate of errors has been affected by the introduction of the Boolean difference view. This test will enable us to accept or reject the following hypotheses.
 
 $H_{0}$: Access to the boolean difference view has no impact on the accuracy of cherry-picking changes in 3D files.
 
@@ -450,7 +442,7 @@ In this section, we will present and discuss the results we expect to get from e
 \subsection{Timed Cherry-Picking Experiment}
 
 In the results section for the cherry-picking experiment, the focus will be on discussing the decision to reject or accept the null hypothesis based on the outcomes of the quantitative analysis.
-The researchers will present the p-values obtained from both the t-test of time distribution and the c-test of accuracy distribution, illustrating the differences between the experimental and control groups.
+The researchers will present the p-values obtained from both the t-test of time distribution and the E-test of accuracy distribution, illustrating the differences between the experimental and control groups.
 The comparison of these values will help determine the impact of the visualization methods used in the study.
 
 To assess whether the observed differences are statistically significant, the researchers will compare the calculated p-values to a predetermined significance level.
@@ -515,7 +507,7 @@ In conclusion, the report underscores the difficulties in monitoring changes mad
 The paper suggests using Boolean differences to summarize differences between versions of CAD files. Moreover, the report discusses how Boolean differences can be employed to track changes visually. 
 Two experiments were conducted to test the efficacy of this approach. In the two experiments on CAD object interpretation and summarization, the use of Boolean difference visualizations was evaluated for its potential advantages as well as its drawbacks. 
 The first experiment, the Cherry-Picking Experiment, evaluated the statistical significance of the differences observed between experimental and control groups in the time and accuracy distributions. 
-By comparing the p-values obtained from both the t-test and c-test to a predetermined significance level, we could reject or accept the null hypothesis and determine the impact of the visualization methods utilized in the study on participants' performance. 
+By comparing the p-values obtained from both the t-test and E-test to a predetermined significance level, we could reject or accept the null hypothesis and determine the impact of the visualization methods utilized in the study on participants' performance. 
 The second experiment, the Summarization Experiment, analyzed participant responses using axial coding and triangulation before cross-referencing the outcomes with additional question and response information. 
 A comprehensive and nuanced analysis of the impact of Boolean difference visualizations on participants' ability to interpret and summarize CAD changes is presented in the findings of both experiments, pointing out best practices and recommendations for future research and application. 
 Participants were significantly better able to identify changes made to CAD files using Boolean differences as a visual aid. Our research may provide valuable insights into engineering, architecture, and manufacturing industries that rely on CAD technology. 
